@@ -23,6 +23,14 @@ export class AppComponent implements OnInit {
   @ViewChild('loginRef') loginElement!: ElementRef;
   auth2: any;
 
+  request = {
+    tabla: 'Usuario',
+    orden: 'desc',
+    where: "",
+    pagina: 0,
+    cantidad: 1
+  }
+
   constructor( public service: AppService,
               private router: Router) {
     this.googleAuthSDK();
@@ -32,18 +40,23 @@ export class AppComponent implements OnInit {
     this.auth2.attachClickHandler(this.loginElement.nativeElement, {},
       (googleAuthUser:any) => {
         let profile = googleAuthUser.getBasicProfile();
-        let nombre = profile.getName();
-        this.nombreUsuario = profile.getEmail();
-        this.nombre = nombre.substring(0, nombre.indexOf(" "));
-        this.apellido = nombre.substring(nombre.indexOf(" ") + 1, nombre.length);
         this.correo = profile.getEmail();
-        localStorage.setItem("nombreUsuario", profile.getName());
-        localStorage.setItem("usuario", profile.getEmail());
-        localStorage.setItem("nombre", this.nombre);
-        localStorage.setItem("apellido", this.apellido);
-        localStorage.setItem("tipoUsuario", "U");
-        this.router.navigate(['/inicio']);
-        window.location.reload();
+        this.request.where = "nombre = '" + this.correo  + "'";
+        //this.service.listarDatos(this.request).then(data => {
+          //if(data.length > 0) {
+            let nombre = profile.getName();
+            this.nombreUsuario = profile.getEmail();
+            this.nombre = nombre.substring(0, nombre.indexOf(" "));
+            this.apellido = nombre.substring(nombre.indexOf(" ") + 1, nombre.length);
+            localStorage.setItem("nombreUsuario", profile.getName());
+            localStorage.setItem("usuario", profile.getEmail());
+            localStorage.setItem("nombre", this.nombre);
+            localStorage.setItem("apellido", this.apellido);
+            localStorage.setItem("tipoUsuario", "U");
+            this.router.navigate(['/inicio']);
+            window.location.reload();
+          //}
+        //});
       }, (error:any) => {
         console.error(JSON.stringify(error, undefined, 2));
       });

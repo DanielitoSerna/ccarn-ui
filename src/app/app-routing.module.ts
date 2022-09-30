@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {EntradasComponent} from "./entradas/entradas.component";
-import {ReportesComponent} from "./reportes/reportes.component";
-import {BibliotecaComponent} from "./biblioteca/biblioteca.component";
 import { InicioComponent } from './inicio/inicio.component';
-import { UsuariosComponent } from './usuarios/usuarios.component';
-
+import { ListaAsiComponent } from './listaAsi/listaAsi.component';
+import { ListaBgpComponent } from './listaBgp/listaBgp.component';
+import { ListaDonadorasComponent } from './listaDonadoras/listaDonadoras.component';
+import { ListaIatfComponent } from './listaIatf/listaIatf.component';
+import { ListaToroComponent } from './listaToro/listaToro.component';
 
 const routes: Routes = [
   {
@@ -17,21 +17,27 @@ const routes: Routes = [
     component: InicioComponent
   },
   {
-    path: 'entradas',
-    component: EntradasComponent
+    path: 'listaAsi',
+    component: ListaAsiComponent
   },
   {
-    path: 'reportes',
-    component: ReportesComponent
+    path: 'listaBgp',
+    component: ListaBgpComponent
   },
   {
-    path: 'biblioteca',
-    component: BibliotecaComponent
+    path: 'listaIatf',
+    component: ListaIatfComponent
   },
   {
-    path: 'usuarios',
-    component: UsuariosComponent
+    path: 'listaDonadoras',
+    component: ListaDonadorasComponent
+  },
+  {
+    path: 'listaToro',
+    component: ListaToroComponent
   }
+
+
 
 ];
 

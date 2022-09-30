@@ -158,6 +158,8 @@ input::placeholder {
   padding: 8px;
   cursor: pointer;
   color: #0e2811;
+  font-size: 20px !important;
+  margin: -9px !important;
 }
 
 .funcionalidad:hover {
@@ -237,4 +239,194 @@ input::placeholder {
   
 .verde100 {
   background-color: #0e7774;
+}
+
+.percentage_3 {
+    width: 3%;
+}
+
+.percentage_4 {
+  width: 4%;
+}
+
+.percentage_5 {
+  width: 5%;
+}
+
+.percentage_6 {
+  width: 6%;
+}
+
+.percentage_7 {
+  width: 7%;
+}
+
+.percentage_8 {
+  width: 8%;
+}
+
+.percentage_10 {
+  width: 10%;
+}
+
+.percentage_12 {
+  width: 12%;
+}
+
+.percentage_13 {
+  width: 13%;
+}
+
+.percentage_15 {
+  width: 15%;
+}
+
+.percentage_16 {
+  width: 16%;
+}
+
+.percentage_18 {
+  width: 18%;
+}
+
+.percentage_20 {
+  width: 20%;
+}
+
+.percentage_22 {
+  width: 22%;
+}
+
+.percentage_25 {
+  width: 25%;
+}
+
+.percentage_30 {
+  width: 30%;
+}
+
+.percentage_35 {
+  width: 35%;
+}
+
+.percentage_40 {
+  width: 40%;
+}
+
+.percentage_45 {
+  width: 45%;
+}
+
+.percentage_60 {
+  width: 60%;
+}
+
+.text_align_right {
+  text-align: right !important;
+  display: block !important;
+}
+
+.required::before {
+  content:"* ";
+  color: red;
+}
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  margin: 5px;
+  width: max-content;
+}
+
+.p-text-bold {
+  font-weight: bold;
+}
+
+.p-fluid .p-inputtext {
+  width: 450px !important;
+}
+
+.label-total {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.p-inputnumber-input {
+  text-align: end !important;
+} 
+
+.border_top_green {
+  border-top: 10px solid #069a7e !important;
+} 
+
+.card_border {
+  border: 1px solid #AFC4D1;
+  border-radius: 4px;
+  margin-bottom: 100px;
+  background: white;
+}
+
+.content-app {
+  padding: 20px;
+}
+
+.item-app {
+  border-bottom: 1px solid #AFC4D1;
+  padding-top: 5px;
+}
+
+.app-header {
+  text-align: center;
+  border: 1px solid #dee2e6;
+  border-width: 0 0 1px 0;
+  font-weight: bold;
+  background: #f8f9fa;
+  transition: box-shadow 0.2s;
+}
+
+.app-header-value {
+  border-bottom: 1px solid #dee2e6;
+  text-align: center;
+}
+
+.app-value {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.app-FAVORABLE {
+  color: #069a7e;
+}
+
+.app-DESFAVORABLE {
+  color: #DC2626;
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding-top: 30px;
+}
+
+.wrapper {
+  display: flex;
+  text-align: end;
+}
+
+.p-button-success-app {
+  color: #fff;
+  background: #069a7e;
+  border: 1px solid #0e7774;
+}
+  
+.p-button-success-app:hover {
+  background: #0e7774;
+  border: 1px solid #0e7774;
+}
+
+.divisor-app {
+  border-left: 2px solid #dee2e6;
 }

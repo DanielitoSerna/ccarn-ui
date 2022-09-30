@@ -5,43 +5,35 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {PrimeModule} from "./primeNG/prime.module";
-import {EntradasComponent} from "./entradas/entradas.component";
-import {ReportesComponent} from './reportes/reportes.component'
-
-import {ComponentesModule} from "./componentes/componentes.module";
 import { AppService } from './app.services';
 import { HttpClientModule } from '@angular/common/http';
-import { AlimnetosComponent } from './alimentos/alimentos.component';
-import { DietaComponent } from './dieta/dieta.component';
-import { BibliotecaComponent } from './biblioteca/biblioteca.component';
-import { BalanceComponent } from './balance/balance.component';
 import { InicioComponent } from './inicio/inicio.component';
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import { UsuariosComponent } from './usuarios/usuarios.component';
-import { EmisionComponent } from './emision/emision.component';
+import { SocialLoginModule } from 'angularx-social-login';
 import { NgChartsModule } from 'ng2-charts';
-import { RelacionComponent } from './relacion/relacion.component';
+import { ListaAsiComponent } from './listaAsi/listaAsi.component';
+import { FormsModule } from '@angular/forms';
+import { ListaBgpComponent } from './listaBgp/listaBgp.component';
+import { ListaIatfComponent } from './listaIatf/listaIatf.component';
+import { ListaDonadorasComponent } from './listaDonadoras/listaDonadoras.component';
+import { ListaToroComponent } from './listaToro/listaToro.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    EntradasComponent,
-    ReportesComponent,
-    AlimnetosComponent,
-    DietaComponent,
-    BibliotecaComponent,
-    BalanceComponent,
     InicioComponent,
-    UsuariosComponent,
-    EmisionComponent,
-    RelacionComponent
+    ListaAsiComponent,
+    ListaBgpComponent,
+    ListaIatfComponent,
+    ListaDonadorasComponent,
+    ListaToroComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     PrimeModule,
-    ComponentesModule,
     HttpClientModule,
     SocialLoginModule,
     NgChartsModule

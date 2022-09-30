@@ -1,3 +1,4 @@
+<cmed-toast></cmed-toast>
 <div class="header">
   <div class="app_brandTopBar__container">
     <span class="verde30"></span>
@@ -8,7 +9,7 @@
   </div>
   <div style="display: flex;">
     <div style="width: 70%; margin-top: -11px;">
-      <img style="height: 80px; width: 202px; margin-top: 7px;" alt="Angular Logo" src="./assets/logoTauri.png"/>
+      <!-- <img style="height: 80px; width: 202px; margin-top: 7px;" alt="Angular Logo" src="./assets/logoTauri.png"/> -->
     </div>
     <div *ngIf="!isLoggedin" style="padding-top: 12px;" class="inciar-sesion">
       <div>
@@ -45,27 +46,25 @@
           <nav>
               <ul>
                 <li>
-                  <a [routerLink]="['/inicio']" routerLinkActive="router-link-active" 
-                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Inicio">
-                    <i class="pi pi-home animate__animated animate__zoomIn"></i>
+                  <a [routerLink]="['/listaAsi']" routerLinkActive="router-link-active" 
+                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Listas de chequeo ASI">
+                    <i class="pi pi-check-circle animate__animated animate__zoomIn"></i>
                   </a>
-                  <a [routerLink]="['/reportes']" routerLinkActive="router-link-active" 
-                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Simulaciones">
-                    <i class="pi pi-chart-line animate__animated animate__zoomIn"></i>
+                  <a [routerLink]="['/listaBgp']" routerLinkActive="router-link-active" 
+                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Listas de chequeo BGP">
+                    <i class="pi pi-check-square animate__animated animate__zoomIn"></i>
                   </a>
-                  <a [routerLink]="['/entradas']" routerLinkActive="router-link-active" 
-                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Nueva simulación">
-                    <i class="pi pi-plus-circle animate__animated animate__zoomIn"></i>
+                  <a [routerLink]="['/listaIatf']" routerLinkActive="router-link-active" 
+                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Listas de inceminación IATF">
+                    <i class="pi pi-align-center  animate__animated animate__zoomIn"></i>
                   </a>
-                  <a [routerLink]="['/biblioteca']" routerLinkActive="router-link-active" 
-                     *ngIf="tipo == 'A'"
-                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Biblioteca">
-                    <i class="pi pi-book animate__animated animate__zoomIn"></i>
+                  <a [routerLink]="['/listaDonadoras']" routerLinkActive="router-link-active" 
+                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Listas de donadoras">
+                    <i class="pi pi-qrcode animate__animated animate__zoomIn"></i>
                   </a>
-                  <a [routerLink]="['/usuarios']" routerLinkActive="router-link-active" 
-                      *ngIf="tipo == 'A'" 
-                      [routerLinkActiveOptions]="{exact: true}" pTooltip="Usuarios">
-                    <i class="pi pi-users animate__animated animate__zoomIn"></i>
+                  <a [routerLink]="['/listaToro']" routerLinkActive="router-link-active" 
+                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Listado de toros TE">
+                    <i class="pi pi-prime animate__animated animate__zoomIn"></i>
                   </a>
                   <a (click)="logOut()" style="cursor: pointer;" routerLinkActive="router-link-active" 
                      [routerLinkActiveOptions]="{exact: true}" pTooltip="Cerrar sesión">
@@ -85,64 +84,3 @@
       </div>
   </div>  
 </div>
-<div *ngIf="!isLoggedin" class="body-app body-app-ini">    
-    <div style="padding: 20px;" class="animate__animated animate__bounceInRight">      
-      <div class="inciar-sesion-apk"></div>
-      <p-card>
-        <div class="p-grid">
-          <div class="p-col-12 p-md-6 p-lg-6">
-            <img style="width: 100%;" alt="Angular Logo" src="./assets/pantalla1.jpg"/>
-          </div>
-          <div class="p-col-12 p-md-6 p-lg-6">
-            <h3>TAURI:</h3>
-            <p class="app-parrafo">
-              Software que a través de herramientas de predicción del balance nutricional, la emisión
-              de gases de efecto invernadero y el análisis de la relación beneficio-costo, permite simular
-              diferentes escenarios para facilitar la toma de decisiones en sistemas de producción de
-              leche.
-            </p>
-            <h3>Instituciones:</h3>
-            <div class="p-grid">
-              <div class="p-col-12 p-md-6 p-lg-6">
-                <a href="https://www.udea.edu.co" target="_blank" class="logo">
-                  <img width="250" alt="Angular Logo" src="./assets/logo-udea.png"/>
-                </a>
-              </div>
-              <div class="p-col-12 p-md-6 p-lg-6">
-                <a href="https://www.politecnicojic.edu.co" target="_blank" class="logo">
-                  <img width="250" alt="Angular Logo" src="./assets/logo-poli.png"/>
-                </a>
-              </div>
-            </div>
-            <h3>Citación:</h3>
-            <p>
-              Tauri (Versión 1). (2022). Universidad de Antioquia - Politécnico Colombiano Jaime Isaza Cadavid. Medellín - Colombia
-            </p>
-          </div>
-          <div class="p-col-12 p-md-6 p-lg-6">
-            <h3>Autores:</h3>
-            <p class="app-parrafo">
-              Sandra Lucía Posada Ochoa, <span style="font-size: 14px;">Universidad de Antioquia</span><br>
-              Jaime Ricardo Rosero Noguera, <span style="font-size: 14px;">Universidad de Antioquia</span><br>
-              Claudia Alejandra Rosero Noguera, <span style="font-size: 14px;">Politécnico Colombiano Jaime Isaza Cadavid</span><br>
-              Luis Fernando González Alvarán, <span style="font-size: 14px;">Politécnico Colombiano Jaime Isaza Cadavid</span>
-            </p>
-          </div>
-          <div class="p-col-12 p-md-6 p-lg-6">
-            <h3>Contáctenos:</h3>
-            <p>A través de correo electrónico: taurimodel@gmail.com</p>
-            <h3>Apoyo:</h3>
-            <p class="app-parrafo">
-              Ministerio de Ciencia, Tecnología e Innovación, República de Colombia.
-            </p>
-            <p class="app-parrafo">
-              &copy; 2022, <span style="font-size: 14px;">Universidad de Antioquia-Politécnico Colombiano Jaime Isaza Cadavid</span>
-            </p>
-          </div>
-        </div>
-    </p-card>
-  </div>
-
-</div>
-
-<app-informacion [visible]="informacion" (closed)="informacion = false" tipo="Citación"></app-informacion>
