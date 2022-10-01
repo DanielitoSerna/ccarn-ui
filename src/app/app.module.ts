@@ -16,6 +16,7 @@ import { ListaBgpComponent } from './listaBgp/listaBgp.component';
 import { ListaIatfComponent } from './listaIatf/listaIatf.component';
 import { ListaDonadorasComponent } from './listaDonadoras/listaDonadoras.component';
 import { ListaToroComponent } from './listaToro/listaToro.component';
+import { TransferenciaEmbrionComponent } from './transferenciaEmbrion/transferenciaEmbrion.component';
 
 
 
@@ -27,7 +28,8 @@ import { ListaToroComponent } from './listaToro/listaToro.component';
     ListaBgpComponent,
     ListaIatfComponent,
     ListaDonadorasComponent,
-    ListaToroComponent
+    ListaToroComponent,
+    TransferenciaEmbrionComponent
   ],
   imports: [
     BrowserModule,
