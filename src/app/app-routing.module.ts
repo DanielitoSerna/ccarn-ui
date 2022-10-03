@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EvaluacionAndrologicaComponent } from './evaluacionAndrologica/evaluacionAndrologica.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ListaAsiComponent } from './listaAsi/listaAsi.component';
 import { ListaBgpComponent } from './listaBgp/listaBgp.component';
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path: 'transferenciaEmbrion',
     component: TransferenciaEmbrionComponent
+  },
+  {
+    path: 'evaluacionAndrologica',
+    component: EvaluacionAndrologicaComponent
   }
 
 

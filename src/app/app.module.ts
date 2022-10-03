@@ -17,7 +17,7 @@ import { ListaIatfComponent } from './listaIatf/listaIatf.component';
 import { ListaDonadorasComponent } from './listaDonadoras/listaDonadoras.component';
 import { ListaToroComponent } from './listaToro/listaToro.component';
 import { TransferenciaEmbrionComponent } from './transferenciaEmbrion/transferenciaEmbrion.component';
-
+import { EvaluacionAndrologicaComponent } from './evaluacionAndrologica/evaluacionAndrologica.component';
 
 
 @NgModule({
@@ -29,7 +29,8 @@ import { TransferenciaEmbrionComponent } from './transferenciaEmbrion/transferen
     ListaIatfComponent,
     ListaDonadorasComponent,
     ListaToroComponent,
-    TransferenciaEmbrionComponent
+    TransferenciaEmbrionComponent,
+    EvaluacionAndrologicaComponent
   ],
   imports: [
     BrowserModule,
