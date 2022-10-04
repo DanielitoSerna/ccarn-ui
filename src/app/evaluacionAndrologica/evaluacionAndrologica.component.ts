@@ -23,7 +23,9 @@ export class EvaluacionAndrologicaComponent {
         { label: "Turbo", value: "Turbo" },
     ];
 
-    objeto = {};
+    objeto : any = {
+        detalleAndrologicos: {}
+    };
 
     items = [
         {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},

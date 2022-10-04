@@ -89,9 +89,9 @@
         <div>Técnicos Responsables:</div>
       </div>
       <div class="p-col-4 app-header-value">
-        <input type="text" pInputText />
+        <input type="text" pInputText [(ngModel)]="objeto.tecnicoResponsableUno" />
         &nbsp;
-        <input type="text" pInputText />
+        <input type="text" pInputText [(ngModel)]="objeto.tecnicoResponsableDos" />
       </div>
       <div class="p-col-2 app-header">
         <div>&nbsp;</div>
@@ -99,9 +99,9 @@
         Tarjeta profesional:
       </div>
       <div class="p-col-4 app-header-value">
-        <input type="text" pInputText />
+        <input type="text" pInputText [(ngModel)]="objeto.tarjetaProfesionalUno" />
         &nbsp;
-        <input type="text" pInputText />
+        <input type="text" pInputText [(ngModel)]="objeto.tarjetaProfesionalDos" />
       </div>
     </div>
     <div class="modal-footer">
