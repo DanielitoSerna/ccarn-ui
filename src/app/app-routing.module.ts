@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EvaluacionAndrologicaComponent } from './evaluacionAndrologica/evaluacionAndrologica.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ListaAsiComponent } from './listaAsi/listaAsi.component';
 import { ListaBgpComponent } from './listaBgp/listaBgp.component';
@@ -7,6 +8,7 @@ import { ListaDonadorasComponent } from './listaDonadoras/listaDonadoras.compone
 import { ListaIatfComponent } from './listaIatf/listaIatf.component';
 import { ListasComponent } from './listas/listas.component';
 import { ListaToroComponent } from './listaToro/listaToro.component';
+import { TransferenciaEmbrionComponent } from './transferenciaEmbrion/transferenciaEmbrion.component';
 
 const routes: Routes = [
   {
@@ -58,9 +60,14 @@ const routes: Routes = [
     path: 'listasToro',
     component: ListasComponent
   },
-
-
-
+  {
+    path: 'transferenciaEmbrion',
+    component: TransferenciaEmbrionComponent
+  },
+  {
+    path: 'evaluacionAndrologica',
+    component: EvaluacionAndrologicaComponent
+  }
 ];
 
 @NgModule({
