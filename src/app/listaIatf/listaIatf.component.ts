@@ -1,7 +1,6 @@
 import { Component} from '@angular/core';
 import { AppService } from '../app.services';
 import { MessageService } from 'primeng/api';
-import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-listaIatf',
@@ -39,8 +38,24 @@ export class ListaIatfComponent {
   }
 
   guardar() {
-    if(!this.objeto.fecha || !this.objeto.departamento || !this.objeto.municipio || !this.objeto.nombrePropietario || !this.objeto.nombreFinca || !this.objeto.vereda) {
+    let detalle = this.items.filter((item: any) => 
+      item.nombreIdentificacionReceptora != null &&
+      item.numeroIdentificacionReceptora != null &&
+      item.razaIdentificacionReceptora != null &&
+      item.nombreIdentificacionToro != null &&
+      item.numeroIdentificacionToro &&
+      item.razaIdentificacionToro);
+    this.objeto.detalleFormatos = detalle;
+    this.objeto.tipoFormato = "IATF";
+    if(!this.objeto.fecha || !this.objeto.departamento || !this.objeto.municipio || !this.objeto.nombrePropietario || !this.objeto.nombreFinca || detalle.length == 0) {
       this.messageService.add({severity:'error', summary: 'Error', detail: 'Faltan datos por ingresar por favor verifica'});
+    } else {
+      this.service.guardarFormatosBra(this.objeto).then(data => {
+        this.messageService.add({severity:'success', summary: 'Exito', detail: 'Información guardada con exito'});
+        history.back();
+      }).catch(e => {
+        this.messageService.add({severity:'error', summary: 'Error', detail: 'Ocurrio un error al realizar la transacción, por favor verifica o intenta de nuevo'});
+      })
     }
   }
 }
