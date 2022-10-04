@@ -23,7 +23,7 @@ export class TransferenciaEmbrionComponent {
         { label: "Turbo", value: "Turbo" },
     ];
 
-    objeto = {};
+    objeto: any =  {};
 
     items = [
         {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},

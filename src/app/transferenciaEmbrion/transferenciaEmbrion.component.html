@@ -6,45 +6,48 @@
     <div class="p-grid">
       <div class="p-col-3 app-header">Fecha</div>
       <div class="p-col-3 app-header-value">
-        <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"></p-calendar>
+        <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"
+          [(ngModel)]="objeto.fecha"></p-calendar>
       </div>
       <div class="p-col-3 app-header">Empaque de embriones:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText /></div>
+      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.empaqueEmbriones" /></div>
       <div class="p-col-3 app-header">Nombre del propietario o representante legal:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText /></div>
+      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePropietario" />
+      </div>
       <div class="p-col-3 app-header">Transferidor:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText /></div>
+      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.transferidor" /></div>
       <div class="p-col-3 app-header">Nombre de la finca:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText /></div>
+      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreFinca" /></div>
       <div class="p-col-3 app-header">Hora de inicio:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText /></div>
+      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.horaInicio" /></div>
       <div class="p-col-3 app-header">Departamento:</div>
       <div class="p-col-3 app-header-value">
         <p-dropdown [options]="departamentos" styleClass="width_full" placeholder="Seleccione.." optionLabel="label"
-          optionValue="value" [showClear]="true" optionDisabled="inactive">
+          optionValue="value" [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.departamento">
         </p-dropdown>
       </div>
       <div class="p-col-3 app-header">Hora final:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText /></div>
+      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.horaFinal" /></div>
       <div class="p-col-3 app-header">Municipio:</div>
       <div class="p-col-9 app-header-value">
         <p-dropdown [options]="municipios" styleClass="width_full" placeholder="Seleccione.." optionLabel="label"
-          optionValue="value" [showClear]="true" optionDisabled="inactive">
+          optionValue="value" [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.municipio">
         </p-dropdown>
       </div>
       <div class="p-col-3 app-header">Vereda - microlocalizacion:</div>
-      <div class="p-col-9 app-header-value"><input type="text" pInputText /></div>
+      <div class="p-col-9 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.vereda" /></div>
       <div class="p-col-3 app-header">Profesional producción invitro de embriones:</div>
-      <div class="p-col-9 app-header-value"><input type="text" pInputText /></div>
+      <div class="p-col-9 app-header-value"><input type="text" pInputText
+          [(ngModel)]="objeto.profesionalProduccionInvitroEmbriones" /></div>
       <div class="p-col-3 app-header">
         <div>&nbsp;</div>
         <div>&nbsp;</div>
         Profesionales a cargo de la asesoría:
       </div>
       <div class="p-col-9 app-header-value">
-        <input type="text" pInputText />
+        <input type="text" pInputText [(ngModel)]="objeto.profesionalACargoUno" />
         &nbsp;
-        <input type="text" pInputText />
+        <input type="text" pInputText [(ngModel)]="objeto.profesionalACargoDos" />
       </div>
     </div>
     <div class="p-grid">
