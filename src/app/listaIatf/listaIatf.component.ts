@@ -23,8 +23,9 @@ export class ListaIatfComponent {
     {label: "Necoclí", value: "Necoclí"},
     {label: "Turbo", value: "Turbo"},
   ];
+  objeto:any = {};
 
-  items = [
+  items:any = [
     {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
     {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
   ];
@@ -33,12 +34,13 @@ export class ListaIatfComponent {
 
   }
 
-
   cancelar() {
-    this.messageService.add({severity:'error', summary: 'Error', detail: 'Error al realizar la transación, verifica los datos ingresados o comunicate con el administrador del sistema'});
+    history.back();
   }
 
   guardar() {
-    
+    if(!this.objeto.fecha || !this.objeto.departamento || !this.objeto.municipio || !this.objeto.nombrePropietario || !this.objeto.nombreFinca || !this.objeto.vereda) {
+      this.messageService.add({severity:'error', summary: 'Error', detail: 'Faltan datos por ingresar por favor verifica'});
+    }
   }
 }

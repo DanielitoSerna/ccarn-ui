@@ -1,0 +1,41 @@
+::ng-deep .p-datatable .p-datatable-thead>tr>th {
+    padding: 15px 10px 10px 10px !important;
+}
+
+::ng-deep .p-datatable table {
+    font-size: 15px !important;
+}
+
+::ng-deep .p-datatable-wrapper {
+    border: 1px solid #e9ecef !important;
+}
+
+.p-button-success-app {
+    color: #fff;
+    background: #069a7e;
+    border: 1px solid #0e7774;
+  }
+    
+  .p-button-success-app:hover {
+    background: #0e7774;
+    border: 1px solid #0e7774;
+  }
+
+@media screen and (max-width: 700px) {
+    .column-app {
+        display: none !important;
+    }
+}
+
+:host ::ng-deep .p-datepicker-calendar {
+    font-size: 14px !important;
+    padding: 0px !important;
+  }
+  
+  :host ::ng-deep .p-datepicker table td {
+    padding: 0.5px !important;
+  }
+  
+  :host ::ng-deep  .p-calendar-w-btn .p-datepicker-trigger {
+    padding: 0px !important;
+  }

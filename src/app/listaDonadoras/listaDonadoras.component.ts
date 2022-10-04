@@ -30,16 +30,18 @@ export class ListaDonadorasComponent {
     {}, {}, {}, {}
   ];
 
+  objeto: any = {};
+
   constructor(private service: AppService, private messageService: MessageService) {
 
   }
 
 
   cancelar() {
-    this.messageService.add({severity:'error', summary: 'Error', detail: 'Error al realizar la transación, verifica los datos ingresados o comunicate con el administrador del sistema'});
+    history.back();
   }
 
   guardar() {
-    
+    this.objeto.tipoFormato = "DOND";
   }
 }

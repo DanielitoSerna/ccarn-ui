@@ -5,6 +5,7 @@ import { ListaAsiComponent } from './listaAsi/listaAsi.component';
 import { ListaBgpComponent } from './listaBgp/listaBgp.component';
 import { ListaDonadorasComponent } from './listaDonadoras/listaDonadoras.component';
 import { ListaIatfComponent } from './listaIatf/listaIatf.component';
+import { ListasComponent } from './listas/listas.component';
 import { ListaToroComponent } from './listaToro/listaToro.component';
 
 const routes: Routes = [
@@ -17,8 +18,16 @@ const routes: Routes = [
     component: InicioComponent
   },
   {
+    path: 'listasAsi',
+    component: ListasComponent
+  },
+  {
     path: 'listaAsi',
     component: ListaAsiComponent
+  },
+  {
+    path: 'listasBgp',
+    component: ListasComponent
   },
   {
     path: 'listaBgp',
@@ -29,13 +38,26 @@ const routes: Routes = [
     component: ListaIatfComponent
   },
   {
+    path: 'listasIatf',
+    component: ListasComponent
+  },
+  {
     path: 'listaDonadoras',
     component: ListaDonadorasComponent
+  },
+
+  {
+    path: 'listasDonadoras',
+    component: ListasComponent
   },
   {
     path: 'listaToro',
     component: ListaToroComponent
-  }
+  },
+  {
+    path: 'listasToro',
+    component: ListasComponent
+  },
 
 
 

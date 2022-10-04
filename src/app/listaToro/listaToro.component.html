@@ -6,31 +6,31 @@
     <div class="p-grid">
       <div class="p-col-2 app-header">Fecha</div>
       <div class="p-col-2 app-header-value"><p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon"
-        dateFormat="dd/mm/yy"></p-calendar>
+        dateFormat="dd/mm/yy" [(ngModel)]="objeto.fecha"></p-calendar>
       </div>
       <div class="p-col-2 app-header">Departamento:</div>
       <div class="p-col-2 app-header"><p-dropdown [options]="departamentos" styleClass="width_full"
         placeholder="Seleccione.." optionLabel="label" optionValue="value"
-        [showClear]="true" optionDisabled="inactive">
+        [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.departamento">
         </p-dropdown>
       </div>
       <div class="p-col-2 app-header">Municipio::</div>
       <div class="p-col-2 app-header"><p-dropdown [options]="municipios" styleClass="width_full"
         placeholder="Seleccione.." optionLabel="label" optionValue="value"
-        [showClear]="true" optionDisabled="inactive">
+        [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.municipio">
         </p-dropdown>
       </div>
       <div class="p-col-4 app-header">Nombre de la Institución:</div>
-      <div class="p-col-8 app-header-value"><input type="text" pInputText/></div>
+      <div class="p-col-8 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreFinca"/></div>
       <div class="p-col-4 app-header">
         <div>&nbsp;</div>
         <div>&nbsp;</div>
         Profesionales a cargo de la asesoría:
       </div>
       <div class="p-col-8 app-header-value">
-        <input type="text" pInputText/>
+        <input type="text" pInputText [(ngModel)]="objeto.profesionalACargoUno"/>
         &nbsp;
-        <input type="text" pInputText/>
+        <input type="text" pInputText [(ngModel)]="objeto.profesionalACargoDos"/>
       </div>
     </div>
     <div class="p-grid">
@@ -46,11 +46,11 @@
     &nbsp;
     <div class="p-grid" *ngFor="let item of items; let i = index">
       <div class="p-col-1" style="text-align: center;">{{i + 1}}</div>
-      <div class="p-col-2"><input type="text" pInputText/></div>
-      <div class="p-col-2"><input type="text" pInputText/></div>
-      <div class="p-col-2"><input type="text" pInputText/></div>
+      <div class="p-col-2"><input type="text" pInputText  [(ngModel)]="item.nombreToro"/></div>
+      <div class="p-col-2"><input type="text" pInputText  [(ngModel)]="item.numeroToro"/></div>
+      <div class="p-col-2"><input type="text" pInputText  [(ngModel)]="item.razaToro"/></div>
       <div class="p-col-5">
-        <textarea rows="2" cols="30" pInputTextarea maxlength="400" style="width: 100%; resize:none;"></textarea>
+        <textarea rows="2" cols="30" pInputTextarea maxlength="400" style="width: 100%; resize:none;" [(ngModel)]="item.observacion"></textarea>
       </div>
     </div>
     &nbsp;

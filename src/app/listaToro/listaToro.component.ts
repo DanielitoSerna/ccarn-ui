@@ -23,9 +23,9 @@ export class ListaToroComponent {
     {label: "Turbo", value: "Turbo"},
   ];
 
-  objeto = {};
+  objeto: any = {};
 
-  items = [
+  items:any = [
     {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
     {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
     {}, {}, {}, {}, {}
@@ -35,9 +35,8 @@ export class ListaToroComponent {
 
   }
 
-
   cancelar() {
-    this.messageService.add({severity:'error', summary: 'Error', detail: 'Error al realizar la transación, verifica los datos ingresados o comunicate con el administrador del sistema'});
+    history.back();
   }
 
   guardar() {
