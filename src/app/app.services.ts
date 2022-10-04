@@ -36,4 +36,8 @@ export class AppService {
     listarUsuario(usuario: any): Promise<any>{
         return this.http.get(`${this.configUrl}/listarUsuario?usuario=` + usuario).toPromise();
     }
+
+    guardarFormatosBra(request: any): Promise<any> {
+        return this.http.post(`${this.configUrl}/guardarFormato`, request).toPromise();
+    }
 }

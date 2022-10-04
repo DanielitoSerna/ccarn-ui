@@ -37,7 +37,7 @@ export class TransferenciaEmbrionComponent {
 
 
     cancelar() {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error al realizar la transación, verifica los datos ingresados o comunicate con el administrador del sistema' });
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error al realizar la transación, verifica los datos ingresados o comunícate con el administrador del sistema' });
     }
 
     guardar() {
