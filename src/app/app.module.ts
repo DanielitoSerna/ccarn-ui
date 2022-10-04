@@ -30,7 +30,7 @@ import { EvaluacionAndrologicaComponent } from './evaluacionAndrologica/evaluaci
     ListaIatfComponent,
     ListaDonadorasComponent,
     ListaToroComponent,
-    ListasComponent
+    ListasComponent,
     TransferenciaEmbrionComponent,
     EvaluacionAndrologicaComponent
   ],
