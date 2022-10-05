@@ -16,10 +16,15 @@ export class ListasComponent implements OnInit {
   public rows = 10;
   public viewForm = false;
   public objeto:any = {};
-  public concepto = undefined;
+  public nombrePredio = undefined;
   public fecha = undefined;
-  public usuario = undefined;
+  public concepto = undefined;
   public url: any = undefined;
+  public fechaF = undefined;
+  public municipio = undefined;
+  public nombreFinca = undefined;
+
+  public isLista = false;
 
   request = {
     tabla: '',
@@ -30,34 +35,26 @@ export class ListasComponent implements OnInit {
     pagina: 0
   }
 
+  conceptos = [
+    {label: "FAVORABLE", value: "FAVORABLE"},
+    {label: "DESFAVORABLE", value: "DESFAVORABLE"},
+  ];
+
+  municipios = [
+    {label: "Caracolí", value: "Caracolí"},
+    {label: "Maceo", value: "Maceo"},
+    {label: "Puerto Berrío", value: "Puerto Berrío"},
+    {label: "Puerto Triunfo", value: "Puerto Triunfo"},
+    {label: "Puerto Nare", value: "Puerto Nare"},
+    {label: "Yondó", value: "Yondó"},
+    {label: "Remedios", value: "Remedios"},
+    {label: "Segovia", value: "Segovia"},
+    {label: "Necoclí", value: "Necoclí"},
+    {label: "Turbo", value: "Turbo"},
+  ];
+
   constructor(private service: AppService, private router: Router) {
-      const url =  this.router.url;
-      if(url == '/listasAsi') {
-        this.request.tabla = 'ListaChequeo';
-        this.request.campoOrden = 'fecha';
-        this.request.where = " tipoFormato = 'ASI'";
-        this.url = '/listaAsi';
-      } else if(url == '/listasBgp') {
-        this.request.tabla = 'ListaChequeo';
-        this.request.campoOrden = 'fecha';
-        this.request.where = " tipoFormato = 'BGP'";
-        this.url = '/listaBgp';
-      } else if(url == '/listasIatf') {
-        this.request.tabla = 'Formato';
-        this.request.campoOrden = 'fecha';
-        this.request.where = " tipoFormato = 'IATF'";
-        this.url = '/listaIatf';
-      } else if(url == '/listasDonadoras') {
-        this.request.tabla = 'Formato';
-        this.request.campoOrden = 'fecha';
-        this.request.where = " tipoFormato = 'DOND'";
-        this.url = '/listaDonadoras';
-      } else if(url == '/listasToro') {
-        this.request.tabla = 'Formato';
-        this.request.campoOrden = 'fecha';
-        this.request.where = " tipoFormato = 'TORO'";
-        this.url = '/listaToro';
-      }
+      this.definirDatos();
       this.listarDatos(true);
   }
 
@@ -104,27 +101,80 @@ export class ListasComponent implements OnInit {
   }
 
   filter() {
-    this.request.where = "empresa = '" + localStorage.getItem("empresa") + "' and tipo = 'OC' ";
+    this.definirDatos();
     if(this.fecha != null) {
       const datepipe: DatePipe = new DatePipe('en-US')
-      this.request.where = this.request.where + " and fecha = '" + datepipe.transform(this.fecha, 'YYYY-MM-dd') + "'";
+      this.request.where = this.request.where + " and (listaChequeoBean.fecha = '" + datepipe.transform(this.fecha, 'YYYY-MM-dd') + "'";
+      this.request.where = this.request.where + " or listaChequeoBean.fechaAuditoria = '" + datepipe.transform(this.fecha, 'YYYY-MM-dd') + "')";
+    }
+
+    if(this.nombrePredio != null) {
+      this.request.where = this.request.where + " and upper(listaChequeoBean.nombrePredio) like upper('%" + this.nombrePredio + "%')";
     }
 
     if(this.concepto != null) {
-      this.request.where = this.request.where + " and upper(descripcion) like upper('%" + this.concepto + "%')";
+      this.request.where = this.request.where + " and concepto = '" + this.concepto + "'";
     }
 
-    if(this.usuario != null) {
-      this.request.where = this.request.where + " and upper(usuario) like upper('%" + this.usuario + "%')";
+    if(this.fechaF != null) {
+      const datepipe: DatePipe = new DatePipe('en-US')
+      this.request.where = this.request.where + " and fecha = '" + datepipe.transform(this.fechaF, 'YYYY-MM-dd') + "'";
     }
+
+    if(this.municipio != null) {
+      this.request.where = this.request.where + " and municipio = '" + this.municipio + "'";
+    }
+
+    if(this.nombreFinca != null) {
+      this.request.where = this.request.where + " and upper(nombreFinca) like upper('%" + this.nombreFinca + "%')";
+    }
+
     this.listarDatos(true);
   }
 
   clean() {
     this.fecha = undefined;
-    this.usuario = undefined;
     this.concepto = undefined;
-    this.request.where = "empresa = ''" + localStorage.getItem("empresa") + "' and tipo = 'OC'";
+    this.nombrePredio = undefined;
+    this.fechaF = undefined;
+    this.nombreFinca = undefined;
+    this.municipio = undefined;
+    this.definirDatos();
     this.listarDatos(true);
   }
+
+  definirDatos() {
+    const url =  this.router.url;
+    if(url == '/listasAsi') {
+      this.request.tabla = 'ConceptoListaChequeo';
+      this.request.campoOrden = 'listaChequeoBean.fecha';
+      this.request.where = " listaChequeoBean.tipoFormato = 'ASI'";
+      this.url = '/listaAsi';
+    } else if(url == '/listasBgp') {
+      this.request.tabla = 'ConceptoListaChequeo';
+      this.request.campoOrden = 'listaChequeoBean.fecha';
+      this.request.where = " listaChequeoBean.tipoFormato = 'BGP'";
+      this.url = '/listaBgp';
+    } else if(url == '/listasIatf') {
+      this.request.tabla = 'Formato';
+      this.request.campoOrden = 'fecha';
+      this.request.where = " tipoFormato = 'IATF'";
+      this.url = '/listaIatf';
+      this.isLista = true;
+    } else if(url == '/listasDonadoras') {
+      this.request.tabla = 'Formato';
+      this.request.campoOrden = 'fecha';
+      this.request.where = " tipoFormato = 'DOND'";
+      this.url = '/listaDonadoras';
+      this.isLista = true;
+    } else if(url == '/listasToro') {
+      this.request.tabla = 'Formato';
+      this.request.campoOrden = 'fecha';
+      this.request.where = " tipoFormato = 'TORO'";
+      this.url = '/listaToro';
+      this.isLista = true;
+    }
+  }
 }
+
+

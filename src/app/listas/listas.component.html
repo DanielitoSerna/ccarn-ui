@@ -2,39 +2,78 @@
   <div>
     <button pButton pRipple type="button" label="Nueva" icon="pi pi-plus" class="p-button-success-app" (click)="nuevo()"></button>
     <div class="p-mt-2"></div>
-    <div class="p-grid">
+    <div class="p-grid" *ngIf="url === '/listaBgp' || url === '/listaAsi'">
         <div class="p-col-12 p-md-6 p-lg-2">
           <label class="p-text-bold">Fecha</label>
         </div>
         <div class="p-col-12 p-md-6 p-lg-3">
-            <label class="p-text-bold">Descripción</label>
+            <label class="p-text-bold">Nombre del predio</label>
         </div>
-        <div class="p-col-12 p-md-6 p-lg-2">
-            <label class="p-text-bold">Usuario</label>
-        </div>
+        <div class="p-col-12 p-md-6 p-lg-3">
+          <label class="p-text-bold">Concepto</label>
+      </div>
     </div>
-    <div class="p-grid">
-        <div class="p-col-12 p-md-6 p-lg-2">
-          <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon"
-                    dateFormat="dd/mm/yy" [(ngModel)]="fecha">
-          </p-calendar>
-        </div>
-        <div class="p-col-12 p-md-6 p-lg-3">
-            <input placeholder="Escriba aquí" type="text" [(ngModel)]="concepto">
-        </div>
-        <div class="p-col-12 p-md-6 p-lg-3">
-          <input placeholder="Escriba aquí" type="text" [(ngModel)]="usuario">
-        </div>
-        <div class="p-col-12 p-md-6 p-lg-3">
-          <div class="wrapper">
-            <button pButton pRipple type="button" class="p-button-success-app" label="Buscar" (click)="filter()"></button>
-            <div>
-              <div class="p-mr-2"></div>
-              <button pButton pRipple type="button" label="Limpiar" class="p-button-outlined" (click)="clean()"></button>
-            </div>
-          </div>
-        </div>
+    <div class="p-grid" *ngIf="url === '/listaIatf' || url === '/listaDonadoras'">
+      <div class="p-col-12 p-md-6 p-lg-2">
+        <label class="p-text-bold">Fecha</label>
+      </div>
+      <div class="p-col-12 p-md-6 p-lg-2">
+          <label class="p-text-bold">Municipio</label>
+      </div>
+      <div class="p-col-12 p-md-6 p-lg-3">
+        <label class="p-text-bold">Nombre de la finca o intitución</label>
+      </div>
+  </div>
+  <div class="p-grid" *ngIf="url === '/listaBgp' || url === '/listaAsi'">
+    <div class="p-col-12 p-md-6 p-lg-2">
+      <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon"
+                dateFormat="dd/mm/yy" [(ngModel)]="fecha">
+      </p-calendar>
     </div>
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <input placeholder="Escriba aquí" type="text" [(ngModel)]="nombrePredio">
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <p-dropdown [options]="conceptos" styleClass="width_full"
+      placeholder="Seleccione.." optionLabel="label" optionValue="value"
+      [showClear]="true" optionDisabled="inactive" [(ngModel)]="concepto">
+      </p-dropdown>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <div class="wrapper">
+        <button pButton pRipple type="button" class="p-button-success-app" label="Buscar" (click)="filter()"></button>
+        <div>
+          <div class="p-mr-2"></div>
+          <button pButton pRipple type="button" label="Limpiar" class="p-button-outlined" (click)="clean()"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-grid" *ngIf="isLista">
+    <div class="p-col-12 p-md-6 p-lg-2">
+      <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon"
+                dateFormat="dd/mm/yy" [(ngModel)]="fechaF">
+      </p-calendar>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-2">
+      <p-dropdown [options]="municipios" styleClass="width_full"
+      placeholder="Seleccione.." optionLabel="label" optionValue="value"
+      [showClear]="true" optionDisabled="inactive" [(ngModel)]="municipio">
+      </p-dropdown>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <input placeholder="Escriba aquí" type="text" [(ngModel)]="nombreFinca">
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <div class="wrapper">
+        <button pButton pRipple type="button" class="p-button-success-app" label="Buscar" (click)="filter()"></button>
+        <div>
+          <div class="p-mr-2"></div>
+          <button pButton pRipple type="button" label="Limpiar" class="p-button-outlined" (click)="clean()"></button>
+        </div>
+      </div>
+    </div>
+  </div>
     <p-table *ngIf="datos.length > 0" 
       [value]="datos"
       scrollDirection="both"
@@ -45,49 +84,105 @@
       sortField="fecha" [sortOrder]="-1"
       styleClass="p-datatable-sm">
       <ng-template pTemplate="header">
-          <tr>
-              <th  pSortableColumn="fecha" class="percentage_10">
-                Fecha
-                <p-sortIcon field="fecha"></p-sortIcon>
+          <tr *ngIf="url === '/listaBgp'">
+              <th  pSortableColumn="listaChequeoBean.fechaAuditoria" class="percentage_10">
+                Fecha de auditoría
+                <p-sortIcon field="listaChequeoBean.fechaAuditoria"></p-sortIcon>
               </th>
-              <th class="percentage_25">
+              <th pSortableColumn="listaChequeoBean.nombrePredio" class="percentage_25">
                 Nombre del predio
+                <p-sortIcon field="listaChequeoBean.nombrePredio"></p-sortIcon>
               </th>
-              <th class="percentage_20">
+              <th pSortableColumn="listaChequeoBean.nombrePropietario" class="percentage_25">
                 Nombre del propietario
+                <p-sortIcon field="listaChequeoBean.nombrePropietario"></p-sortIcon>
               </th>
-              <th  pSortableColumn="valor" class="percentage_10">
+              <th  pSortableColumn="listaChequeoBean.tipoVisita" class="percentage_15">
                 Tipo de visita
-                <p-sortIcon field="valor"></p-sortIcon>
+                <p-sortIcon field="listaChequeoBean.tipoVisita"></p-sortIcon>
               </th>
-              <th  pSortableColumn="fechaRegistro" class="percentage_15">
-                Fecha de creación
-                <p-sortIcon field="fechaRegistro"></p-sortIcon>
+              <th  pSortableColumn="concepto" class="percentage_15">
+                Concepto
+                <p-sortIcon field="concepto"></p-sortIcon>
               </th>
-              <th class="percentage_10">
-                Usuario
-              </th>
-              <th class="percentage_10"></th>
+          </tr>
+          <tr *ngIf="url === '/listaAsi'">
+            <th  pSortableColumn="listaChequeoBean.fecha" class="percentage_10">
+              Fecha
+              <p-sortIcon field="listaChequeoBean.fecha"></p-sortIcon>
+            </th>
+            <th pSortableColumn="listaChequeoBean.numeroRegistroPredio" class="percentage_25">
+              Número de registro
+              <p-sortIcon field="listaChequeoBean.numeroRegistroPredio"></p-sortIcon>
+            </th>
+            <th pSortableColumn="listaChequeoBean.nombrePredio" class="percentage_25">
+              Nombre del predio
+              <p-sortIcon field="listaChequeoBean.nombrePredio"></p-sortIcon>
+            </th>
+            <th  pSortableColumn="listaChequeoBean.objeto" class="percentage_15">
+              Objeto
+              <p-sortIcon field="listaChequeoBean.objeto"></p-sortIcon>
+            </th>
+            <th  pSortableColumn="concepto" class="percentage_15">
+              Concepto
+              <p-sortIcon field="concepto"></p-sortIcon>
+            </th>
+          </tr>
+          <tr *ngIf="isLista">
+            <th  pSortableColumn="fecha" class="percentage_10">
+              Fecha
+              <p-sortIcon field="fecha"></p-sortIcon>
+            </th>
+            <th  pSortableColumn="municipio" class="percentage_20">
+              Municipio
+              <p-sortIcon field="municipio"></p-sortIcon>
+            </th>
+            <th pSortableColumn="nombrePropietario" class="percentage_20">
+              Nombre del propietario
+              <p-sortIcon field="nombrePropietario"></p-sortIcon>
+            </th>
+            <th pSortableColumn="nombreFinca" class="percentage_20">
+              Nombre de la finca
+              <p-sortIcon field="nombreFinca"></p-sortIcon>
+            </th>
+            <th  pSortableColumn="vereda" class="percentage_20">
+              Vereda
+              <p-sortIcon field="vereda"></p-sortIcon>
+            </th>
           </tr>
       </ng-template>
       <ng-template pTemplate="body" let-objeto>
-          <tr>
+          <tr *ngIf="url === '/listaBgp'">
               <td class="percentage_10">
-                {{objeto.fecha | date: 'dd/MM/yyyy'}}
-                {{objeto.fechaAuditoria | date: 'dd/MM/yyyy'}}
+                {{objeto.listaChequeoBean.fechaAuditoria | date: 'dd/MM/yyyy'}}
+                {{objeto.listaChequeoBean.fecha | date: 'dd/MM/yyyy'}}
               </td>
-              <td class="column-app percentage_25">{{objeto.nombrePredio}}</td>
-              <td class="column-app percentage_20">{{objeto.nombrePropietario}}</td>
-              <td class="column-app percentage_10">{{objeto.tipoVisita}}</td>
-              <td class="percentage_15">{{objeto.fechaRegistro | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
-              <td class="percentage_10" pTooltip="{{objeto.usuario}}">{{(objeto.usuario | slice:0:10) + '...'}}</td>
+              <td class="column-app percentage_25">{{objeto.listaChequeoBean.nombrePredio}}</td>
+              <td class="column-app percentage_25">{{objeto.listaChequeoBean.nombrePropietario}}</td>
+              <td class="column-app percentage_15">{{objeto.listaChequeoBean.tipoVisita}}</td>
               <td class="percentage_10">
-                <span class="pi pi-pencil funcionalidad animate__animated animate__zoomIn"
-                  pTooltip="Editar comanda"
-                  tooltipPosition="top"
-                  p-tooltip-text (click)="editar(objeto)"></span>
-                <div class="p-md-2"></div>
+                <app-texto [text]="objeto.concepto" [type]="objeto.concepto === 'FAVORABLE' ? 'success' : 'danger'"></app-texto>
               </td>
+          </tr>
+          <tr *ngIf="url === '/listaAsi'">
+            <td class="percentage_10">
+              {{objeto.listaChequeoBean.fecha | date: 'dd/MM/yyyy'}}
+            </td>
+            <td class="column-app percentage_25">{{objeto.listaChequeoBean.numeroRegistroPredio}}</td>
+            <td class="column-app percentage_25">{{objeto.listaChequeoBean.nombrePredio}}</td>
+            <td class="column-app percentage_15">{{objeto.listaChequeoBean.objeto}}</td>
+            <td class="percentage_10">
+              <app-texto [text]="objeto.concepto" [type]="objeto.concepto === 'FAVORABLE' ? 'success' : 'danger'"></app-texto>
+            </td>
+          </tr>
+          <tr *ngIf="isLista">
+            <td class="percentage_10">
+              {{objeto.fecha | date: 'dd/MM/yyyy'}}
+            </td>
+            <td class="column-app percentage_20">{{objeto.municipio}}</td>
+            <td class="column-app percentage_20">{{objeto.nombrePropietario}}</td>
+            <td class="column-app percentage_20">{{objeto.nombreFinca}}</td>
+            <td class="column-app percentage_20">{{objeto.vereda}}</td>
           </tr>
       </ng-template>
     </p-table>

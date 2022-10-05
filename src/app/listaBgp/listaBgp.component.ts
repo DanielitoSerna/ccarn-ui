@@ -178,6 +178,7 @@ export class ListaBgpComponent {
       this.objeto.tipoFormato = "BGP";
       this.service.guardarEncabezado(this.objeto).then(data => {
         this.messageService.add({severity:'success', summary: 'Exito', detail: 'Información guardada con exito'});
+        history.back();
       }).catch(e => {
         this.messageService.add({severity:'error', summary: 'Error', detail: 'Ocurrio un error al realizar la transacción, por favor verifica o intenta de nuevo'});
       });

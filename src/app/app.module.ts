@@ -19,6 +19,7 @@ import { ListaToroComponent } from './listaToro/listaToro.component';
 import { ListasComponent } from './listas/listas.component';
 import { TransferenciaEmbrionComponent } from './transferenciaEmbrion/transferenciaEmbrion.component';
 import { EvaluacionAndrologicaComponent } from './evaluacionAndrologica/evaluacionAndrologica.component';
+import { ComponentesModule } from './componentes/componentes.module';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { EvaluacionAndrologicaComponent } from './evaluacionAndrologica/evaluaci
     PrimeModule,
     HttpClientModule,
     SocialLoginModule,
-    NgChartsModule
+    NgChartsModule,
+    ComponentesModule
   ],
   providers: [
     AppService
