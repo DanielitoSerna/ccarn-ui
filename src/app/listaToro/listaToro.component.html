@@ -4,7 +4,7 @@
   </h3>
   <div class="card_border border_top_green content-app">
     <div class="p-grid">
-      <div class="p-col-2 app-header">Fecha</div>
+      <div class="p-col-2 app-header">Fecha:</div>
       <div class="p-col-2 app-header-value"><p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon"
         dateFormat="dd/mm/yy" [(ngModel)]="objeto.fecha"></p-calendar>
       </div>
@@ -14,7 +14,7 @@
         [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.departamento">
         </p-dropdown>
       </div>
-      <div class="p-col-2 app-header">Municipio::</div>
+      <div class="p-col-2 app-header">Municipio:</div>
       <div class="p-col-2 app-header"><p-dropdown [options]="municipios" styleClass="width_full"
         placeholder="Seleccione.." optionLabel="label" optionValue="value"
         [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.municipio">

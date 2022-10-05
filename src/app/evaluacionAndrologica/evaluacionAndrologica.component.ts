@@ -23,11 +23,11 @@ export class EvaluacionAndrologicaComponent {
         { label: "Turbo", value: "Turbo" },
     ];
 
-    objeto : any = {
-        detalleAndrologicos: {}
+    objeto: any = {
+        detalleAndrologico: {}
     };
 
-    items = [
+    items: any = [
         {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
         {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
         {}, {}, {}, {}, {}
@@ -37,13 +37,22 @@ export class EvaluacionAndrologicaComponent {
 
     }
 
-
     cancelar() {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error al realizar la transación, verifica los datos ingresados o comunicate con el administrador del sistema' });
+        history.back();
     }
 
     guardar() {
-
+        this.objeto.tipoFormato = 'EVALUACION ANDROLOGICA';
+        if (!this.objeto.fecha || !this.objeto.departamento || !this.objeto.municipio || !this.objeto.nombrePropietario || !this.objeto.nombreFinca ) {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Faltan datos por ingresar por favor verifica' });
+        } else {
+            this.service.guardarFormatosBra(this.objeto).then(data => {
+                this.messageService.add({ severity: 'success', summary: 'Exito', detail: 'Información guardada con exito' });
+                history.back();
+            }).catch(e => {
+                this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Ocurrio un error al realizar la transacción, por favor verifica o intenta de nuevo' });
+            })
+        }
     }
 
 }
