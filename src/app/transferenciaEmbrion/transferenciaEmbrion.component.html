@@ -4,10 +4,22 @@
   </h3>
   <div class="card_border border_top_green content-app">
     <div class="p-grid">
-      <div class="p-col-3 app-header">Fecha</div>
-      <div class="p-col-3 app-header-value">
+      <div class="p-col-2 app-header">Fecha</div>
+      <div class="p-col-2 app-header-value">
         <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"
           [(ngModel)]="objeto.fecha"></p-calendar>
+      </div>
+      <div class="p-col-2 app-header">Departamento:</div>
+      <div class="p-col-2 app-header-value">
+        <p-dropdown [options]="departamentos" styleClass="width_full" placeholder="Seleccione.." optionLabel="label"
+          optionValue="value" [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.departamento">
+        </p-dropdown>
+      </div>
+      <div class="p-col-2 app-header">Municipio:</div>
+      <div class="p-col-2 app-header-value">
+        <p-dropdown [options]="municipios" styleClass="width_full" placeholder="Seleccione.." optionLabel="label"
+          optionValue="value" [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.municipio">
+        </p-dropdown>
       </div>
       <div class="p-col-3 app-header">Empaque de embriones:</div>
       <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.empaqueEmbriones" /></div>
@@ -20,20 +32,8 @@
       <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreFinca" /></div>
       <div class="p-col-3 app-header">Hora de inicio:</div>
       <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.horaInicio" /></div>
-      <div class="p-col-3 app-header">Departamento:</div>
-      <div class="p-col-3 app-header-value">
-        <p-dropdown [options]="departamentos" styleClass="width_full" placeholder="Seleccione.." optionLabel="label"
-          optionValue="value" [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.departamento">
-        </p-dropdown>
-      </div>
       <div class="p-col-3 app-header">Hora final:</div>
       <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.horaFinal" /></div>
-      <div class="p-col-3 app-header">Municipio:</div>
-      <div class="p-col-9 app-header-value">
-        <p-dropdown [options]="municipios" styleClass="width_full" placeholder="Seleccione.." optionLabel="label"
-          optionValue="value" [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.municipio">
-        </p-dropdown>
-      </div>
       <div class="p-col-3 app-header">Vereda - microlocalizacion:</div>
       <div class="p-col-9 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.vereda" /></div>
       <div class="p-col-3 app-header">Profesional producción invitro de embriones:</div>
@@ -67,18 +67,19 @@
     &nbsp;
     <div class="p-grid" *ngFor="let item of items; let i = index">
       <div class="p-col-1" style="text-align: center;">{{i + 1}}</div>
-      <div class="p-col-1"><input type="text" pInputText /></div>
-      <div class="p-col-1"><input type="text" pInputText /></div>
-      <div class="p-col-1"><input type="text" pInputText /></div>
-      <div class="p-col-1"><input type="text" pInputText /></div>
-      <div class="p-col-1"><input type="text" pInputText /></div>
-      <div class="p-col-1"><input type="text" pInputText /></div>
-      <div class="p-col-1"><input type="text" pInputText /></div>
-      <div class="p-col-1"><input type="text" pInputText /></div>
-      <div class="p-col-1"><input type="text" pInputText /></div>
-      <div class="p-col-1"><input type="text" pInputText /></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.nombreDonadora" /></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.razaDonadora" /></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.nombreToro" /></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.razaToro" /></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.embrion" /></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.receptora" /></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.ovario" /></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.p30" /></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.p60" /></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.sx" /></div>
       <div class="p-col-1">
-        <textarea rows="2" cols="30" pInputTextarea maxlength="400" style="width: 100%; resize:none;"></textarea>
+        <textarea rows="2" cols="30" pInputTextarea maxlength="400" style="width: 100%; resize:none;"
+          [(ngModel)]="item.observacion"></textarea>
       </div>
     </div>
     &nbsp;

@@ -23,9 +23,9 @@ export class TransferenciaEmbrionComponent {
         { label: "Turbo", value: "Turbo" },
     ];
 
-    objeto: any =  {};
+    objeto: any = {};
 
-    items = [
+    items: any = [
         {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
         {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
         {}, {}, {}, {}, {}
@@ -37,11 +37,34 @@ export class TransferenciaEmbrionComponent {
 
 
     cancelar() {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error al realizar la transación, verifica los datos ingresados o comunícate con el administrador del sistema' });
+        history.back();
     }
 
     guardar() {
-
+        let detalle = this.items.filter((item: any) =>
+            item.nombreDonadora != null &&
+            item.razaDonadora != null &&
+            item.nombreToro != null &&
+            item.razaToro != null &&
+            item.embrion != null &&
+            item.receptora != null &&
+            item.ovario != null &&
+            item.p30 != null &&
+            item.p60 != null &&
+            item.sx != null
+        );
+        this.objeto.detalleFormatos = detalle;
+        this.objeto.tipoFormato = 'TRANSFERENCIA EMBRIONES';
+        if (!this.objeto.fecha || !this.objeto.empaqueEmbriones || !this.objeto.nombrePropietario || !this.objeto.transferidor || !this.objeto.nombreFinca || !this.objeto.horaInicio || !this.objeto.departamento || !this.objeto.horaFinal || !this.objeto.municipio || !this.objeto.profesionalProduccionInvitroEmbriones || detalle.length == 0) {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Faltan datos por ingresar por favor verifica' });
+        } else {
+            this.service.guardarFormatosBra(this.objeto).then(data => {
+                this.messageService.add({ severity: 'success', summary: 'Exito', detail: 'Información guardada con exito' });
+                history.back();
+            }).catch(e => {
+                this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Ocurrio un error al realizar la transacción, por favor verifica o intenta de nuevo' });
+            })
+        }
     }
 
 }
