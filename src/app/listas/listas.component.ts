@@ -173,6 +173,18 @@ export class ListasComponent implements OnInit {
       this.request.where = " tipoFormato = 'TORO'";
       this.url = '/listaToro';
       this.isLista = true;
+    } else if(url == '/listasEvaluacionAndrologica') {
+      this.request.tabla = 'Formato';
+      this.request.campoOrden = 'fecha';
+      this.request.where = " tipoFormato = 'EVALUACION ANDROLOGICA'";
+      this.url = '/evaluacionAndrologica';
+      this.isLista = true;
+    } else if(url == '/listasTransferenciaEmbrion') {
+      this.request.tabla = 'Formato';
+      this.request.campoOrden = 'fecha';
+      this.request.where = " tipoFormato = 'TRANSFERENCIA EMBRIONES'";
+      this.url = '/transferenciaEmbrion';
+      this.isLista = true;
     }
   }
 }

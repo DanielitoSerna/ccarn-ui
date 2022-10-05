@@ -65,8 +65,16 @@ const routes: Routes = [
     component: TransferenciaEmbrionComponent
   },
   {
+    path: 'listasTransferenciaEmbrion',
+    component: ListasComponent
+  },
+  {
     path: 'evaluacionAndrologica',
     component: EvaluacionAndrologicaComponent
+  },
+  {
+    path: 'listasEvaluacionAndrologica',
+    component: ListasComponent
   }
 ];
 
