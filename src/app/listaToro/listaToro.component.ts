@@ -32,7 +32,25 @@ export class ListaToroComponent {
   ];
 
   constructor(private service: AppService, private messageService: MessageService) {
-
+    let objeto:any = localStorage.getItem("objeto");
+    objeto = JSON.parse(objeto ? objeto : '');
+    this.objeto = objeto;
+    if(objeto.id != undefined) {
+        this.objeto.fecha = new Date(this.objeto.fecha);
+        let request = {
+            tabla: 'DetalleFormato',
+            campoOrden: 'id',
+            orden: 'asc',
+            where: 'formatoBean.id = ' + objeto.id,
+            cantidad: 100,
+            pagina: 0
+          }
+          this.service.initProgress();
+          this.service.listarDatos(request).then(data => {
+            this.items = data;
+            this.service.finishProgress();
+          });
+    }
   }
 
   cancelar() {

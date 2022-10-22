@@ -76,7 +76,7 @@
         <input type="text" pInputText [(ngModel)]="objeto.tarjetaProfesionalDos"/>
       </div>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer" *ngIf="objeto.id == undefined">
       <div class="wrapper">
         <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar()"></button>
         <div class="p-mr-2"></div>

@@ -105,6 +105,8 @@
                 Concepto
                 <p-sortIcon field="concepto"></p-sortIcon>
               </th>
+              <th  class="percentage_10">
+              </th>
           </tr>
           <tr *ngIf="url === '/listaAsi'">
             <th  pSortableColumn="listaChequeoBean.fecha" class="percentage_10">
@@ -126,6 +128,8 @@
             <th  pSortableColumn="concepto" class="percentage_15">
               Concepto
               <p-sortIcon field="concepto"></p-sortIcon>
+            </th>
+            <th  class="percentage_10">
             </th>
           </tr>
           <tr *ngIf="isLista">
@@ -149,6 +153,8 @@
               Vereda
               <p-sortIcon field="vereda"></p-sortIcon>
             </th>
+            <th  class="percentage_10">
+            </th>
           </tr>
       </ng-template>
       <ng-template pTemplate="body" let-objeto>
@@ -163,6 +169,12 @@
               <td class="percentage_10">
                 <app-texto [text]="objeto.concepto" [type]="objeto.concepto === 'FAVORABLE' ? 'success' : 'danger'"></app-texto>
               </td>
+              <td class="percentage_10">
+                <span class="pi pi-eye funcionalidad animate__animated animate__zoomIn"
+                  pTooltip="Ver detalle"
+                  tooltipPosition="top"
+                  p-tooltip-text (click)="editar(objeto)"></span>
+              </td>
           </tr>
           <tr *ngIf="url === '/listaAsi'">
             <td class="percentage_10">
@@ -174,6 +186,12 @@
             <td class="percentage_10">
               <app-texto [text]="objeto.concepto" [type]="objeto.concepto === 'FAVORABLE' ? 'success' : 'danger'"></app-texto>
             </td>
+            <td class="percentage_10">
+              <span class="pi pi-eye funcionalidad animate__animated animate__zoomIn"
+                pTooltip="Ver detalle"
+                tooltipPosition="top"
+                p-tooltip-text (click)="editar(objeto)"></span>
+            </td>
           </tr>
           <tr *ngIf="isLista">
             <td class="percentage_10">
@@ -183,6 +201,12 @@
             <td class="column-app percentage_20">{{objeto.nombrePropietario}}</td>
             <td class="column-app percentage_20">{{objeto.nombreFinca}}</td>
             <td class="column-app percentage_20">{{objeto.vereda}}</td>
+            <td class="percentage_10">
+              <span class="pi pi-eye funcionalidad animate__animated animate__zoomIn"
+                pTooltip="Ver detalle"
+                tooltipPosition="top"
+                p-tooltip-text (click)="editar(objeto)"></span>
+            </td>
           </tr>
       </ng-template>
     </p-table>

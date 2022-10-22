@@ -1,6 +1,6 @@
 <div class="content-app">
   <h3>
-    Lista de chequeo BGP
+    Lista de chequeo BPG
   </h3>
   <div class="card_border border_top_green content-app">
     <div class="p-grid">
@@ -199,7 +199,7 @@
       <div class="p-col-3 app-header">Matricula profesional</div>
       <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.concepto.numeroIdentificacionAuditoria"/></div>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer" *ngIf="objeto.id == undefined">
       <div class="wrapper">
         <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar()"></button>
         <div class="p-mr-2"></div>

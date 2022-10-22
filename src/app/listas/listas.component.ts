@@ -64,13 +64,14 @@ export class ListasComponent implements OnInit {
 
   nuevo() {
     this.objeto = {};
+    localStorage.setItem("objeto", JSON.stringify(this.objeto));
     this.router.navigate([this.url]);
   }
 
   editar(objeto: any) {
     this.objeto = objeto;
-    this.objeto.fecha = new Date(this.objeto.fecha);
-    this.viewForm = true;
+    localStorage.setItem("objeto", JSON.stringify(this.objeto));
+    this.router.navigate([this.url]);
   }
 
   onPageChange(event: any) {
