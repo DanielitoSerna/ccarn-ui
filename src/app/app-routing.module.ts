@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CapacitacionComponent } from './capacitacion/capacitacion.component';
 import { EvaluacionAndrologicaComponent } from './evaluacionAndrologica/evaluacionAndrologica.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ListaAsiComponent } from './listaAsi/listaAsi.component';
@@ -8,7 +9,10 @@ import { ListaDonadorasComponent } from './listaDonadoras/listaDonadoras.compone
 import { ListaIatfComponent } from './listaIatf/listaIatf.component';
 import { ListasComponent } from './listas/listas.component';
 import { ListaToroComponent } from './listaToro/listaToro.component';
+import { PotreroComponent } from './potrero/potrero.component';
 import { TransferenciaEmbrionComponent } from './transferenciaEmbrion/transferenciaEmbrion.component';
+import { VehiculosComponent } from './vehiculos/vehiculos.component';
+import { VeterinarioComponent } from './veterinario/veterinario.component';
 
 const routes: Routes = [
   {
@@ -75,6 +79,22 @@ const routes: Routes = [
   {
     path: 'listasEvaluacionAndrologica',
     component: ListasComponent
+  },
+  {
+    path: 'capacitacion',
+    component: CapacitacionComponent
+  },
+  {
+    path: 'veterinario',
+    component: VeterinarioComponent
+  },
+  {
+    path: 'potrero',
+    component: PotreroComponent
+  },
+  {
+    path: 'vehiculo',
+    component: VehiculosComponent
   }
 ];
 

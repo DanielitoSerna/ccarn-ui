@@ -1,0 +1,61 @@
+<div class="content-app">
+  <h3>
+    Registro de capacitaciones
+  </h3>
+  <div class="card_border border_top_green content-app">
+    <div class="p-grid">
+      <div class="p-col-6 app-header">Empresa ganadera:</div>
+      <div class="p-col-6 app-header-value">
+        <input type="text" pInputText [(ngModel)]="objeto.empresaGanadera"/>
+      </div>
+      <div class="p-col-6 app-header">Municipio:</div>
+      <div class="p-col-6 app-header-value">
+          <p-dropdown [options]="municipios" style="width: 300px;" placeholder="Seleccione.."
+              optionLabel="label" optionValue="value" [showClear]="true" optionDisabled="inactive"
+              [(ngModel)]="objeto.municipio">
+          </p-dropdown>
+      </div>
+      <div class="p-col-11"></div>
+      <div class="p-col-1">
+        <button pButton pRipple type="button" pTooltip="Agregar" tooltipPosition="left" icon="pi pi-plus" class="p-button-success-app" (click)="add()"></button>
+      </div>
+      <div class="p-col-2 app-header">Tema de capacitación</div>
+      <div class="p-col-2 app-header">Fecha</div>
+      <div class="p-col-1 app-header">Duración</div>
+      <div class="p-col-3 app-header">Dictada por</div>
+      <div class="p-col-3 app-header">Asistente</div>
+      <div class="p-col-1 app-header"></div>
+    </div>
+    <div *ngFor="let item of items; let i = index" class="item-app">
+      <div class="p-grid">
+        <div class="p-col-2">
+          <input type="text" pInputText [(ngModel)]="item.temaCapacitacion"/>
+        </div>
+        <div class="p-col-2">
+          <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"
+                    [(ngModel)]="item.fecha">
+          </p-calendar>
+        </div>
+        <div class="p-col-1">
+          <p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="item.duracion" suffix=" horas" [minFractionDigits]="1"></p-inputNumber>
+        </div>
+        <div class="p-col-3">
+          <input type="text" pInputText [(ngModel)]="item.dictadaPor"/>
+        </div>
+        <div class="p-col-3">
+          <input type="text" pInputText [(ngModel)]="item.asistente"/>
+        </div>
+        <div class="p-col-1">
+          <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-danger" (click)="remove(i)" pTooltip="Eliminar" tooltipPosition="left"></button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer" *ngIf="objeto.id == undefined">
+      <div class="wrapper">
+        <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar()"></button>
+        <div class="p-mr-2"></div>
+        <button pButton pRipple type="button" class="p-button-success-app" label="Guardar" (click)="guardar()"></button>
+      </div>
+    </div>
+  </div>
+</div>

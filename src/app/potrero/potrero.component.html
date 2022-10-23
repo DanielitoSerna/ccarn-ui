@@ -1,0 +1,108 @@
+<div class="content-app">
+  <h3>
+    Registro manejo de potreros
+  </h3>
+  <div class="card_border border_top_green content-app">
+    <div class="p-grid">
+      <div class="p-col-6 app-header">Empresa ganadera:</div>
+      <div class="p-col-6 app-header-value">
+        <input type="text" pInputText [(ngModel)]="objeto.empresaGanadera"/>
+      </div>
+      <div class="p-col-6 app-header">Municipio:</div>
+      <div class="p-col-6 app-header-value">
+          <p-dropdown [options]="municipios" style="width: 300px;" placeholder="Seleccione.."
+              optionLabel="label" optionValue="value" [showClear]="true" optionDisabled="inactive"
+              [(ngModel)]="objeto.municipio">
+          </p-dropdown>
+      </div>
+      <div class="p-col-6 app-header">Potrero N°:</div>
+      <div class="p-col-6 app-header-value">
+        <input type="text" pInputText [(ngModel)]="objeto.potreroN"/>
+      </div>
+      <div class="p-col-11"></div>
+      <div class="p-col-1">
+        <button pButton pRipple type="button" pTooltip="Agregar" tooltipPosition="left" icon="pi pi-plus" class="p-button-success-app" (click)="add()"></button>
+      </div>
+    </div>
+    <div style="overflow: auto;">
+      <div style="width: 150%;">
+        <div class="p-grid">
+          <div class="p-col-4 app-header"></div>
+          <div class="p-col-3 app-header" style="border: 1px solid #dee2e6;">Fertilización</div>
+          <div class="p-col-4 app-header" style="border: 1px solid #dee2e6;">Plaguisidas</div>
+          <div class="p-col-1 app-header"></div>
+          <div class="p-col-1 app-header">Fecha de ingreso</div>
+          <div class="p-col-1 app-header">Fecha de salida</div>
+          <div class="p-col-1 app-header">Número de animales</div>
+          <div class="p-col-1 app-header">Periodo de descanso (días)</div>
+          <div class="p-col-1 app-header" style="border-left: 1px solid #dee2e6;">Fecha</div>
+          <div class="p-col-1 app-header">Cantidad</div>
+          <div class="p-col-1 app-header">Producto</div>
+          <div class="p-col-1 app-header" style="border-left: 1px solid #dee2e6;">Fecha</div>
+          <div class="p-col-1 app-header">Cantidad</div>
+          <div class="p-col-1 app-header">Producto</div>
+          <div class="p-col-1 app-header" style="border-right: 1px solid #dee2e6;">P. Carencia</div>
+          <div class="p-col-1 app-header">Observaciones</div>
+        </div>
+        <div *ngFor="let item of items; let i = index" class="item-app">
+          <div class="p-grid">
+            <div class="p-col-1">
+              <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"
+                        [(ngModel)]="item.fechaIngreso">
+              </p-calendar>
+            </div>
+            <div class="p-col-1">
+              <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"
+                        [(ngModel)]="item.fechaSalida">
+              </p-calendar>
+            </div>
+            <div class="p-col-1">
+              <p-inputNumber [min]="0" [(ngModel)]="item.numeroAnimales"></p-inputNumber>
+            </div>
+            <div class="p-col-1">
+              <p-inputNumber [min]="0" [(ngModel)]="item.periodoDescanso"></p-inputNumber>
+            </div>
+            <div class="p-col-1" style="border-left: 1px solid #dee2e6;">
+              <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"
+              [(ngModel)]="item.fecha">
+               </p-calendar>
+            </div>
+            <div class="p-col-1">
+              <p-inputNumber [min]="0" [(ngModel)]="item.cantidad"></p-inputNumber>
+            </div>
+            <div class="p-col-1">
+              <input type="text" pInputText [(ngModel)]="item.producto"/>
+            </div>
+            <div class="p-col-1" style="border-left: 1px solid #dee2e6;">
+              <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"
+              [(ngModel)]="item.fecha">
+               </p-calendar>
+            </div>
+            <div class="p-col-1">
+              <p-inputNumber [min]="0" [(ngModel)]="item.cantidad"></p-inputNumber>
+            </div>
+            <div class="p-col-1">
+              <input type="text" pInputText [(ngModel)]="item.producto"/>
+            </div>
+            <div class="p-col-1" style="border-right: 1px solid #dee2e6;">
+              <input type="text" pInputText [(ngModel)]="item.carencia"/>
+            </div>
+            <div class="p-col-1">
+              <div class="p-grid">
+                <div class="p-col-10"><input type="text" pInputText [(ngModel)]="item.observaciones"/></div>
+                <div class="p-col-2"> <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-danger" (click)="remove(i)" pTooltip="Eliminar" tooltipPosition="left"></button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer" *ngIf="objeto.id == undefined">
+      <div class="wrapper">
+        <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar()"></button>
+        <div class="p-mr-2"></div>
+        <button pButton pRipple type="button" class="p-button-success-app" label="Guardar" (click)="guardar()"></button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -20,6 +20,10 @@ import { ListasComponent } from './listas/listas.component';
 import { TransferenciaEmbrionComponent } from './transferenciaEmbrion/transferenciaEmbrion.component';
 import { EvaluacionAndrologicaComponent } from './evaluacionAndrologica/evaluacionAndrologica.component';
 import { ComponentesModule } from './componentes/componentes.module';
+import { CapacitacionComponent } from './capacitacion/capacitacion.component';
+import { VeterinarioComponent } from './veterinario/veterinario.component';
+import { PotreroComponent } from './potrero/potrero.component';
+import { VehiculosComponent } from './vehiculos/vehiculos.component';
 
 
 @NgModule({
@@ -33,7 +37,11 @@ import { ComponentesModule } from './componentes/componentes.module';
     ListaToroComponent,
     ListasComponent,
     TransferenciaEmbrionComponent,
-    EvaluacionAndrologicaComponent
+    EvaluacionAndrologicaComponent,
+    CapacitacionComponent,
+    VeterinarioComponent,
+    PotreroComponent,
+    VehiculosComponent
   ],
   imports: [
     BrowserModule,
