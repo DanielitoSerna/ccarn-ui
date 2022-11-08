@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { AppService } from 'src/app/app.services';
 import { NavigationEnd, Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class ListasComponent implements OnInit {
 
+  @Input() tipo:any = undefined;
   public datos = [];
   public text = '';
   public count = 1;
@@ -23,10 +24,12 @@ export class ListasComponent implements OnInit {
   public fechaF = undefined;
   public municipio = undefined;
   public nombreFinca = undefined;
+  public empresaGanadera = undefined;
 
   public isLista = false;
+  public scroll = '65vh';
 
-  request = {
+  request: any = {
     tabla: '',
     campoOrden: 'fecha',
     orden: 'desc',
@@ -54,12 +57,11 @@ export class ListasComponent implements OnInit {
   ];
 
   constructor(private service: AppService, private router: Router) {
-      this.definirDatos();
-      this.listarDatos(true);
   }
 
   ngOnInit() {
-    
+    this.definirDatos();
+    this.listarDatos(true);
   }
 
   nuevo() {
@@ -130,6 +132,10 @@ export class ListasComponent implements OnInit {
       this.request.where = this.request.where + " and upper(nombreFinca) like upper('%" + this.nombreFinca + "%')";
     }
 
+    if(this.empresaGanadera != null) {
+      this.request.where = this.request.where + " and upper(empresaGanadera) like upper('%" + this.empresaGanadera + "%')";
+    }
+
     this.listarDatos(true);
   }
 
@@ -140,12 +146,19 @@ export class ListasComponent implements OnInit {
     this.fechaF = undefined;
     this.nombreFinca = undefined;
     this.municipio = undefined;
+    this.empresaGanadera = undefined;
     this.definirDatos();
     this.listarDatos(true);
   }
 
   definirDatos() {
-    const url =  this.router.url;
+    let url = undefined;
+    if(this.tipo != undefined) {
+      url = this.tipo;
+      this.scroll = '53vh';
+    } else {
+      url =  this.router.url;
+    }
     if(url == '/listasAsi') {
       this.request.tabla = 'ConceptoListaChequeo';
       this.request.campoOrden = 'listaChequeoBean.fecha';
@@ -186,7 +199,39 @@ export class ListasComponent implements OnInit {
       this.request.where = " tipoFormato = 'TRANSFERENCIA EMBRIONES'";
       this.url = '/transferenciaEmbrion';
       this.isLista = true;
-    }
+    } else if(url == '/caracterizacion') {
+      this.request.tabla = 'Formato';
+      this.request.campoOrden = 'fecha';
+      this.request.where = " tipoFormato = 'CARACTERIZACION'";
+      this.url = '/caracterizacion';
+      this.isLista = true;
+    } else if(url == '/recomendaciones') {
+      this.request.tabla = 'Formato';
+      this.request.campoOrden = 'fecha';
+      this.request.where = " tipoFormato = 'RECOMENDACIONES'";
+      this.url = '/recomendaciones';
+      this.isLista = true;
+    } else if(url == '/capacitaciones') {
+      this.request.tabla = 'EncabezadoRegistro';
+      this.request.campoOrden = 'empresaGanadera';
+      this.request.where = " tipoFormato = 'CAPACITACION'";
+      this.url = '/capacitacion';
+    } else if(url == '/veterinarios') {
+      this.request.tabla = 'EncabezadoRegistro';
+      this.request.campoOrden = 'empresaGanadera';
+      this.request.where = " tipoFormato = 'VETERINARIO'";
+      this.url = '/veterinario';
+    } else if(url == '/potreros') {
+      this.request.tabla = 'EncabezadoRegistro';
+      this.request.campoOrden = 'empresaGanadera';
+      this.request.where = " tipoFormato = 'PORTERO'";
+      this.url = '/potrero';
+    } else if(url == '/vehiculos') {
+      this.request.tabla = 'EncabezadoRegistro';
+      this.request.campoOrden = 'empresaGanadera';
+      this.request.where = " tipoFormato = 'VEHICULO'";
+      this.url = '/vehiculo';
+    }  
   }
 }
 

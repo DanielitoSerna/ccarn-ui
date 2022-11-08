@@ -24,6 +24,7 @@ import { CapacitacionComponent } from './capacitacion/capacitacion.component';
 import { VeterinarioComponent } from './veterinario/veterinario.component';
 import { PotreroComponent } from './potrero/potrero.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
+import { FormatosBraComponent } from './formatosBra/formatosBra.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { VehiculosComponent } from './vehiculos/vehiculos.component';
     CapacitacionComponent,
     VeterinarioComponent,
     PotreroComponent,
-    VehiculosComponent
+    VehiculosComponent,
+    FormatosBraComponent
   ],
   imports: [
     BrowserModule,

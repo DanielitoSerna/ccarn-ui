@@ -62,7 +62,10 @@ export class ListaIatfComponent {
       item.razaIdentificacionReceptora != null &&
       item.nombreIdentificacionToro != null &&
       item.numeroIdentificacionToro &&
-      item.razaIdentificacionToro);
+      item.razaIdentificacionToro &&
+      item.hora &&
+      item.p60 &&
+      item.hallazgo);
     this.objeto.detalleFormatos = detalle;
     this.objeto.tipoFormato = "IATF";
     if(!this.objeto.fecha || !this.objeto.departamento || !this.objeto.municipio || !this.objeto.nombrePropietario || !this.objeto.nombreFinca || detalle.length == 0) {

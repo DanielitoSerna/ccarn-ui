@@ -13,7 +13,7 @@
           <label class="p-text-bold">Concepto</label>
       </div>
     </div>
-    <div class="p-grid" *ngIf="url === '/listaIatf' || url === '/listaDonadoras'">
+    <div class="p-grid" *ngIf="request.tabla == 'Formato'">
       <div class="p-col-12 p-md-6 p-lg-2">
         <label class="p-text-bold">Fecha</label>
       </div>
@@ -23,7 +23,15 @@
       <div class="p-col-12 p-md-6 p-lg-3">
         <label class="p-text-bold">Nombre de la finca o intitución</label>
       </div>
-  </div>
+    </div>
+    <div class="p-grid" *ngIf="request.tabla == 'EncabezadoRegistro'">
+      <div class="p-col-12 p-md-6 p-lg-4">
+        <label class="p-text-bold">Empresa ganadera</label>
+      </div>
+      <div class="p-col-12 p-md-6 p-lg-2">
+          <label class="p-text-bold">Municipio</label>
+      </div>
+    </div>
   <div class="p-grid" *ngIf="url === '/listaBgp' || url === '/listaAsi'">
     <div class="p-col-12 p-md-6 p-lg-2">
       <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon"
@@ -74,11 +82,31 @@
       </div>
     </div>
   </div>
+  <div class="p-grid" *ngIf="request.tabla == 'EncabezadoRegistro'">
+    <div class="p-col-12 p-md-6 p-lg-4">
+      <input placeholder="Escriba aquí" type="text" [(ngModel)]="empresaGanadera">
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-2">
+      <p-dropdown [options]="municipios" styleClass="width_full"
+      placeholder="Seleccione.." optionLabel="label" optionValue="value"
+      [showClear]="true" optionDisabled="inactive" [(ngModel)]="municipio">
+      </p-dropdown>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <div class="wrapper">
+        <button pButton pRipple type="button" class="p-button-success-app" label="Buscar" (click)="filter()"></button>
+        <div>
+          <div class="p-mr-2"></div>
+          <button pButton pRipple type="button" label="Limpiar" class="p-button-outlined" (click)="clean()"></button>
+        </div>
+      </div>
+    </div>
+  </div>
     <p-table *ngIf="datos.length > 0" 
       [value]="datos"
       scrollDirection="both"
       [scrollable]="true"
-      scrollHeight="65vh"
+      [scrollHeight]="scroll"
       sortMode="single"
       (onSort)="sortColumn($event)"
       sortField="fecha" [sortOrder]="-1"
@@ -156,6 +184,18 @@
             <th  class="percentage_10">
             </th>
           </tr>
+          <tr *ngIf="request.tabla == 'EncabezadoRegistro'">
+            <th  pSortableColumn="fecha" class="percentage_60">
+              Empresa ganadera
+              <p-sortIcon field="fecha"></p-sortIcon>
+            </th>
+            <th  pSortableColumn="municipio" class="percentage_30">
+              Municipio
+              <p-sortIcon field="municipio"></p-sortIcon>
+            </th>
+            <th  class="percentage_10">
+            </th>
+          </tr>
       </ng-template>
       <ng-template pTemplate="body" let-objeto>
           <tr *ngIf="url === '/listaBgp'">
@@ -172,7 +212,7 @@
               <td class="percentage_10">
                 <span class="pi pi-eye funcionalidad animate__animated animate__zoomIn"
                   pTooltip="Ver detalle"
-                  tooltipPosition="top"
+                  tooltipPosition="left"
                   p-tooltip-text (click)="editar(objeto)"></span>
               </td>
           </tr>
@@ -189,7 +229,7 @@
             <td class="percentage_10">
               <span class="pi pi-eye funcionalidad animate__animated animate__zoomIn"
                 pTooltip="Ver detalle"
-                tooltipPosition="top"
+                tooltipPosition="left"
                 p-tooltip-text (click)="editar(objeto)"></span>
             </td>
           </tr>
@@ -204,7 +244,17 @@
             <td class="percentage_10">
               <span class="pi pi-eye funcionalidad animate__animated animate__zoomIn"
                 pTooltip="Ver detalle"
-                tooltipPosition="top"
+                tooltipPosition="left"
+                p-tooltip-text (click)="editar(objeto)"></span>
+            </td>
+          </tr>
+          <tr *ngIf="request.tabla == 'EncabezadoRegistro'">
+            <td class="column-app percentage_60">{{objeto.empresaGanadera}}</td>
+            <td class="column-app percentage_30">{{objeto.municipio}}</td>
+            <td class="percentage_10">
+              <span class="pi pi-eye funcionalidad animate__animated animate__zoomIn"
+                pTooltip="Ver detalle"
+                tooltipPosition="left"
                 p-tooltip-text (click)="editar(objeto)"></span>
             </td>
           </tr>

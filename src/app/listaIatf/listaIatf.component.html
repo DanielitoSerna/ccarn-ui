@@ -1,7 +1,5 @@
 <div class="content-app">
-  <h3>
-    Listado de Inseminación artificial
-  </h3>
+  <cmd-title text="Registro hembras protocolizadas - IATF"></cmd-title>
   <div class="card_border border_top_green content-app">
     <div class="p-grid">
       <div class="p-col-2 app-header">Fecha:</div>
@@ -39,28 +37,34 @@
     </div>
     <div class="p-grid">
       <div class="p-col-1 app-header">N°</div>
-      <div class="p-col-4 app-header">Identificación Receptora</div>
-      <div class="p-col-4 app-header">Identificación Toro</div>
-      <div class="p-col-3 app-header"></div>
+      <div class="p-col-3 app-header">Identificación Receptora</div>
+      <div class="p-col-3 app-header divisor-app">Identificación Toro</div>
+      <div class="p-col-5 app-header divisor-app"></div>
       <div class="p-col-1 app-header"></div>
-      <div class="p-col-2 app-header">Nombre</div>
+      <div class="p-col-1 app-header">Nombre</div>
       <div class="p-col-1 app-header">Número</div>
       <div class="p-col-1 app-header">Raza</div>
-      <div class="p-col-2 app-header">Nombre</div>
+      <div class="p-col-1 app-header divisor-app">Nombre</div>
       <div class="p-col-1 app-header">Número</div>
       <div class="p-col-1 app-header">Raza</div>
-      <div class="p-col-3 app-header">Observaciones</div>
+      <div class="p-col-1 app-header divisor-app">Hora</div>
+      <div class="p-col-1 app-header">P (preñez) 60</div>
+      <div class="p-col-1 app-header">Hallazgos</div>
+      <div class="p-col-2 app-header">Observaciones</div>
     </div>
     &nbsp;
     <div class="p-grid" *ngFor="let item of items; let i = index">
       <div class="p-col-1" style="text-align: center;">{{i + 1}}</div>
-      <div class="p-col-2"><input type="text" pInputText [(ngModel)]="item.nombreIdentificacionReceptora"/></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.nombreIdentificacionReceptora"/></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.numeroIdentificacionReceptora"/></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.razaIdentificacionReceptora"/></div>
-      <div class="p-col-2 divisor-app"><input type="text" pInputText [(ngModel)]="item.nombreIdentificacionToro"/></div>
+      <div class="p-col-1 divisor-app"><input type="text" pInputText [(ngModel)]="item.nombreIdentificacionToro"/></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.numeroIdentificacionToro"/></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.razaIdentificacionToro"/></div>
-      <div class="p-col-3">
+      <div class="p-col-1 divisor-app"><input type="text" pInputText [(ngModel)]="item.hora"/></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.p60"/></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.hallazgo"/></div>
+      <div class="p-col-2">
         <textarea rows="2" cols="30" pInputTextarea maxlength="400" style="width: 100%; resize:none;" [(ngModel)]="item.observacion"></textarea>
       </div>
     </div>

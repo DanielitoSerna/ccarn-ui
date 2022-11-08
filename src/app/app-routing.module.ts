@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CapacitacionComponent } from './capacitacion/capacitacion.component';
 import { EvaluacionAndrologicaComponent } from './evaluacionAndrologica/evaluacionAndrologica.component';
+import { FormatosBraComponent } from './formatosBra/formatosBra.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ListaAsiComponent } from './listaAsi/listaAsi.component';
 import { ListaBgpComponent } from './listaBgp/listaBgp.component';
@@ -44,41 +45,20 @@ const routes: Routes = [
     component: ListaIatfComponent
   },
   {
-    path: 'listasIatf',
-    component: ListasComponent
-  },
-  {
     path: 'listaDonadoras',
     component: ListaDonadorasComponent
-  },
-
-  {
-    path: 'listasDonadoras',
-    component: ListasComponent
   },
   {
     path: 'listaToro',
     component: ListaToroComponent
   },
   {
-    path: 'listasToro',
-    component: ListasComponent
-  },
-  {
     path: 'transferenciaEmbrion',
     component: TransferenciaEmbrionComponent
   },
   {
-    path: 'listasTransferenciaEmbrion',
-    component: ListasComponent
-  },
-  {
     path: 'evaluacionAndrologica',
     component: EvaluacionAndrologicaComponent
-  },
-  {
-    path: 'listasEvaluacionAndrologica',
-    component: ListasComponent
   },
   {
     path: 'capacitacion',
@@ -95,6 +75,30 @@ const routes: Routes = [
   {
     path: 'vehiculo',
     component: VehiculosComponent
+  },
+  {
+    path: 'vehiculos',
+    component: ListasComponent
+  },
+  {
+    path: 'capacitaciones',
+    component: ListasComponent
+  },
+  {
+    path: 'veterinarios',
+    component: ListasComponent
+  },
+  {
+    path: 'potreros',
+    component: ListasComponent
+  },
+  {
+    path: 'vehiculos',
+    component: ListasComponent
+  },
+  {
+    path: 'formatosBra',
+    component: FormatosBraComponent
   }
 ];
 

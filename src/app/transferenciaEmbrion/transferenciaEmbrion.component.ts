@@ -67,7 +67,7 @@ export class TransferenciaEmbrionComponent {
             item.embrion != null &&
             item.receptora != null &&
             item.ovario != null &&
-            item.p30 != null &&
+            item.hallazgo != null &&
             item.p60 != null &&
             item.sx != null
         );
