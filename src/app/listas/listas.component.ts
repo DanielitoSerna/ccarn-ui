@@ -205,6 +205,12 @@ export class ListasComponent implements OnInit {
       this.request.where = " tipoFormato = 'CARACTERIZACION'";
       this.url = '/caracterizacion';
       this.isLista = true;
+    } else if(url == '/aspiraciones') {
+      this.request.tabla = 'Formato';
+      this.request.campoOrden = 'fecha';
+      this.request.where = " tipoFormato = 'ASPIRACION'";
+      this.url = '/arpiracion';
+      this.isLista = true;
     } else if(url == '/recomendaciones') {
       this.request.tabla = 'Formato';
       this.request.campoOrden = 'fecha';
@@ -224,7 +230,7 @@ export class ListasComponent implements OnInit {
     } else if(url == '/potreros') {
       this.request.tabla = 'EncabezadoRegistro';
       this.request.campoOrden = 'empresaGanadera';
-      this.request.where = " tipoFormato = 'PORTERO'";
+      this.request.where = " tipoFormato = 'POTRERO'";
       this.url = '/potrero';
     } else if(url == '/vehiculos') {
       this.request.tabla = 'EncabezadoRegistro';

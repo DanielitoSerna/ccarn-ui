@@ -31,14 +31,14 @@
         </div>
         <div class="p-col-2">
           <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"
-                    [(ngModel)]="item.fecha">
+                    [(ngModel)]="item.fechaCapacitacion">
           </p-calendar>
         </div>
         <div class="p-col-1">
           <p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="item.duracion" suffix=" horas" [minFractionDigits]="1"></p-inputNumber>
         </div>
         <div class="p-col-3">
-          <input type="text" pInputText [(ngModel)]="item.dictadaPor"/>
+          <input type="text" pInputText [(ngModel)]="item.dictada"/>
         </div>
         <div class="p-col-3">
           <input type="text" pInputText [(ngModel)]="item.asistente"/>

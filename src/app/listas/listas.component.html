@@ -109,7 +109,6 @@
       [scrollHeight]="scroll"
       sortMode="single"
       (onSort)="sortColumn($event)"
-      sortField="fecha" [sortOrder]="-1"
       styleClass="p-datatable-sm">
       <ng-template pTemplate="header">
           <tr *ngIf="url === '/listaBgp'">
@@ -185,9 +184,9 @@
             </th>
           </tr>
           <tr *ngIf="request.tabla == 'EncabezadoRegistro'">
-            <th  pSortableColumn="fecha" class="percentage_60">
+            <th  pSortableColumn="empresaGanadera" class="percentage_60">
               Empresa ganadera
-              <p-sortIcon field="fecha"></p-sortIcon>
+              <p-sortIcon field="empresaGanadera"></p-sortIcon>
             </th>
             <th  pSortableColumn="municipio" class="percentage_30">
               Municipio

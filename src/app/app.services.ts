@@ -40,4 +40,8 @@ export class AppService {
     guardarFormatosBra(request: any): Promise<any> {
         return this.http.post(`${this.configUrl}/guardarFormato`, request).toPromise();
     }
+
+    guardarRegistro(request: any): Promise<any> {
+        return this.http.post(`${this.configUrl}/guardarRegistro`, request).toPromise();
+    }
 }

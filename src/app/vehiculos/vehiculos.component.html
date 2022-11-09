@@ -29,27 +29,27 @@
       <div class="p-grid">
         <div class="p-col-2">
           <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"
-                    [(ngModel)]="item.fecha">
+                    [(ngModel)]="item.fechaIngresoPersona">
           </p-calendar>
         </div>
         <div class="p-col-2">
-          <input type="text" pInputText [(ngModel)]="item.nombre"/>
+          <input type="text" pInputText [(ngModel)]="item.nombreIngresoPersona"/>
         </div>
         <div class="p-col-2">
-          <input type="text" pInputText [(ngModel)]="item.identificacion"/>
+          <input type="text" pInputText [(ngModel)]="item.identificacionIngresoPersona"/>
         </div>
         <div class="p-col-1">
-          <input type="text" pInputText [(ngModel)]="item.telefono"/>
+          <input type="text" pInputText [(ngModel)]="item.telefonoIngresoPersona"/>
         </div>
         <div class="p-col-1">
-          <input type="text" pInputText [(ngModel)]="item.placa"/>
+          <input type="text" pInputText [(ngModel)]="item.producto"/>
         </div>
         <div class="p-col-2">
-          <input type="text" pInputText [(ngModel)]="item.procedencia"/>
+          <input type="text" pInputText [(ngModel)]="item.procedenciaIngresoPersona"/>
         </div>
         <div class="p-col-2">
           <div class="p-grid">
-            <div class="p-col-10"><input type="text" pInputText [(ngModel)]="item.motivoViaje"/></div>
+            <div class="p-col-10"><input type="text" pInputText [(ngModel)]="item.motivoVisita"/></div>
             <div class="p-col-2"> <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-danger" (click)="remove(i)" pTooltip="Eliminar" tooltipPosition="left"></button></div>
           </div>
         </div>

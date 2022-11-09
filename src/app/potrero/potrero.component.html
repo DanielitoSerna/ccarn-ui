@@ -15,7 +15,7 @@
       </div>
       <div class="p-col-6 app-header">Potrero N°:</div>
       <div class="p-col-6 app-header-value">
-        <input type="text" pInputText [(ngModel)]="objeto.potreroN"/>
+        <input type="text" pInputText [(ngModel)]="objeto.potrero"/>
       </div>
       <div class="p-col-11"></div>
       <div class="p-col-1">
@@ -62,28 +62,28 @@
             </div>
             <div class="p-col-1" style="border-left: 1px solid #dee2e6;">
               <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"
-              [(ngModel)]="item.fecha">
+              [(ngModel)]="item.fechaFertilizacion">
                </p-calendar>
             </div>
             <div class="p-col-1">
-              <p-inputNumber [min]="0" [(ngModel)]="item.cantidad"></p-inputNumber>
+              <p-inputNumber [min]="0" [(ngModel)]="item.cantidadFertilizacion"></p-inputNumber>
             </div>
             <div class="p-col-1">
-              <input type="text" pInputText [(ngModel)]="item.producto"/>
+              <input type="text" pInputText [(ngModel)]="item.productoFertilizacion"/>
             </div>
             <div class="p-col-1" style="border-left: 1px solid #dee2e6;">
               <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"
-              [(ngModel)]="item.fecha">
+              [(ngModel)]="item.fechaPlaguicida">
                </p-calendar>
             </div>
             <div class="p-col-1">
-              <p-inputNumber [min]="0" [(ngModel)]="item.cantidad"></p-inputNumber>
+              <p-inputNumber [min]="0" [(ngModel)]="item.cantidadPlaguicida"></p-inputNumber>
             </div>
             <div class="p-col-1">
-              <input type="text" pInputText [(ngModel)]="item.producto"/>
+              <input type="text" pInputText [(ngModel)]="item.productoPlaguicida"/>
             </div>
             <div class="p-col-1" style="border-right: 1px solid #dee2e6;">
-              <input type="text" pInputText [(ngModel)]="item.carencia"/>
+              <input type="text" pInputText [(ngModel)]="item.carenciaPlaguicida"/>
             </div>
             <div class="p-col-1">
               <div class="p-grid">

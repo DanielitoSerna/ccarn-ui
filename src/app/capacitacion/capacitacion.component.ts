@@ -28,7 +28,27 @@ export class CapacitacionComponent {
 
 
   constructor(private service: AppService, private messageService: MessageService) {
-
+    let objeto:any = localStorage.getItem("objeto");
+    objeto = JSON.parse(objeto ? objeto : '');
+    this.objeto = objeto;
+    if(objeto.id != undefined) {
+        let request = {
+            tabla: 'Registro',
+            campoOrden: 'id',
+            orden: 'asc',
+            where: 'encabezadoRegistroBean.id = ' + objeto.id,
+            cantidad: 100,
+            pagina: 0
+          }
+          this.service.initProgress();
+          this.service.listarDatos(request).then(data => {
+            this.items = data;
+            this.items.forEach(element => {
+              element.fechaCapacitacion = new Date(element.fechaCapacitacion);
+            });
+            this.service.finishProgress();
+          });
+    }
   }
 
   cancelar() {
@@ -36,7 +56,24 @@ export class CapacitacionComponent {
   }
 
   guardar() {
-
+    let detalle = this.items.filter((item: any) => 
+      item.temaCapacitacion != null &&
+      item.fechaCapacitacion != null &&
+      item.duracion != null &&
+      item.dictada != null &&
+      item.asistente);
+    this.objeto.registros = detalle;
+    this.objeto.tipoFormato = "CAPACITACION";
+    if(!this.objeto.empresaGanadera || !this.objeto.municipio || detalle.length == 0) {
+      this.messageService.add({severity:'error', summary: 'Error', detail: 'Faltan datos por ingresar por favor verifica'});
+    } else {
+      this.service.guardarRegistro(this.objeto).then(data => {
+        this.messageService.add({severity:'success', summary: 'Exito', detail: 'Información guardada con exito'});
+        history.back();
+      }).catch(e => {
+        this.messageService.add({severity:'error', summary: 'Error', detail: 'Ocurrio un error al realizar la transacción, por favor verifica o intenta de nuevo'});
+      })
+    }
   }
 
   add() {

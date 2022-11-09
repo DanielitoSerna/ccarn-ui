@@ -38,7 +38,7 @@
           <div class="p-grid">
             <div class="p-col-1">
               <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"
-                        [(ngModel)]="item.fechaInicio">
+                        [(ngModel)]="item.fechaInicioTratamiento">
               </p-calendar>
             </div>
             <div class="p-col-1">
@@ -54,19 +54,19 @@
               <input type="text" pInputText [(ngModel)]="item.laboratorio"/>
             </div>
             <div class="p-col-1">
-              <input type="text" pInputText [(ngModel)]="item.loteNo"/>
+              <input type="text" pInputText [(ngModel)]="item.lote"/>
             </div>
             <div class="p-col-1">
-              <input type="text" pInputText [(ngModel)]="item.registroIcaNo"/>
+              <input type="text" pInputText [(ngModel)]="item.registroIca"/>
             </div>
             <div class="p-col-1">
               <input type="text" pInputText [(ngModel)]="item.dosis"/>
             </div>
             <div class="p-col-1">
-              <input type="text" pInputText [(ngModel)]="item.viaDeAplicacion"/>
+              <input type="text" pInputText [(ngModel)]="item.viaAplicacion"/>
             </div>
             <div class="p-col-1">
-              <input type="text" pInputText [(ngModel)]="item.duracionTto"/>
+              <input type="text" pInputText [(ngModel)]="item.duracion"/>
             </div>
             <div class="p-col-1">
               <input type="text" pInputText [(ngModel)]="item.tiempoRetiro"/>
