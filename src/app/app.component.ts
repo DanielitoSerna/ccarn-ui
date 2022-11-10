@@ -66,7 +66,7 @@ export class AppComponent implements OnInit {
     (<any>window)['googleSDKLoaded'] = () => {
       (<any>window)['gapi'].load('auth2', () => {
         this.auth2 = (<any>window)['gapi'].auth2.init({
-          client_id: '326021480668-thtspfp1j9k9l9jkhqhlvm7p17051elb.apps.googleusercontent.com',
+          client_id: '122118617268-khr8v26brmq091hbkpqknse0kfkuftgp.apps.googleusercontent.com',
           cookiepolicy: 'single_host_origin',
           scope: 'profile email',
           plugin_name: "chat"

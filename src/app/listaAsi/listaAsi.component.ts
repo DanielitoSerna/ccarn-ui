@@ -60,7 +60,7 @@ export class ListaAsiComponent {
       this.items.push({objetivo: "16. Los pisos, paredes y techos del cuarto del tanque de enfriamiento están en buen estado y son de fácil limpieza y desinfección.", tipoCriterio: "Mayor"});
       this.items.push({objetivo: "17. Si no cuenta con tanque de enfriamiento de leche, se garantiza que la leche sea almacenada en condiciones higiénicas hasta su recolección.", tipoCriterio: "Mayor"});
       this.items.push({objetivo: "18. Lleva registro de tratamientos veterinarios realizados en el predio.", tipoCriterio: "Mayor"});
-      this.items.push({objetivo: "19. Se prescriben los medicamentos por un Médico Veterinario o Médico Veterinario Zootecnista con matricula profesional vigente.", tipoCriterio: "Mayor"});
+      this.items.push({objetivo: "19. Se prescriben los medicamentos por un Médico Veterinario o Médico Veterinario Zootecnista con matrícula profesional vigente.", tipoCriterio: "Mayor"});
       this.items.push({objetivo: "20. Los productos veterinarios utilizados en el predio tienen fecha de vencimiento vigente.", tipoCriterio: "Mayor"});
       this.items.push({objetivo: "21. Cumple con el tiempo de retiro consignado en el rotulado del producto, cuando corresponda.", tipoCriterio: "Mayor"});
       this.items.push({objetivo: "22. Dispone de áreas, contenedores y/o instalaciones para el almacenamiento separado de medicamentos y biológicos veterinarios,  fertilizantes, plaguicidas, equipos y/o herramientas.", tipoCriterio: "Mayor"});
