@@ -47,6 +47,9 @@ export class ListaIatfComponent {
           this.service.listarDatos(request).then(data => {
             this.items = data;
             this.service.finishProgress();
+            this.items.forEach((item: any) => {
+              item.hora = new Date(item.hora);
+            });
           });
     }
   }

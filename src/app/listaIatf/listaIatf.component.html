@@ -61,7 +61,7 @@
       <div class="p-col-1 divisor-app"><input type="text" pInputText [(ngModel)]="item.nombreIdentificacionToro"/></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.numeroIdentificacionToro"/></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.razaIdentificacionToro"/></div>
-      <div class="p-col-1 divisor-app"><input type="text" pInputText [(ngModel)]="item.hora"/></div>
+      <div class="p-col-1 divisor-app"><p-calendar [(ngModel)]="item.hora" [timeOnly]="true" hourFormat="12" inputId="timeonly1"></p-calendar></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.p60"/></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.hallazgo"/></div>
       <div class="p-col-2">

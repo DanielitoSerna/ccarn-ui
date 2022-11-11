@@ -173,6 +173,7 @@ export class ListaAsiComponent {
       this.objeto.tipoFormato = "ASI";
       this.service.guardarEncabezado(this.objeto).then(data => {
         this.messageService.add({severity:'success', summary: 'Exito', detail: 'Información guardada con exito'});
+        history.back();
       }).catch(e => {
         this.messageService.add({severity:'error', summary: 'Error', detail: 'Ocurrio un error al realizar la transacción, por favor verifica o intenta de nuevo'});
       });

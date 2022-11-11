@@ -121,6 +121,30 @@ export class ListaBgpComponent {
       objeto.listaChequeoBean = undefined;
       this.objeto.concepto = objeto;
 
+      if(this.objeto.cria) {
+        this.objeto.cria = true;
+      }
+
+      if(this.objeto.levante) {
+        this.objeto.levante = true;
+      }
+
+      if(this.objeto.ceba) {
+        this.objeto.ceba = true;
+      }
+
+      if(this.objeto.cicloCompleto) {
+        this.objeto.cicloCompleto = true;
+      }
+
+      if(this.objeto.mv == 1) {
+        this.objeto.mv = true;
+      }
+
+      if(this.objeto.mvz == 1) {
+        this.objeto.mvz = true;
+      }
+
       let request = {
         tabla: 'DetalleListaChequeo',
         campoOrden: 'id',

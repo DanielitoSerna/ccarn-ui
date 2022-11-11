@@ -37,6 +37,8 @@ export class TransferenciaEmbrionComponent {
         this.objeto = objeto;
         if(objeto.id != undefined) {
             this.objeto.fecha = new Date(this.objeto.fecha);
+            this.objeto.horaInicio = new Date(this.objeto.horaInicio);
+            this.objeto.horaFinal = new Date(this.objeto.horaFinal);
             let request = {
                 tabla: 'DetalleFormato',
                 campoOrden: 'id',

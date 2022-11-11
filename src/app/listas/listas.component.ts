@@ -172,7 +172,7 @@ export class ListasComponent implements OnInit {
       this.request.campoOrden = 'listaChequeoBean.fecha';
       this.request.where = " listaChequeoBean.tipoFormato = 'BGP'";
       this.url = '/listaBgp';
-      this.titulo = 'Listas de chequeo BGP';
+      this.titulo = 'Listas de chequeo BPG';
     } else if(url == '/listasIatf') {
       this.request.tabla = 'Formato';
       this.request.campoOrden = 'fecha';

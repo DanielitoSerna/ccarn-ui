@@ -45,6 +45,7 @@ export class EvaluacionAndrologicaComponent {
               this.service.initProgress();
               this.service.listarDatos(request).then(data => {
                 this.objeto.detalleAndrologico = data[0];
+                this.objeto.detalleAndrologico.fechaNacimiento = new Date(this.objeto.detalleAndrologico.fechaNacimiento);
                 this.service.finishProgress();
               });
         } else {

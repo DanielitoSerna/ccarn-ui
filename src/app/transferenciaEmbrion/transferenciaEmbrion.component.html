@@ -29,9 +29,9 @@
       <div class="p-col-3 app-header">Nombre de la finca:</div>
       <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreFinca" /></div>
       <div class="p-col-3 app-header">Hora de inicio:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.horaInicio" /></div>
+      <div class="p-col-3 app-header-value"><p-calendar [(ngModel)]="objeto.horaInicio" [timeOnly]="true" hourFormat="12" inputId="timeonly1"></p-calendar></div>
       <div class="p-col-3 app-header">Hora final:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.horaFinal" /></div>
+      <div class="p-col-3 app-header-value"><p-calendar [(ngModel)]="objeto.horaFinal" [timeOnly]="true" hourFormat="12" inputId="timeonly1"></p-calendar></div>
       <div class="p-col-3 app-header">Vereda - microlocalizacion:</div>
       <div class="p-col-9 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.vereda" /></div>
       <div class="p-col-3 app-header">Profesional producción invitro de embriones:</div>
@@ -49,18 +49,18 @@
       </div>
     </div>
     <div class="p-grid">
-      <div class="p-col-1 app-header">N°</div>
-      <div class="p-col-1 app-header">Donadora</div>
-      <div class="p-col-1 app-header">Raza</div>
-      <div class="p-col-1 app-header">Toro</div>
-      <div class="p-col-1 app-header">Raza</div>
-      <div class="p-col-1 app-header">Embrión</div>
-      <div class="p-col-1 app-header">Receptora</div>
-      <div class="p-col-1 app-header">Ovario</div>
-      <div class="p-col-1 app-header">P60</div>
-      <div class="p-col-1 app-header">Hallaz</div>
-      <div class="p-col-1 app-header">SX</div>
-      <div class="p-col-1 app-header">Observación</div>
+      <div class="p-col-1 app-header app-titulo">N°</div>
+      <div class="p-col-1 app-header app-titulo">Donadora</div>
+      <div class="p-col-1 app-header app-titulo">Raza</div>
+      <div class="p-col-1 app-header app-titulo">Toro</div>
+      <div class="p-col-1 app-header app-titulo">Raza</div>
+      <div class="p-col-1 app-header app-titulo">Embrión</div>
+      <div class="p-col-1 app-header app-titulo">Receptora</div>
+      <div class="p-col-1 app-header app-titulo">Ovario</div>
+      <div class="p-col-1 app-header app-titulo">P60</div>
+      <div class="p-col-1 app-header app-titulo">Hallaz</div>
+      <div class="p-col-1 app-header app-titulo">SX</div>
+      <div class="p-col-1 app-header app-titulo">Observación</div>
     </div>
     &nbsp;
     <div class="p-grid" *ngFor="let item of items; let i = index">

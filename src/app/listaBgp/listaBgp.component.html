@@ -2,7 +2,7 @@
   <cmd-title text="Lista de chequeo BPG"></cmd-title>
   <div class="card_border border_top_green content-app">
     <div class="p-grid">
-      <div class="p-col-12 app-header">INFORMACIÓN DEL PREDIO</div>
+      <div class="p-col-12 app-header app-titulo">INFORMACIÓN DEL PREDIO</div>
       <div class="p-col-2 app-header">Fecha de Auditoría:</div>
       <div class="p-col-2 app-header-value"><p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon"
         dateFormat="dd/mm/yy" [(ngModel)]="objeto.fechaAuditoria"></p-calendar></div>
@@ -47,7 +47,7 @@
       <div class="p-col-2 app-header">Vereda:</div>
       <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.vereda"/></div>
       <div class="p-col-1 app-header">Total animales:</div>
-      <div class="p-col-1 app-header-value"><p-inputNumber [min]="0" locale="de-DE"></p-inputNumber></div>
+      <div class="p-col-1 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.totalAnimales"></p-inputNumber></div>
       <div class="p-col-1">
         <div class="field-checkbox">
           <p-checkbox [binary]="true" inputId="binary" value="Ceba" [(ngModel)]="objeto.ceba"></p-checkbox>
@@ -63,7 +63,7 @@
         </div>
       </div>
       
-      <div class="p-col-12 app-header">INFORMACIÓN DEL PROPIETARIO</div>
+      <div class="p-col-12 app-header app-titulo">INFORMACIÓN DEL PROPIETARIO</div>
       <div class="p-col-3 app-header">Propietario:</div>
       <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePropietario"/></div>
       <div class="p-col-3 app-header">Teléfono:</div>
@@ -73,9 +73,9 @@
       <div class="p-col-3 app-header">Correo electrónico:</div>
       <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.correoElectronicoPropietario"/></div>
       
-      <div class="p-col-12 app-header">INFORMACIÓN GENERAL</div>
+      <div class="p-col-12 app-header app-titulo">INFORMACIÓN GENERAL</div>
       <div class="p-col-2 app-header">Responsable del manejo sanitario:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.correoElectronicoPropietario"/></div>
+      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.responsableManejoSanitario"/></div>
       <div class="p-col-1">
         <div class="field-checkbox">
           <p-checkbox [binary]="true" inputId="binary" value="MV" [(ngModel)]="objeto.mv"></p-checkbox>
@@ -129,9 +129,9 @@
     <div *ngFor="let item of items" class="item-app">
       <div *ngIf="item.header" class="app-header p-grid">
         <div class="p-col-1">{{item.num}}</div>
-        <div class="p-col-9">{{item.objetivo}}</div>
-        <div class="p-col-1">TIPO</div>
-        <div class="p-col-1">CALIFICACIÓN</div>
+        <div class="p-col-9 app-titulo">{{item.objetivo}}</div>
+        <div class="p-col-1 app-titulo">TIPO</div>
+        <div class="p-col-1 app-titulo">CALIFICACIÓN</div>
       </div>
       <div class="p-grid" *ngIf="!item.header">
         <div class="p-col-1" style="text-align: center;">
@@ -186,8 +186,8 @@
       <div class="p-col-8 app-header-value">
         <textarea rows="5" cols="30" pInputTextarea maxlength="400" style="width: 150%;" [(ngModel)]="objeto.concepto.observaciones"></textarea>
       </div>
-      <div class="p-col-6 app-header">PERSONA QUE ATENDIO LA VISITA</div>
-      <div class="p-col-6 app-header">DATOS DEL AUDITOR</div>
+      <div class="p-col-6 app-header app-titulo">PERSONA QUE ATENDIO LA VISITA</div>
+      <div class="p-col-6 app-header app-titulo">DATOS DEL AUDITOR</div>
       <div class="p-col-3 app-header">Nombre completo</div>
       <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.concepto.nombreAtiende"/></div>
       <div class="p-col-3 app-header">Nombre completo</div>
