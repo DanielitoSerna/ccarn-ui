@@ -1,6 +1,8 @@
 <div class="div-body animate__animated animate__fadeInDown">
   <div>
     <button pButton pRipple type="button" label="Nueva" icon="pi pi-plus" class="p-button-success-app" (click)="nuevo()"></button>
+    &nbsp;
+    <label class="p-text-bold" style="font-size: 20px;">{{titulo}}</label>
     <div class="p-mt-2"></div>
     <div class="p-grid" *ngIf="url === '/listaBgp' || url === '/listaAsi'">
         <div class="p-col-12 p-md-6 p-lg-2">

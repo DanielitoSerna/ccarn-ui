@@ -29,6 +29,8 @@ export class ListasComponent implements OnInit {
   public isLista = false;
   public scroll = '65vh';
 
+  titulo = '';
+
   request: any = {
     tabla: '',
     campoOrden: 'fecha',
@@ -164,79 +166,100 @@ export class ListasComponent implements OnInit {
       this.request.campoOrden = 'listaChequeoBean.fecha';
       this.request.where = " listaChequeoBean.tipoFormato = 'ASI'";
       this.url = '/listaAsi';
+      this.titulo = 'Listas de chequeo ASI';
     } else if(url == '/listasBgp') {
       this.request.tabla = 'ConceptoListaChequeo';
       this.request.campoOrden = 'listaChequeoBean.fecha';
       this.request.where = " listaChequeoBean.tipoFormato = 'BGP'";
       this.url = '/listaBgp';
+      this.titulo = 'Listas de chequeo BGP';
     } else if(url == '/listasIatf') {
       this.request.tabla = 'Formato';
       this.request.campoOrden = 'fecha';
       this.request.where = " tipoFormato = 'IATF'";
       this.url = '/listaIatf';
       this.isLista = true;
+      this.titulo = 'Registro hembras prot. IATF';
+    } else if(url == '/listasBra') {
+      this.request.tabla = 'Formato';
+      this.request.campoOrden = 'fecha';
+      this.request.where = " tipoFormato = 'BRA'";
+      this.url = '/listaBra';
+      this.isLista = true;
+      this.titulo = 'Registro animales BRA';
     } else if(url == '/listasDonadoras') {
       this.request.tabla = 'Formato';
       this.request.campoOrden = 'fecha';
       this.request.where = " tipoFormato = 'DOND'";
       this.url = '/listaDonadoras';
       this.isLista = true;
+      this.titulo = 'Listado donadoras';
     } else if(url == '/listasToro') {
       this.request.tabla = 'Formato';
       this.request.campoOrden = 'fecha';
       this.request.where = " tipoFormato = 'TORO'";
       this.url = '/listaToro';
       this.isLista = true;
+      this.titulo = 'Listado Toros TE';
     } else if(url == '/listasEvaluacionAndrologica') {
       this.request.tabla = 'Formato';
       this.request.campoOrden = 'fecha';
       this.request.where = " tipoFormato = 'EVALUACION ANDROLOGICA'";
       this.url = '/evaluacionAndrologica';
       this.isLista = true;
+      this.titulo = 'Evaluación Andrológica';
     } else if(url == '/listasTransferenciaEmbrion') {
       this.request.tabla = 'Formato';
       this.request.campoOrden = 'fecha';
       this.request.where = " tipoFormato = 'TRANSFERENCIA EMBRIONES'";
       this.url = '/transferenciaEmbrion';
       this.isLista = true;
+      this.titulo = 'Registro hembras prot. PIVE';
     } else if(url == '/caracterizacion') {
       this.request.tabla = 'Formato';
       this.request.campoOrden = 'fecha';
       this.request.where = " tipoFormato = 'CARACTERIZACION'";
       this.url = '/caracterizacion';
       this.isLista = true;
+      this.titulo = 'Caracterización';
     } else if(url == '/aspiraciones') {
       this.request.tabla = 'Formato';
       this.request.campoOrden = 'fecha';
       this.request.where = " tipoFormato = 'ASPIRACION'";
-      this.url = '/arpiracion';
+      this.url = '/aspiracion';
       this.isLista = true;
+      this.titulo = 'Aspiración folicular';
     } else if(url == '/recomendaciones') {
       this.request.tabla = 'Formato';
       this.request.campoOrden = 'fecha';
       this.request.where = " tipoFormato = 'RECOMENDACIONES'";
-      this.url = '/recomendaciones';
+      this.url = '/recomendacion';
       this.isLista = true;
+      this.titulo = 'Recomendaciones';
     } else if(url == '/capacitaciones') {
       this.request.tabla = 'EncabezadoRegistro';
       this.request.campoOrden = 'empresaGanadera';
       this.request.where = " tipoFormato = 'CAPACITACION'";
       this.url = '/capacitacion';
+      this.titulo = 'Registros de capacitaciones';
     } else if(url == '/veterinarios') {
       this.request.tabla = 'EncabezadoRegistro';
       this.request.campoOrden = 'empresaGanadera';
       this.request.where = " tipoFormato = 'VETERINARIO'";
       this.url = '/veterinario';
+      this.titulo = 'Registros de tratamientos veterinarios';
     } else if(url == '/potreros') {
       this.request.tabla = 'EncabezadoRegistro';
       this.request.campoOrden = 'empresaGanadera';
       this.request.where = " tipoFormato = 'POTRERO'";
       this.url = '/potrero';
+      this.titulo = 'Registros manejo de potreros';
     } else if(url == '/vehiculos') {
       this.request.tabla = 'EncabezadoRegistro';
       this.request.campoOrden = 'empresaGanadera';
       this.request.where = " tipoFormato = 'VEHICULO'";
       this.url = '/vehiculo';
+      this.titulo = 'Registro control de personas y vehículos';
     }  
   }
 }

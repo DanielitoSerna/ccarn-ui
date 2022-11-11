@@ -1,5 +1,5 @@
 <div class="content-app">
-    <p-tabView [scrollable]="true">
+    <p-tabView [scrollable]="true" [(activeIndex)]="activeIndex" (onChange)="tabChange($event)">
         <p-tabPanel header="Caracterización">
             <app-listas tipo="/caracterizacion"></app-listas>
         </p-tabPanel>
@@ -7,7 +7,7 @@
             <app-listas tipo="/recomendaciones"></app-listas>
         </p-tabPanel>
         <p-tabPanel header="Registro animales BRA">
-            <app-listas tipo="/listasIatf"></app-listas>
+            <app-listas tipo="/listasBra"></app-listas>
         </p-tabPanel>
         <p-tabPanel header="Registro hembras prot. IATF">
             <app-listas tipo="/listasIatf"></app-listas>

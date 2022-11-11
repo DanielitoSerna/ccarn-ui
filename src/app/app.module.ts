@@ -25,6 +25,9 @@ import { VeterinarioComponent } from './veterinario/veterinario.component';
 import { PotreroComponent } from './potrero/potrero.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
 import { FormatosBraComponent } from './formatosBra/formatosBra.component';
+import { RecomendacionComponent } from './recomendacion/recomendacion.component';
+import { ListaBraComponent } from './listaBra/listaBra.component';
+import { AspiracionFolicularComponent } from './aspiracionFolicular/aspiracionFolicular.component';
 
 
 @NgModule({
@@ -43,7 +46,10 @@ import { FormatosBraComponent } from './formatosBra/formatosBra.component';
     VeterinarioComponent,
     PotreroComponent,
     VehiculosComponent,
-    FormatosBraComponent
+    FormatosBraComponent,
+    RecomendacionComponent,
+    ListaBraComponent,
+    AspiracionFolicularComponent
   ],
   imports: [
     BrowserModule,
