@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AspiracionFolicularComponent } from './aspiracionFolicular/aspiracionFolicular.component';
 import { CapacitacionComponent } from './capacitacion/capacitacion.component';
+import { CaracterizacionComponent } from './caracterizacion/caracterizacion.component';
 import { EvaluacionAndrologicaComponent } from './evaluacionAndrologica/evaluacionAndrologica.component';
 import { FormatosBraComponent } from './formatosBra/formatosBra.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -114,7 +115,11 @@ const routes: Routes = [
   {
     path: 'aspiracion',
     component: AspiracionFolicularComponent
-  }
+  },
+  {
+    path: 'caracterizacion',
+    component: CaracterizacionComponent
+  },
 ];
 
 @NgModule({

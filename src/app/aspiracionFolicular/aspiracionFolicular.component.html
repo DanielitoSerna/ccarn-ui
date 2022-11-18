@@ -18,26 +18,27 @@
         [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.municipio">
         </p-dropdown>
       </div>
-      <div class="p-col-4 app-header">Nombre del propietario o representante legal:</div>
-      <div class="p-col-8 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePropietario"/></div>
+      <div class="p-col-2 app-header">Nombre del propietario o representante legal:</div>
+      <div class="p-col-10 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePropietario"/></div>
       <div class="p-col-2 app-header">Nombre de la finca:</div>
-      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreFinca"/></div>
+      <div class="p-col-10 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreFinca"/></div>
       <div class="p-col-2 app-header">Vereda - microlocalización:</div>
-      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.vereda"/></div>
-      <div class="p-col-4 app-header">
+      <div class="p-col-10 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.vereda"/></div>
+      <div class="p-col-2 app-header">
         <div>&nbsp;</div>
         <div>&nbsp;</div>
         Profesionales a cargo de la asesoría:
       </div>
-      <div class="p-col-8 app-header-value">
+      <div class="p-col-10 app-header-value">
         <input type="text" pInputText [(ngModel)]="objeto.profesionalACargoUno"/>
         &nbsp;
         <input type="text" pInputText [(ngModel)]="objeto.profesionalACargoDos"/>
       </div>
-      <div class="p-col-3 app-header">N° de Receptoras seleccionadas:</div>
-      <div class="p-col-3 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.numeroReceptorasSeleccionadas"></p-inputNumber></div>
-      <div class="p-col-3 app-header">N° de Receptoras transferidas:</div>
-      <div class="p-col-3 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.numeroReceptorasTransfericas"></p-inputNumber></div>
+      <div class="p-col-2 app-header">N° de Receptoras seleccionadas:</div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.numeroReceptorasSeleccionadas"></p-inputNumber></div>
+      <div class="p-col-2 app-header">N° de Receptoras transferidas:</div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.numeroReceptorasTransfericas"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"></div>
       <div class="p-col-2 app-header">Hora de inicio:</div>
       <div class="p-col-2 app-header-value"><p-calendar [(ngModel)]="objeto.horaInicio" [timeOnly]="true" hourFormat="12" inputId="timeonly"></p-calendar></div>
       <div class="p-col-2 app-header">Hora de fin:</div>
@@ -140,7 +141,7 @@
         <input type="text" pInputText [(ngModel)]="objeto.tarjetaProfesionalDos"/>
       </div>
     </div>
-    <div class="modal-footer" *ngIf="objeto.id == undefined">
+    <div class="modal-footer">
       <div class="wrapper">
         <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar()"></button>
         <div class="p-mr-2"></div>

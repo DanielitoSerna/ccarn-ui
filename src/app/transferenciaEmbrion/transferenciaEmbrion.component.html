@@ -19,30 +19,30 @@
           optionValue="value" [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.municipio">
         </p-dropdown>
       </div>
-      <div class="p-col-3 app-header">Empaque de embriones:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.empaqueEmbriones" /></div>
-      <div class="p-col-3 app-header">Nombre del propietario o representante legal:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePropietario" />
+      <div class="p-col-2 app-header">Empaque de embriones:</div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.empaqueEmbriones" /></div>
+      <div class="p-col-2 app-header">Nombre del propietario o representante legal:</div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePropietario" />
       </div>
-      <div class="p-col-3 app-header">Transferidor:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.transferidor" /></div>
-      <div class="p-col-3 app-header">Nombre de la finca:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreFinca" /></div>
-      <div class="p-col-3 app-header">Hora de inicio:</div>
-      <div class="p-col-3 app-header-value"><p-calendar [(ngModel)]="objeto.horaInicio" [timeOnly]="true" hourFormat="12" inputId="timeonly1"></p-calendar></div>
-      <div class="p-col-3 app-header">Hora final:</div>
-      <div class="p-col-3 app-header-value"><p-calendar [(ngModel)]="objeto.horaFinal" [timeOnly]="true" hourFormat="12" inputId="timeonly1"></p-calendar></div>
-      <div class="p-col-3 app-header">Vereda - microlocalizacion:</div>
-      <div class="p-col-9 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.vereda" /></div>
-      <div class="p-col-3 app-header">Profesional producción invitro de embriones:</div>
-      <div class="p-col-9 app-header-value"><input type="text" pInputText
+      <div class="p-col-2 app-header">Transferidor:</div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.transferidor" /></div>
+      <div class="p-col-2 app-header">Nombre de la finca:</div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreFinca" /></div>
+      <div class="p-col-2 app-header">Hora de inicio:</div>
+      <div class="p-col-2 app-header-value"><p-calendar [(ngModel)]="objeto.horaInicio" [timeOnly]="true" hourFormat="12" inputId="timeonly1"></p-calendar></div>
+      <div class="p-col-2 app-header">Hora final:</div>
+      <div class="p-col-2 app-header-value"><p-calendar [(ngModel)]="objeto.horaFinal" [timeOnly]="true" hourFormat="12" inputId="timeonly1"></p-calendar></div>
+      <div class="p-col-2 app-header">Vereda - microlocalizacion:</div>
+      <div class="p-col-10 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.vereda" /></div>
+      <div class="p-col-2 app-header">Profesional producción invitro de embriones:</div>
+      <div class="p-col-10 app-header-value"><input type="text" pInputText
           [(ngModel)]="objeto.profesionalProduccionInvitroEmbriones" /></div>
-      <div class="p-col-3 app-header">
+      <div class="p-col-2 app-header">
         <div>&nbsp;</div>
         <div>&nbsp;</div>
         Profesionales a cargo de la asesoría:
       </div>
-      <div class="p-col-9 app-header-value">
+      <div class="p-col-10 app-header-value">
         <input type="text" pInputText [(ngModel)]="objeto.profesionalACargoUno" />
         &nbsp;
         <input type="text" pInputText [(ngModel)]="objeto.profesionalACargoDos" />
@@ -103,7 +103,7 @@
         <input type="text" pInputText [(ngModel)]="objeto.tarjetaProfesionalDos" />
       </div>
     </div>
-    <div class="modal-footer" *ngIf="objeto.id == undefined">
+    <div class="modal-footer">
       <div class="wrapper">
         <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar()"></button>
         <div class="p-mr-2"></div>

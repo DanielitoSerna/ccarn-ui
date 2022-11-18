@@ -28,6 +28,7 @@ import { FormatosBraComponent } from './formatosBra/formatosBra.component';
 import { RecomendacionComponent } from './recomendacion/recomendacion.component';
 import { ListaBraComponent } from './listaBra/listaBra.component';
 import { AspiracionFolicularComponent } from './aspiracionFolicular/aspiracionFolicular.component';
+import { CaracterizacionComponent } from './caracterizacion/caracterizacion.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { AspiracionFolicularComponent } from './aspiracionFolicular/aspiracionFo
     FormatosBraComponent,
     RecomendacionComponent,
     ListaBraComponent,
-    AspiracionFolicularComponent
+    AspiracionFolicularComponent,
+    CaracterizacionComponent
   ],
   imports: [
     BrowserModule,

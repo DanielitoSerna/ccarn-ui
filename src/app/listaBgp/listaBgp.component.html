@@ -64,18 +64,18 @@
       </div>
       
       <div class="p-col-12 app-header app-titulo">INFORMACIÓN DEL PROPIETARIO</div>
-      <div class="p-col-3 app-header">Propietario:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePropietario"/></div>
-      <div class="p-col-3 app-header">Teléfono:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.telefonoPropietario"/></div>
-      <div class="p-col-3 app-header">No de Identificación:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.numeroIdentificacion"/></div>
-      <div class="p-col-3 app-header">Correo electrónico:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.correoElectronicoPropietario"/></div>
+      <div class="p-col-2 app-header">Propietario:</div>
+      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePropietario"/></div>
+      <div class="p-col-2 app-header">Teléfono:</div>
+      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.telefonoPropietario"/></div>
+      <div class="p-col-2 app-header">No de Identificación:</div>
+      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.numeroIdentificacion"/></div>
+      <div class="p-col-2 app-header">Correo electrónico:</div>
+      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.correoElectronicoPropietario"/></div>
       
       <div class="p-col-12 app-header app-titulo">INFORMACIÓN GENERAL</div>
       <div class="p-col-2 app-header">Responsable del manejo sanitario:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.responsableManejoSanitario"/></div>
+      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.responsableManejoSanitario"/></div>
       <div class="p-col-1">
         <div class="field-checkbox">
           <p-checkbox [binary]="true" inputId="binary" value="MV" [(ngModel)]="objeto.mv"></p-checkbox>
@@ -91,34 +91,34 @@
         </div>
       </div>
       <div class="p-col-2 app-header">Matrícula profesional No:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.numeroMatricula"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.numeroMatricula"/></div>
 
-      <div class="p-col-3 app-header">Correo:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.correoElectronicoResponsable"/></div>
-      <div class="p-col-3 app-header">Teléfono:</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.telefonoResponsable"/></div>
+      <div class="p-col-2 app-header">Correo:</div>
+      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.correoElectronicoResponsable"/></div>
+      <div class="p-col-2 app-header">Teléfono:</div>
+      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.telefonoResponsable"/></div>
       <div class="p-col-4 app-header">Tipo de visita:</div>
-      <div class="p-col-2">
+      <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
           <p-radioButton name="tipo" value="Certificación" [(ngModel)]="objeto.tipoVisita"></p-radioButton>
           &nbsp;
           <label for="binary">Certificación</label>
         </div>
       </div>
-      <div class="p-col-2">
+      <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
           <p-radioButton name="tipo" value="Inspección" [(ngModel)]="objeto.tipoVisita"></p-radioButton>
           &nbsp;
           <label for="binary">Inspección</label>
         </div>
       </div>
-      <div class="p-col-2">
+      <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
           <p-radioButton name="tipo" value="Vigilancia" [(ngModel)]="objeto.tipoVisita"></p-radioButton>
           &nbsp;
           <label for="binary">Vigilancia</label>
         </div>
-      </div><div class="p-col-2">
+      </div><div class="p-col-2 app-header-value">
         <div class="field-checkbox">
           <p-radioButton name="tipo" value="Control" [(ngModel)]="objeto.tipoVisita"></p-radioButton>
           &nbsp;

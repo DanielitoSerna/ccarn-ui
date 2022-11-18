@@ -22,20 +22,20 @@
                     [(ngModel)]="objeto.municipio">
                 </p-dropdown>
             </div>
-            <div class="p-col-3 app-header">Nombre del propietario o representante legal:</div>
-            <div class="p-col-9 app-header-value"><input type="text" pInputText
+            <div class="p-col-2 app-header">Nombre del propietario o representante legal:</div>
+            <div class="p-col-10 app-header-value"><input type="text" pInputText
                     [(ngModel)]="objeto.nombrePropietario" /></div>
-            <div class="p-col-3 app-header">Nombre de la finca:</div>
-            <div class="p-col-9 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreFinca" />
+            <div class="p-col-2 app-header">Nombre de la finca:</div>
+            <div class="p-col-10 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreFinca" />
             </div>
-            <div class="p-col-3 app-header">Vereda - microlocalizacion:</div>
-            <div class="p-col-9 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.vereda" /></div>
-            <div class="p-col-3 app-header">
+            <div class="p-col-2 app-header">Vereda - microlocalizacion:</div>
+            <div class="p-col-10 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.vereda" /></div>
+            <div class="p-col-2 app-header">
                 <div>&nbsp;</div>
                 <div>&nbsp;</div>
                 Profesionales a cargo de la asesoría:
             </div>
-            <div class="p-col-9 app-header-value">
+            <div class="p-col-10 app-header-value">
                 <input type="text" pInputText [(ngModel)]="objeto.profesionalACargoUno" />
                 &nbsp;
                 <input type="text" pInputText [(ngModel)]="objeto.profesionalACargoDos" />
@@ -177,7 +177,7 @@
                 <input type="text" pInputText [(ngModel)]="objeto.tarjetaProfesionalDos" />
             </div>
         </div>
-        <div class="modal-footer" *ngIf="objeto.id == undefined">
+        <div class="modal-footer">
             <div class="wrapper">
                 <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined"
                     (click)="cancelar()"></button>

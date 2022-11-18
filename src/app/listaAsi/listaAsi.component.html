@@ -4,10 +4,10 @@
     <div class="p-grid">
       <div class="p-col-12 app-header app-titulo">LISTA DE CHEQUEO
         VERIFICACIÓN DE REQUISITOS PARA  LA AUTORIZACIÓN SANITARIA Y DE INOCUIDAD EN LOS PREDIOS PRODUCTORES DE ANIMALES DESTINADOS A LA PRODUCCIÓN DE CARNE Y/O LECHE PARA EL CONSUMO HUMANO - RES. 115708 de 2021</div>
-      <div class="p-col-1 app-header">Fecha</div>
+      <div class="p-col-2 app-header">Fecha</div>
       <div class="p-col-2 app-header-value"><p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon"
         dateFormat="dd/mm/yy" [(ngModel)]="objeto.fecha"></p-calendar></div>
-      <div class="p-col-1 app-header">OBJETO:</div>
+      <div class="p-col-2 app-header">OBJETO:</div>
       <div class="p-col-2">
         <div class="field-checkbox">
           <p-radioButton name="tipo" value="Autorización" [(ngModel)]="objeto.objeto"></p-radioButton>
@@ -22,7 +22,7 @@
           <label for="binary">Modificación</label>
         </div>
       </div>
-      <div class="p-col-3">
+      <div class="p-col-2">
         <div class="field-checkbox">
           <p-radioButton name="tipo" value="Inspección, Vigilancia y Control" [(ngModel)]="objeto.objeto"></p-radioButton>
           &nbsp;
@@ -30,50 +30,50 @@
         </div>
       </div>      
       <div class="p-col-12 app-header app-titulo">INFORMACIÓN GENERAL DEL PREDIO</div>
-      <div class="p-col-3 app-header">Número de Registro del predio</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.numeroRegistroPredio"/></div>
-      <div class="p-col-3 app-header">Nombre del predio</div>
-      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePredio"/></div>
+      <div class="p-col-2 app-header">Número de Registro del predio</div>
+      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.numeroRegistroPredio"/></div>
+      <div class="p-col-2 app-header">Nombre del predio</div>
+      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePredio"/></div>
       
       <div class="p-col-12 app-header app-titulo">INVENTARIO ANIMAL DEL PREDIO</div>
-      <div class="p-col-1 app-header">Bovinos</div>
-      <div class="p-col-1 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.bovinos"></p-inputNumber></div>
-      <div class="p-col-1 app-header">Bufalinos</div>
-      <div class="p-col-1 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.bufalinos"></p-inputNumber></div>
-      <div class="p-col-1 app-header">Équidos</div>
-      <div class="p-col-1 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.equidos"></p-inputNumber></div>
-      <div class="p-col-1 app-header">Porcinos</div>
-      <div class="p-col-1 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.porcinos"></p-inputNumber></div>
-      <div class="p-col-1 app-header">Ovinos</div>
-      <div class="p-col-1 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.ovinos"></p-inputNumber></div>
-      <div class="p-col-1 app-header">Caprinos</div>
-      <div class="p-col-1 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.caprinos"></p-inputNumber></div>
+      <div class="p-col-2 app-header">Bovinos</div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.bovinos"></p-inputNumber></div>
+      <div class="p-col-2 app-header">Bufalinos</div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.bufalinos"></p-inputNumber></div>
+      <div class="p-col-2 app-header">Équidos</div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.equidos"></p-inputNumber></div>
+      <div class="p-col-2 app-header">Porcinos</div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.porcinos"></p-inputNumber></div>
+      <div class="p-col-2 app-header">Ovinos</div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.ovinos"></p-inputNumber></div>
+      <div class="p-col-2 app-header">Caprinos</div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.caprinos"></p-inputNumber></div>
 
-      <div class="p-col-1 app-header">Aves de corral </div>
+      <div class="p-col-2 app-header">Aves de corral </div>
       <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.avesCorral"></p-inputNumber></div>
-      <div class="p-col-1 app-header">Conejos</div>
+      <div class="p-col-2 app-header">Conejos</div>
       <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.conejos"></p-inputNumber></div>
-      <div class="p-col-1 app-header">Peces de cultivo</div>
+      <div class="p-col-2 app-header">Peces de cultivo</div>
       <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.pecesCultivo"></p-inputNumber></div>
-      <div class="p-col-1 app-header">Zoocría (especie)</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.zoocria"></p-inputNumber></div>
+      <div class="p-col-2 app-header">Zoocría (especie)</div>
+      <div class="p-col-10 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.zoocria"></p-inputNumber></div>
       
       <div class="p-col-12 app-header app-titulo">FIN ZOOTÉCNICO</div>
 
-      <div class="p-col-1 app-header">CRIA</div>
+      <div class="p-col-2 app-header">CRIA</div>
       <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.cria"></p-inputNumber></div>
-      <div class="p-col-1 app-header">LEVANTE</div>
+      <div class="p-col-2 app-header">LEVANTE</div>
       <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.levante"></p-inputNumber></div>
-      <div class="p-col-1 app-header">CEBA (ENGORDE)</div>
+      <div class="p-col-2 app-header">CEBA (ENGORDE)</div>
       <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.ceba"></p-inputNumber></div>
-      <div class="p-col-1 app-header">LECHE</div>
+      <div class="p-col-2 app-header">LECHE</div>
       <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.leche"></p-inputNumber></div>
       
-      <div class="p-col-1 app-header">POSTURA</div>
+      <div class="p-col-2 app-header">POSTURA</div>
       <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.postura"></p-inputNumber></div>
-      <div class="p-col-1 app-header">MATERIAL GENÉTICO</div>
+      <div class="p-col-2 app-header">MATERIAL GENÉTICO</div>
       <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.materialGenetico"></p-inputNumber></div>
-      <div class="p-col-1 app-header">OTRO (CUAL)</div>
+      <div class="p-col-2 app-header">OTRO (CUAL)</div>
       <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.otro"/></div>
 
       <div class="p-col-10 app-header app-titulo">REQUISITOS A EVALUAR EN EL PREDIO  </div>

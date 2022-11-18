@@ -379,7 +379,6 @@ input::placeholder {
 }
 
 .app-header {
-  text-align: center;
   border: 1px solid #dee2e6;
   border-width: 0 0 1px 0;
   font-weight: 600;
@@ -389,6 +388,8 @@ input::placeholder {
 
 .app-titulo {
   font-weight: bold;
+  text-align: center;
+  font-size: 16px;
 }
 
 .app-header-value {
