@@ -61,20 +61,20 @@
       <div class="p-col-12 app-header app-titulo">FIN ZOOTÉCNICO</div>
 
       <div class="p-col-2 app-header">CRIA</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.cria"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-checkbox [(ngModel)]="objeto.cria" [binary]="true" inputId="binary"></p-checkbox></div>
       <div class="p-col-2 app-header">LEVANTE</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.levante"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-checkbox [(ngModel)]="objeto.levante" [binary]="true" inputId="binary"></p-checkbox></div>
       <div class="p-col-2 app-header">CEBA (ENGORDE)</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.ceba"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-checkbox [(ngModel)]="objeto.ceba" [binary]="true" inputId="binary"></p-checkbox></div>
       <div class="p-col-2 app-header">LECHE</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.leche"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-checkbox [(ngModel)]="objeto.leche" [binary]="true" inputId="binary"></p-checkbox></div>
       
       <div class="p-col-2 app-header">POSTURA</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.postura"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-checkbox [(ngModel)]="objeto.postura" [binary]="true" inputId="binary"></p-checkbox></div>
       <div class="p-col-2 app-header">MATERIAL GENÉTICO</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.materialGenetico"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-checkbox [(ngModel)]="objeto.materialGenetico" [binary]="true" inputId="binary"></p-checkbox></div>
       <div class="p-col-2 app-header">OTRO (CUAL)</div>
-      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.otro"/></div>
+      <div class="p-col-8 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.otro"/></div>
 
       <div class="p-col-10 app-header app-titulo">REQUISITOS A EVALUAR EN EL PREDIO  </div>
       <div class="p-col-1 app-header app-titulo">CRITERIO</div>
