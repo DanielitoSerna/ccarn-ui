@@ -44,4 +44,8 @@ export class AppService {
     guardarRegistro(request: any): Promise<any> {
         return this.http.post(`${this.configUrl}/guardarRegistro`, request).toPromise();
     }
+
+    guardarCaracterizacion(request: any): Promise<any> {
+        return this.http.post(`${this.configUrl}/guardarCaracterizacion`, request).toPromise();
+    }
 }

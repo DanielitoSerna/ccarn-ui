@@ -216,9 +216,9 @@ export class ListasComponent implements OnInit {
       this.isLista = true;
       this.titulo = 'Registro hembras prot. PIVE';
     } else if(url == '/caracterizacion') {
-      this.request.tabla = 'Formato';
+      this.request.tabla = 'Caracterizacion';
       this.request.campoOrden = 'fecha';
-      this.request.where = " tipoFormato = 'CARACTERIZACION'";
+      this.request.where = undefined;
       this.url = '/caracterizacion';
       this.isLista = true;
       this.titulo = 'Caracterización';

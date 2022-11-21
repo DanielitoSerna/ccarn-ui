@@ -9,11 +9,8 @@
       <div class="p-col-2 app-header-value"><p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon"
         dateFormat="dd/mm/yy" [(ngModel)]="objeto.fecha"></p-calendar></div>
       <div class="p-col-2 app-header">Caracterización N°:</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.numeroRegistroPredio"/></div>
-      <div class="p-col-1 app-header">1°</div>
-      <div class="p-col-1 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.numeroRegistroPredio"/></div>
-      <div class="p-col-1 app-header">2°</div>
-      <div class="p-col-1 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.numeroRegistroPredio"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.numeroCaracterizaacion"/></div>
+      <div class="p-col-4 app-header"></div>
       
       <div class="p-col-4 app-header">Nombre del propietario o representante legal:</div>
       <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePropietario"/></div>
@@ -33,7 +30,7 @@
         </div>
       </div>
       <div class="p-col-4 app-header">Nombre del predio:</div>
-      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreFinca"/></div>
+      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePredio"/></div>
 
       <div class="p-col-2 app-header">Departamento:</div>
       <div class="p-col-2 app-header"><p-dropdown [options]="departamentos" styleClass="width_full"
@@ -53,10 +50,10 @@
       </div>
 
       <div class="p-col-2 app-header">Correo electrónico:</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.correoElectronicoPropietario"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.correoElectronico"/></div>
       
       <div class="p-col-1 app-header">Teléfono fijo:</div>
-      <div class="p-col-1 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.telefono"/></div>
+      <div class="p-col-1 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.telefonoFijo"/></div>
       
       <div class="p-col-1 app-header">Celular:</div>
       <div class="p-col-1 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.celular"/></div>
@@ -64,14 +61,14 @@
       <div class="p-col-2 app-header">Acta de compromiso:</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="SI" [(ngModel)]="objeto.acta"></p-radioButton>
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.actaCompromiso"></p-radioButton>
           &nbsp;
           <label for="binary">SI</label>
         </div>
       </div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="NO" [(ngModel)]="objeto.acta"></p-radioButton>
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.actaCompromiso"></p-radioButton>
           &nbsp;
           <label for="binary">NO</label>
         </div>
@@ -80,14 +77,14 @@
       <div class="p-col-4 app-header">Es asociado de alguna agremiación:</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="SI" [(ngModel)]="objeto.agresion"></p-radioButton>
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.asociadoAgremiacion"></p-radioButton>
           &nbsp;
           <label for="binary">SI</label>
         </div>
       </div>
       <div class="p-col-3 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="NO" [(ngModel)]="objeto.agresion"></p-radioButton>
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.asociadoAgremiacion"></p-radioButton>
           &nbsp;
           <label for="binary">NO</label>
         </div>
@@ -104,7 +101,7 @@
       <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombre"/></div>
       
       <div class="p-col-2 app-header">Sede - municipio:</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.sede"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.sedeMunicipio"/></div>
       
       <div class="p-col-12 app-header app-titulo">1.1 Características demográficas:</div>
 
@@ -187,7 +184,7 @@
 
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.afrodescendientes" [binary]="true" inputId="binary"></p-checkbox>
+          <p-checkbox [(ngModel)]="objeto.afrodescendiente" [binary]="true" inputId="binary"></p-checkbox>
           <label for="binary">&nbsp;Afrodescendientes</label>
         </div>
       </div>
@@ -226,33 +223,36 @@
       <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreEncuestado"/></div>
       
       <div class="p-col-2 app-header">Idenficación:</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.identificacionEncuestado"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.identificacion"/></div>
       
       <div class="p-col-2 app-header">Cargo dentro del predio:</div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.adminitrador" [binary]="true" inputId="binary"></p-checkbox>
-          <label for="binary">&nbsp;Administrador</label>
+          <p-radioButton name="tipo" value="Administrador" [(ngModel)]="objeto.cargoDentroPredio"></p-radioButton>
+          &nbsp;
+          <label for="binary">Administrador</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.asistenteTecnico" [binary]="true" inputId="binary"></p-checkbox>
-          <label for="binary">&nbsp;Asistente técnico</label>
+          <p-radioButton name="tipo" value="Asistente técnico" [(ngModel)]="objeto.cargoDentroPredio"></p-radioButton>
+          &nbsp;
+          <label for="binary">Asistente técnico</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.propietario" [binary]="true" inputId="binary"></p-checkbox>
-          <label for="binary">&nbsp;Propietario</label>
+          <p-radioButton name="tipo" value="Propietario" [(ngModel)]="objeto.cargoDentroPredio"></p-radioButton>
+          &nbsp;
+          <label for="binary">Propietario</label>
         </div>
       </div>
       <div class="p-col-2 app-header">Otro, ¿Cual?</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.otro"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.cargoDentroPredio"/></div>
       <div class="p-col-2 app-header">Correo electrónico del encuestado: </div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.correoEncuestado"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.correoElectronicoEncuestado"/></div>
       <div class="p-col-2 app-header">Profesional a cargo de la asesoría directa:</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.profesional"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.profesionalCargoAsesoriaDirecta"/></div>
       <div class="p-col-2 app-header">Teléfono del encuestado:</div>
       <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.telefonoEncuestado"/></div>
 
@@ -260,30 +260,30 @@
       <div class="p-col-2 app-header">Participa en el componente de biotecnología:</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="SI" [(ngModel)]="objeto.participa"></p-radioButton>
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.participaComponenteBiotecnologia"></p-radioButton>
           &nbsp;
           <label for="binary">SI</label>
         </div>
       </div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="NO" [(ngModel)]="objeto.participa"></p-radioButton>
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.participaComponenteBiotecnologia"></p-radioButton>
           &nbsp;
           <label for="binary">NO</label>
         </div>
       </div>
       <div class="p-col-2 app-header">IATF: &nbsp; No. de vacas:</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.noVacas"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal"  [(ngModel)]="objeto.numeroVacasIatf"></p-inputNumber></div>
       <div class="p-col-2 app-header">No. de novillas:</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.noNovillas"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [(ngModel)]="objeto.numeroNovilloIatf"></p-inputNumber></div>
       
       <div class="p-col-2 app-header">TE: &nbsp; No. de vacas:</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.noVacas"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [(ngModel)]="objeto.numeroVacasTe"></p-inputNumber></div>
       <div class="p-col-2 app-header">No. de novillas:</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.noNovillas"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [(ngModel)]="objeto.numeroNovilloTe"></p-inputNumber></div>
       
       <div class="p-col-2 app-header">Raza que requiere para su hato:</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.razaQueRequiere"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.razaHato"/></div>
 
       <div class="p-col-2 app-header">Doble propósito:</div>
       <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.dobleProposito"/></div>
@@ -302,43 +302,43 @@
       <div class="p-col-2 app-header">asnm:</div>
       <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.asnm"/></div>
       <div class="p-col-2 app-header">Humedad relativa:</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.humedadReflejada"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.humedadRelativa"/></div>
       <div class="p-col-2 app-header">Topografia:</div>
       <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.topografia"/></div>
       <div class="p-col-2 app-header">Tenencia del predio:</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="Propia" [(ngModel)]="objeto.tenecia"></p-radioButton>
+          <p-radioButton name="tipo" value="Propia" [(ngModel)]="objeto.tenenciaPredio"></p-radioButton>
           &nbsp;
           <label for="binary">Propia</label>
         </div>
       </div>
-      <div class="p-col-1 app-header-value">
+      <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="Arrendada" [(ngModel)]="objeto.tenencia"></p-radioButton>
+          <p-radioButton name="tipo" value="Arrendada" [(ngModel)]="objeto.tenenciaPredio"></p-radioButton>
           &nbsp;
           <label for="binary">Arrendada</label>
         </div>
       </div>
-      <div class="p-col-2 app-header"></div>
+      <div class="p-col-1 app-header"></div>
       <div class="p-col-2 app-header">Estados de las vías de acceso:</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="Buena" [(ngModel)]="objeto.estadoVia"></p-radioButton>
+          <p-radioButton name="tipo" value="Buena" [(ngModel)]="objeto.estadoViaAcceso"></p-radioButton>
           &nbsp;
           <label for="binary">Buena</label>
         </div>
       </div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="Regular" [(ngModel)]="objeto.estadoVia"></p-radioButton>
+          <p-radioButton name="tipo" value="Regular" [(ngModel)]="objeto.estadoViaAcceso"></p-radioButton>
           &nbsp;
           <label for="binary">Regular</label>
         </div>
       </div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="Mala" [(ngModel)]="objeto.estadoVia"></p-radioButton>
+          <p-radioButton name="tipo" value="Mala" [(ngModel)]="objeto.estadoViaAcceso"></p-radioButton>
           &nbsp;
           <label for="binary">Mala</label>
         </div>
@@ -349,14 +349,14 @@
       <div class="p-col-2 app-header">¿Dispone de computador para llevar la información de la empresa?</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="SI" [(ngModel)]="objeto.disponeComputadora"></p-radioButton>
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.tieneComputador"></p-radioButton>
           &nbsp;
           <label for="binary">SI</label>
         </div>
       </div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="NO" [(ngModel)]="objeto.disponeComputadora"></p-radioButton>
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.tieneComputador"></p-radioButton>
           &nbsp;
           <label for="binary">NO</label>
         </div>
@@ -365,14 +365,14 @@
       <div class="p-col-2 app-header">¿Dispone de internet en su finca?</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="SI" [(ngModel)]="objeto.disponeInternet"></p-radioButton>
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.tieneInternet"></p-radioButton>
           &nbsp;
           <label for="binary">SI</label>
         </div>
       </div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="NO" [(ngModel)]="objeto.disponeInternet"></p-radioButton>
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.tieneInternet"></p-radioButton>
           &nbsp;
           <label for="binary">NO</label>
         </div>
@@ -381,14 +381,14 @@
       <div class="p-col-2 app-header">¿Utiliza algún software para el manejo de la información del predio?</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="SI" [(ngModel)]="objeto.utilizaSoftware"></p-radioButton>
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.usaSoftware"></p-radioButton>
           &nbsp;
           <label for="binary">SI</label>
         </div>
       </div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="NO" [(ngModel)]="objeto.utilizaSoftware"></p-radioButton>
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.usaSoftware"></p-radioButton>
           &nbsp;
           <label for="binary">NO</label>
         </div>
@@ -396,92 +396,116 @@
 
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="Ganadero" [(ngModel)]="objeto.sistema"></p-radioButton>
+          <p-radioButton name="tipo" value="Ganadero" [(ngModel)]="objeto.nombreSoftware"></p-radioButton>
           &nbsp;
           <label for="binary">Ganadero</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="Taurus" [(ngModel)]="objeto.sistema"></p-radioButton>
+          <p-radioButton name="tipo" value="Taurus" [(ngModel)]="objeto.nombreSoftware"></p-radioButton>
           &nbsp;
           <label for="binary">Taurus</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="Inteherd" [(ngModel)]="objeto.sistema"></p-radioButton>
+          <p-radioButton name="tipo" value="Inteherd" [(ngModel)]="objeto.nombreSoftware"></p-radioButton>
           &nbsp;
           <label for="binary">Inteherd</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="Otro" [(ngModel)]="objeto.sistema"></p-radioButton>
+          <p-radioButton name="tipo" value="Otro" [(ngModel)]="objeto.nombreSoftware"></p-radioButton>
           &nbsp;
           <label for="binary">Otro, ¿Cual?</label>
         </div>
       </div>
-      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.otro"/></div>
+      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreSoftware"/></div>
 
 
       <div class="p-col-2 app-header">¿Cómo lleva la información técnica primaria?</div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="Cuaderno" [(ngModel)]="objeto.informacionTecnica"></p-radioButton>
+          <p-radioButton name="tipo" value="Cuaderno" [(ngModel)]="objeto.informacionTecnicaPrimaria"></p-radioButton>
           &nbsp;
           <label for="binary">Cuaderno</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="Registro físico" [(ngModel)]="objeto.informacionTecnica"></p-radioButton>
+          <p-radioButton name="tipo" value="Registro físico" [(ngModel)]="objeto.informacionTecnicaPrimaria"></p-radioButton>
           &nbsp;
           <label for="binary">Registro físico</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="Hoja de Excel" [(ngModel)]="objeto.informacionTecnica"></p-radioButton>
+          <p-radioButton name="tipo" value="Hoja de Excel" [(ngModel)]="objeto.informacionTecnicaPrimaria"></p-radioButton>
           &nbsp;
           <label for="binary">Hoja de Excel</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="Libretas" [(ngModel)]="objeto.informacionTecnica"></p-radioButton>
+          <p-radioButton name="tipo" value="Libretas" [(ngModel)]="objeto.informacionTecnicaPrimaria"></p-radioButton>
           &nbsp;
           <label for="binary">Libretas</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="Ninguna" [(ngModel)]="objeto.informacionTecnica"></p-radioButton>
+          <p-radioButton name="tipo" value="Ninguna" [(ngModel)]="objeto.informacionTecnicaPrimaria"></p-radioButton>
           &nbsp;
           <label for="binary">Ninguna</label>
         </div>
       </div>
 
       <div class="p-col-2 app-header">¿Quién lleva la información de la empresa?</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.correoElectronicoPropietario"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.responsableInformacionEmpresa"/></div>
       
       <div class="p-col-2 app-header">¿La finca esta certificada?</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.correoElectronicoPropietario"/></div>
-      
-      <div class="p-col-2 app-header">¿La finca se encuentra en proceso de certificación?</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.correoElectronicoPropietario"/></div>
-      
-      <div class="p-col-4 app-header">¿Conoce sus parámetros técnicos? (debe ser verificado en un software o hoja de Excel)</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="SI" [(ngModel)]="objeto.conoce"></p-radioButton>
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.fincaCertificada"></p-radioButton>
           &nbsp;
           <label for="binary">SI</label>
         </div>
       </div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="NO" [(ngModel)]="objeto.conoce"></p-radioButton>
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.fincaCertificada"></p-radioButton>
+          &nbsp;
+          <label for="binary">NO</label>
+        </div>
+      </div>      
+      <div class="p-col-2 app-header">¿La finca se encuentra en proceso de certificación?</div>
+      <div class="p-col-1 app-header-value">
+        <div class="field-checkbox">
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.fincaProcesoCertificacion"></p-radioButton>
+          &nbsp;
+          <label for="binary">SI</label>
+        </div>
+      </div>
+      <div class="p-col-1 app-header-value">
+        <div class="field-checkbox">
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.fincaProcesoCertificacion"></p-radioButton>
+          &nbsp;
+          <label for="binary">NO</label>
+        </div>
+      </div>       
+      <div class="p-col-4 app-header">¿Conoce sus parámetros técnicos? (debe ser verificado en un software o hoja de Excel)</div>
+      <div class="p-col-1 app-header-value">
+        <div class="field-checkbox">
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.parametrosTecnicos"></p-radioButton>
+          &nbsp;
+          <label for="binary">SI</label>
+        </div>
+      </div>
+      <div class="p-col-1 app-header-value">
+        <div class="field-checkbox">
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.parametrosTecnicos"></p-radioButton>
           &nbsp;
           <label for="binary">NO</label>
         </div>
@@ -490,14 +514,14 @@
       <div class="p-col-4 app-header">¿Conoce el costo de producción de  los animales? (Debe ser verificado con documentos)</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="SI" [(ngModel)]="objeto.conoceCosto"></p-radioButton>
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.costoProduccionAnimales"></p-radioButton>
           &nbsp;
           <label for="binary">SI</label>
         </div>
       </div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="NO" [(ngModel)]="objeto.conoceCosto"></p-radioButton>
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.costoProduccionAnimales"></p-radioButton>
           &nbsp;
           <label for="binary">NO</label>
         </div>
@@ -510,59 +534,64 @@
 
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.DobleProposito" [binary]="true" inputId="binary"></p-checkbox>
-          <label for="binary">&nbsp;Doble propósito</label>
+          <p-radioButton name="tipo" value="Doble propósito" [(ngModel)]="objeto.tipoProduccion"></p-radioButton>
+          &nbsp;
+          <label for="binary">Doble propósito</label>
         </div>
       </div>
-      <div class="p-col-2 app-header-value">
+      <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.cria" [binary]="true" inputId="binary"></p-checkbox>
-          <label for="binary">&nbsp;Cría</label>
+          <p-radioButton name="tipo" value="Cría" [(ngModel)]="objeto.tipoProduccion"></p-radioButton>
+          &nbsp;
+          <label for="binary">Cría</label>
         </div>
       </div>
-      <div class="p-col-2 app-header-value">
+      <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.levante" [binary]="true" inputId="binary"></p-checkbox>
-          <label for="binary">&nbsp;Levante</label>
+          <p-radioButton name="tipo" value="Levante" [(ngModel)]="objeto.tipoProduccion"></p-radioButton>
+          &nbsp;
+          <label for="binary">Levante</label>
         </div>
       </div>
-      <div class="p-col-2 app-header-value">
+      <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.ceba" [binary]="true" inputId="binary"></p-checkbox>
-          <label for="binary">&nbsp;Ceba</label>
+          <p-radioButton name="tipo" value="Ceba" [(ngModel)]="objeto.tipoProduccion"></p-radioButton>
+          &nbsp;
+          <label for="binary">Ceba</label>
         </div>
       </div>
-      <div class="p-col-2 app-header-value">
+      <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.lecheria" [binary]="true" inputId="binary"></p-checkbox>
-          <label for="binary">&nbsp;lecheria</label>
+          <p-radioButton name="tipo" value="lecheria" [(ngModel)]="objeto.tipoProduccion"></p-radioButton>
+          &nbsp;
+          <label for="binary">lecheria</label>
         </div>
       </div>
 
       <div class="p-col-2 app-header">Peso al nacimiento:</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.latitud"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.pesoNacimiento"></p-inputNumber></div>
       <div class="p-col-2 app-header">Peso al destete:</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.longitud"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.pesoDestete"></p-inputNumber></div>
       <div class="p-col-2 app-header">Peso al primer servicio:</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.latitud"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.pesoPrimerServicio"></p-inputNumber></div>
       <div class="p-col-2 app-header">Parto:</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.longitud"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.parto"></p-inputNumber></div>
       <div class="p-col-2 app-header">Inicio de la ceba:</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.latitud"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.inicioCeba"></p-inputNumber></div>
       <div class="p-col-2 app-header">Final de la ceba:</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.longitud"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.finalCeba"></p-inputNumber></div>
 
       <div class="p-col-2 app-header">Asistencia técnica:</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="SI" [(ngModel)]="objeto.asistencia"></p-radioButton>
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.asistenciaTecnica"></p-radioButton>
           &nbsp;
           <label for="binary">SI</label>
         </div>
       </div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="NO" [(ngModel)]="objeto.asistencia"></p-radioButton>
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.asistenciaTecnica"></p-radioButton>
           &nbsp;
           <label for="binary">NO</label>
         </div>
@@ -574,75 +603,75 @@
       <div class="p-col-2 app-header">¿Ha participado en proyectos anteriores con la Gobernación?</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="SI" [(ngModel)]="objeto.asistencia"></p-radioButton>
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.participaProyectoAnteriorGobernacion"></p-radioButton>
           &nbsp;
           <label for="binary">SI</label>
         </div>
       </div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="NO" [(ngModel)]="objeto.asistencia"></p-radioButton>
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.participaProyectoAnteriorGobernacion"></p-radioButton>
           &nbsp;
           <label for="binary">NO</label>
         </div>
       </div>
 
       <div class="p-col-2 app-header">¿Años en el que participo?</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.edad"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.anioParticipaGobernacion"></p-inputNumber></div>
 
       <div class="p-col-2 app-header">¿Ha participado en proyectos anteriores con el Ministerio de Agricultura?</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="SI" [(ngModel)]="objeto.asistencia"></p-radioButton>
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.participaProyectoAnteriorMinisterioAgricultura"></p-radioButton>
           &nbsp;
           <label for="binary">SI</label>
         </div>
       </div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="NO" [(ngModel)]="objeto.asistencia"></p-radioButton>
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.participaProyectoAnteriorMinisterioAgricultura"></p-radioButton>
           &nbsp;
           <label for="binary">NO</label>
         </div>
       </div>
 
       <div class="p-col-2 app-header">¿Años en el que participo?</div>
-      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.edad"></p-inputNumber></div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.anioParticipaMinisterioAgricultura"></p-inputNumber></div>
 
       <div class="p-col-2 app-header">Nombre de la entidad:</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.otro"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreEntidad"/></div>
 
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.afrodescendientes" [binary]="true" inputId="binary"></p-checkbox>
+          <p-radioButton name="tipo" value="Mejoramiento genetico" [(ngModel)]="objeto.mejoramientoGenetico"></p-radioButton>
           &nbsp;
           <label for="binary">Mejoramiento genetico</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.afrodescendientes" [binary]="true" inputId="binary"></p-checkbox>
+          <p-radioButton name="tipo" value="Patos y forrajes" [(ngModel)]="objeto.mejoramientoGenetico"></p-radioButton>
           &nbsp;
           <label for="binary">Patos y forrajes</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.afrodescendientes" [binary]="true" inputId="binary"></p-checkbox>
+          <p-radioButton name="tipo" value="Alimentación animal" [(ngModel)]="objeto.mejoramientoGenetico"></p-radioButton>
           &nbsp;
           <label for="binary">Alimentación animal</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.afrodescendientes" [binary]="true" inputId="binary"></p-checkbox>
+          <p-radioButton name="tipo" value="Buenas practicas ganadera" [(ngModel)]="objeto.mejoramientoGenetico"></p-radioButton>
           &nbsp;
           <label for="binary">Buenas practicas ganadera</label>
         </div>
       </div>
-      <div class="p-col-2 app-header-value">
+      <div class="p-col-4 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.afrodescendientes" [binary]="true" inputId="binary"></p-checkbox>
+          <p-radioButton name="tipo" value="Otro" [(ngModel)]="objeto.mejoramientoGenetico"></p-radioButton>
           &nbsp;
           <label for="binary">Otro</label>
         </div>
@@ -653,28 +682,28 @@
 
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.afrodescendientes" [binary]="true" inputId="binary"></p-checkbox>
+          <p-radioButton name="tipo" value="Sanidad animal" [(ngModel)]="objeto.sanidadAnimal"></p-radioButton>
           &nbsp;
           <label for="binary">Sanidad animal</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.afrodescendientes" [binary]="true" inputId="binary"></p-checkbox>
+          <p-radioButton name="tipo" value="Gestión administrativa" [(ngModel)]="objeto.sanidadAnimal"></p-radioButton>
           &nbsp;
           <label for="binary">Gestión administrativa</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.afrodescendientes" [binary]="true" inputId="binary"></p-checkbox>
+          <p-radioButton name="tipo" value="Buenas prácticas de ordeño" [(ngModel)]="objeto.sanidadAnimal"></p-radioButton>
           &nbsp;
           <label for="binary">Buenas prácticas de ordeño</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
         <div class="field-checkbox">
-          <p-checkbox [(ngModel)]="objeto.afrodescendientes" [binary]="true" inputId="binary"></p-checkbox>
+          <p-radioButton name="tipo" value="Biotecnologia de la reproducción" [(ngModel)]="objeto.sanidadAnimal"></p-radioButton>
           &nbsp;
           <label for="binary">Biotecnologia de la reproducción</label>
         </div>
@@ -683,26 +712,26 @@
       <div class="p-col-12 app-header app-titulo">7. Alimentación</div>
 
       <div class="p-col-2 app-header">Tipo de pastos en el predio:</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.otro"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.tipoPastoPredio"/></div>
 
       <div class="p-col-2 app-header">Suplementa:</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="SI" [(ngModel)]="objeto.asistencia"></p-radioButton>
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.suplementa"></p-radioButton>
           &nbsp;
           <label for="binary">SI</label>
         </div>
       </div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
-          <p-radioButton name="tipo" value="NO" [(ngModel)]="objeto.asistencia"></p-radioButton>
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.suplementa"></p-radioButton>
           &nbsp;
           <label for="binary">NO</label>
         </div>
       </div>
 
       <div class="p-col-2 app-header">Si su respuesta fue SI, especifique:</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.otro"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.descripcionSuplementa"/></div>
 
 
       <div class="p-col-2 app-header">
@@ -727,7 +756,7 @@
       </div>
 
     </div>
-    <div class="modal-footer" *ngIf="objeto.id == undefined">
+    <div class="modal-footer">
       <div class="wrapper">
         <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar()"></button>
         <div class="p-mr-2"></div>
