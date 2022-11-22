@@ -80,6 +80,7 @@ export class CaracterizacionComponent {
     sanidadAnimal: 'Sanidad animal',
     suplementa: true,
     cargoDentroPredio: 'Administrador',
+    mapaFinca: true,
     concepto : {}
   };
 

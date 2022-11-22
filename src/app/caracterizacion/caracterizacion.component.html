@@ -115,6 +115,13 @@
       </div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
+          <p-radioButton name="tipo" value="Bachillerato" [(ngModel)]="objeto.escolaridad"></p-radioButton>
+          &nbsp;
+          <label for="binary">Bachillerato</label>
+        </div>
+      </div>
+      <div class="p-col-1 app-header-value">
+        <div class="field-checkbox">
           <p-radioButton name="tipo" value="Primaria" [(ngModel)]="objeto.escolaridad"></p-radioButton>
           &nbsp;
           <label for="binary">Primaria</label>
@@ -255,7 +262,9 @@
       <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.profesionalCargoAsesoriaDirecta"/></div>
       <div class="p-col-2 app-header">Teléfono del encuestado:</div>
       <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.telefonoEncuestado"/></div>
-
+      <div class="p-col-2 app-header">Celular:</div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.celularEncuestado"/></div>
+      <div class="p-col-8 app-header-value"></div>
       <div class="p-col-12 app-header app-titulo"> 2. Actividades opcionales a desarrollar</div>
       <div class="p-col-2 app-header">Participa en el componente de biotecnología:</div>
       <div class="p-col-1 app-header-value">
@@ -320,7 +329,24 @@
           <label for="binary">Arrendada</label>
         </div>
       </div>
-      <div class="p-col-1 app-header"></div>
+      <div class="p-col-3 app-header"></div>
+      <div class="p-col-2 app-header">Distancia del predio a la cabecera municipal (km):</div>
+      <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.distanciaPredioCabeceraMunicipal"></p-inputNumber></div>
+      <div class="p-col-2 app-header">Tiene mapa de la finca</div>
+      <div class="p-col-1 app-header-value">
+        <div class="field-checkbox">
+          <p-radioButton name="tipo" [value]="true" [(ngModel)]="objeto.mapaFinca"></p-radioButton>
+          &nbsp;
+          <label for="binary">SI</label>
+        </div>
+      </div>
+      <div class="p-col-1 app-header-value">
+        <div class="field-checkbox">
+          <p-radioButton name="tipo" [value]="false" [(ngModel)]="objeto.mapaFinca"></p-radioButton>
+          &nbsp;
+          <label for="binary">NO</label>
+        </div>
+      </div>   
       <div class="p-col-2 app-header">Estados de las vías de acceso:</div>
       <div class="p-col-1 app-header-value">
         <div class="field-checkbox">
@@ -598,7 +624,7 @@
       </div>
 
       <div class="p-col-2 app-header">Tipo de entidad:</div>
-      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.numeroRegistroPredio"/></div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.tipoEntidad"/></div>
 
       <div class="p-col-2 app-header">¿Ha participado en proyectos anteriores con la Gobernación?</div>
       <div class="p-col-1 app-header-value">
