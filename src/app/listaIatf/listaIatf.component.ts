@@ -26,7 +26,7 @@ export class ListaIatfComponent {
 
   items:any = [
     {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
-    {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
+    {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
   ];
 
   constructor(private service: AppService, private messageService: MessageService) {
@@ -71,7 +71,7 @@ export class ListaIatfComponent {
       item.hallazgo);
     this.objeto.detalleFormatos = detalle;
     this.objeto.tipoFormato = "IATF";
-    if(!this.objeto.fecha || !this.objeto.departamento || !this.objeto.municipio || !this.objeto.nombrePropietario || !this.objeto.nombreFinca || detalle.length == 0) {
+    if(!this.objeto.fecha || !this.objeto.departamento || !this.objeto.municipio || !this.objeto.nombrePropietario || !this.objeto.nombreFinca) {
       this.messageService.add({severity:'error', summary: 'Error', detail: 'Faltan datos por ingresar por favor verifica'});
     } else {
       this.service.guardarFormatosBra(this.objeto).then(data => {

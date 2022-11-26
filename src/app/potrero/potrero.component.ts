@@ -74,7 +74,7 @@ export class PotreroComponent {
       item.observaciones != null);
     this.objeto.registros = detalle;
     this.objeto.tipoFormato = "POTRERO";
-    if(!this.objeto.empresaGanadera || !this.objeto.municipio || !this.objeto.potrero || detalle.length == 0) {
+    if(!this.objeto.empresaGanadera || !this.objeto.municipio || !this.objeto.potrero) {
       this.messageService.add({severity:'error', summary: 'Error', detail: 'Faltan datos por ingresar por favor verifica'});
     } else {
       this.service.guardarRegistro(this.objeto).then(data => {
