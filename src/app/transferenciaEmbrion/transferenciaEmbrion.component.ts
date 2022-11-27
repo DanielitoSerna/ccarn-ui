@@ -75,7 +75,7 @@ export class TransferenciaEmbrionComponent {
         );
         this.objeto.detalleFormatos = detalle;
         this.objeto.tipoFormato = 'TRANSFERENCIA EMBRIONES';
-        if (!this.objeto.fecha || !this.objeto.empaqueEmbriones || !this.objeto.nombrePropietario || !this.objeto.transferidor || !this.objeto.nombreFinca || !this.objeto.horaInicio || !this.objeto.departamento || !this.objeto.horaFinal || !this.objeto.municipio || !this.objeto.profesionalProduccionInvitroEmbriones || detalle.length == 0) {
+        if (!this.objeto.fecha || !this.objeto.empaqueEmbriones || !this.objeto.nombrePropietario || !this.objeto.transferidor || !this.objeto.nombreFinca || !this.objeto.horaInicio || !this.objeto.departamento || !this.objeto.horaFinal || !this.objeto.municipio || !this.objeto.profesionalProduccionInvitroEmbriones) {
             this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Faltan datos por ingresar por favor verifica' });
         } else {
             this.service.guardarFormatosBra(this.objeto).then(data => {

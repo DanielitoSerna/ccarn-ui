@@ -27,7 +27,7 @@ export class ListaBraComponent {
 
   items:any = [
     {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
-    {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
+    {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
   ];
 
   constructor(private service: AppService, private messageService: MessageService) {
@@ -75,7 +75,7 @@ export class ListaBraComponent {
         item.seleccionada = 0;
       }
     });
-    if(!this.objeto.fecha || !this.objeto.departamento || !this.objeto.municipio || !this.objeto.nombrePropietario || !this.objeto.nombreFinca || detalle.length == 0) {
+    if(!this.objeto.fecha || !this.objeto.departamento || !this.objeto.municipio || !this.objeto.nombrePropietario || !this.objeto.nombreFinca) {
       this.messageService.add({severity:'error', summary: 'Error', detail: 'Faltan datos por ingresar por favor verifica'});
     } else {
       this.service.guardarFormatosBra(this.objeto).then(data => {

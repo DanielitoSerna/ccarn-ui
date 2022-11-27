@@ -64,7 +64,7 @@ export class ListaToroComponent {
       item.razaToro != null);
     this.objeto.detalleFormatos = detalle;
     this.objeto.tipoFormato = "TORO";
-    if(!this.objeto.fecha || !this.objeto.departamento || !this.objeto.municipio || !this.objeto.nombreFinca || detalle.length == 0) {
+    if(!this.objeto.fecha || !this.objeto.departamento || !this.objeto.municipio || !this.objeto.nombreFinca) {
       this.messageService.add({severity:'error', summary: 'Error', detail: 'Faltan datos por ingresar por favor verifica'});
     } else {
       this.service.guardarFormatosBra(this.objeto).then(data => {
