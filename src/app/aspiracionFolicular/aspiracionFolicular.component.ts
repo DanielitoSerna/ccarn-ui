@@ -34,31 +34,35 @@ export class AspiracionFolicularComponent {
     objeto = JSON.parse(objeto ? objeto : '');
     this.objeto = objeto;
     if(objeto.id != undefined) {
-        this.objeto.fecha = new Date(this.objeto.fecha);
-        this.objeto.horaInicio = new Date(this.objeto.horaInicio);
-        this.objeto.horaFinal = new Date(this.objeto.horaFinal);
-        let request = {
-            tabla: 'DetalleFormato',
-            campoOrden: 'id',
-            orden: 'asc',
-            where: 'formatoBean.id = ' + objeto.id,
-            cantidad: 100,
-            pagina: 0
-          }
-          this.service.initProgress();
-          this.service.listarDatos(request).then(data => {
-            this.items = data;
-            this.service.finishProgress();
-            this.items.forEach((item: any) => {
+
+      this.objeto.fecha = new Date(this.objeto.fecha);
+
+      this.objeto.horaInicio = new Date(this.objeto.horaInicio);
+      this.objeto.horaFinal = new Date(this.objeto.horaFinal);
+      let request = {
+          tabla: 'DetalleFormato',
+          campoOrden: 'id',
+          orden: 'asc',
+          where: 'formatoBean.id = ' + objeto.id,
+          cantidad: 100,
+          pagina: 0
+        }
+        this.service.initProgress();
+        this.service.listarDatos(request).then(data => {
+          this.items = data;
+          this.service.finishProgress();
+          this.items.forEach((item: any) => {
+            if(item.fecha  != null) {
               item.fecha = new Date(item.fecha);
-              item.hora = new Date(item.hora);
-              if(item.seleccionada == 1) {
-                item.seleccionada = true;
-              } else {
-                item.seleccionada = false;
-              }
-            });
+            }
+            item.hora = new Date(item.hora);
+            if(item.seleccionada == 1) {
+              item.seleccionada = true;
+            } else {
+              item.seleccionada = false;
+            }
           });
+        });
     }
   }
 

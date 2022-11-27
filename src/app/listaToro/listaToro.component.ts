@@ -36,7 +36,7 @@ export class ListaToroComponent {
     objeto = JSON.parse(objeto ? objeto : '');
     this.objeto = objeto;
     if(objeto.id != undefined) {
-        this.objeto.fecha = new Date(this.objeto.fecha);
+      this.objeto.fecha = new Date(this.objeto.fecha);
         let request = {
             tabla: 'DetalleFormato',
             campoOrden: 'id',

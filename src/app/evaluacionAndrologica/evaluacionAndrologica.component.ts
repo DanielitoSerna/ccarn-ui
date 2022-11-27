@@ -33,7 +33,9 @@ export class EvaluacionAndrologicaComponent {
         this.objeto = objeto;
         if(objeto.id != undefined) {
             this.objeto.detalleAndrologico = {};
+            
             this.objeto.fecha = new Date(this.objeto.fecha);
+
             let request = {
                 tabla: 'DetalleAndrologico',
                 campoOrden: 'id',
@@ -45,7 +47,9 @@ export class EvaluacionAndrologicaComponent {
               this.service.initProgress();
               this.service.listarDatos(request).then(data => {
                 this.objeto.detalleAndrologico = data[0];
-                this.objeto.detalleAndrologico.fechaNacimiento = new Date(this.objeto.detalleAndrologico.fechaNacimiento);
+                if(this.objeto.detalleAndrologico.fechaNacimiento != null) {
+                    this.objeto.detalleAndrologico.fechaNacimiento = new Date(this.objeto.detalleAndrologico.fechaNacimiento);
+                }
                 this.service.finishProgress();
               });
         } else {

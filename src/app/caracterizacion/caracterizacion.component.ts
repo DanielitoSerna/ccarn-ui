@@ -89,8 +89,9 @@ export class CaracterizacionComponent {
     this.objeto = JSON.parse(objeto ? objeto : '');
     if(this.objeto.id != null) {
       this.objeto.fecha = new Date(this.objeto.fecha);
-      if(this.objeto.fechaNacimiento)
+      if(this.objeto.fechaNacimiento != null) {
         this.objeto.fechaNacimiento = new Date(this.objeto.fechaNacimiento);
+      }
     }
   }
 

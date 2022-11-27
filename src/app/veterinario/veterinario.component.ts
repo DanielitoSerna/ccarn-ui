@@ -44,7 +44,9 @@ export class VeterinarioComponent {
           this.service.listarDatos(request).then(data => {
             this.items = data;
             this.items.forEach(element => {
-              element.fechaInicioTratamiento = new Date(element.fechaInicioTratamiento);
+              if(element.fechaInicioTratamiento != null) {
+                element.fechaInicioTratamiento = new Date(element.fechaInicioTratamiento);
+              }
             });
             this.service.finishProgress();
           });

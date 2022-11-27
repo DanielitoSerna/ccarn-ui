@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { AppService } from '../app.services';
 import { MessageService } from 'primeng/api';
 import { ThisReceiver } from '@angular/compiler';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-listaAsi',
@@ -84,8 +85,10 @@ export class ListaAsiComponent {
       this.items.push({objetivo: "40. Las superficies que utilizan los animales para descansar y/o caminar, disminuye el riesgo de heridas, permite el descanso confortable, movimientos seguros y posturas normales propias de la especie.", tipoCriterio: "Menor"});
     
     } else {
-      this.objeto = objeto.listaChequeoBean;      
+      this.objeto = objeto.listaChequeoBean;  
+      
       this.objeto.fecha = new Date(this.objeto.fecha);
+
       objeto.listaChequeoBean = undefined;
       this.objeto.concepto = objeto;
 

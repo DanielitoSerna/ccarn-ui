@@ -201,8 +201,8 @@
       <ng-template pTemplate="body" let-objeto>
           <tr *ngIf="url === '/listaBgp'">
               <td class="percentage_10">
-                {{objeto.listaChequeoBean.fechaAuditoria | date: 'dd/MM/yyyy'}}
-                {{objeto.listaChequeoBean.fecha | date: 'dd/MM/yyyy'}}
+                {{objeto.listaChequeoBean.fechaAuditoria | dateFormat: 'DD/MM/yyyy'}}
+                {{objeto.listaChequeoBean.fecha | dateFormat: 'DD/MM/yyyy'}}
               </td>
               <td class="column-app percentage_25">{{objeto.listaChequeoBean.nombrePredio}}</td>
               <td class="column-app percentage_25">{{objeto.listaChequeoBean.nombrePropietario}}</td>
@@ -219,7 +219,7 @@
           </tr>
           <tr *ngIf="url === '/listaAsi'">
             <td class="percentage_10">
-              {{objeto.listaChequeoBean.fecha | date: 'dd/MM/yyyy'}}
+              {{objeto.listaChequeoBean.fecha | dateFormat: 'DD/MM/yyyy'}}
             </td>
             <td class="column-app percentage_25">{{objeto.listaChequeoBean.numeroRegistroPredio}}</td>
             <td class="column-app percentage_25">{{objeto.listaChequeoBean.nombrePredio}}</td>

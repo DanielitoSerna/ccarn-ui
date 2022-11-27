@@ -118,6 +118,7 @@ export class ListaBgpComponent {
     } else {
       this.objeto = objeto.listaChequeoBean;      
       this.objeto.fechaAuditoria = new Date(this.objeto.fechaAuditoria);
+
       objeto.listaChequeoBean = undefined;
       this.objeto.concepto = objeto;
 

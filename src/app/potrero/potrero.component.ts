@@ -44,10 +44,18 @@ export class PotreroComponent {
           this.service.listarDatos(request).then(data => {
             this.items = data;
             this.items.forEach(element => {
-              element.fechaIngreso = new Date(element.fechaIngreso);
-              element.fechaSalida = new Date(element.fechaSalida);
-              element.fechaFertilizacion = new Date(element.fechaFertilizacion);
-              element.fechaPlaguicida = new Date(element.fechaPlaguicida);
+              if(element.fechaIngreso != null) {
+                element.fechaIngreso = new Date(element.fechaIngreso);
+              }
+              if(element.fechaSalida != null) {
+                element.fechaSalida = new Date(element.fechaSalida);
+              }
+              if(element.fechaFertilizacion != null) {
+                element.fechaFertilizacion = new Date(element.fechaFertilizacion);
+              }
+              if(element.fechaPlaguicida != null) {
+                element.fechaPlaguicida = new Date(element.fechaPlaguicida);
+              }
             });
             this.service.finishProgress();
           });

@@ -45,7 +45,9 @@ export class VehiculosComponent {
           this.service.listarDatos(request).then(data => {
             this.items = data;
             this.items.forEach(element => {
-              element.fechaIngresoPersona = new Date(element.fechaIngresoPersona);
+              if(element.fechaIngresoPersona != null) {
+                element.fechaIngresoPersona = new Date(element.fechaIngresoPersona);
+              }
             });
             this.service.finishProgress();
           });

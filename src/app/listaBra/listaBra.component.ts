@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { AppService } from '../app.services';
 import { MessageService } from 'primeng/api';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-listaBra',
@@ -34,7 +35,7 @@ export class ListaBraComponent {
     objeto = JSON.parse(objeto ? objeto : '');
     this.objeto = objeto;
     if(objeto.id != undefined) {
-        this.objeto.fecha = new Date(this.objeto.fecha);
+      this.objeto.fecha = new Date(this.objeto.fecha);
         let request = {
             tabla: 'DetalleFormato',
             campoOrden: 'id',
@@ -64,11 +65,7 @@ export class ListaBraComponent {
 
   guardar() {
     let detalle = this.items.filter((item: any) => 
-      item.numeroIdentificacion != null &&
-      item.nombreIdentificacion != null &&
-      item.color != null &&
-      item.edadMeses != null &&
-      item.numeroPartos);
+      item.numeroIdentificacion != null);
     this.objeto.detalleFormatos = detalle;
     this.objeto.tipoFormato = "BRA";
     this.objeto.detalleFormatos.forEach((item: any) => {
