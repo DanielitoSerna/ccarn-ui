@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { AppService } from '../app.services';
 import { MessageService } from 'primeng/api';
 import { ThisReceiver } from '@angular/compiler';
+import { MomentPipe } from '../componentes/moment.pipe';
 
 @Component({
   selector: 'app-caracterizacion',
@@ -88,9 +89,9 @@ export class CaracterizacionComponent {
     let objeto:any = localStorage.getItem("objeto");
     this.objeto = JSON.parse(objeto ? objeto : '');
     if(this.objeto.id != null) {
-      this.objeto.fecha = new Date(this.objeto.fecha);
+      this.objeto.fecha = MomentPipe.transform(this.objeto.fecha);
       if(this.objeto.fechaNacimiento != null) {
-        this.objeto.fechaNacimiento = new Date(this.objeto.fechaNacimiento);
+        this.objeto.fechaNacimiento = MomentPipe.transform(this.objeto.fechaNacimiento);
       }
     }
   }

@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { AppService } from '../app.services';
 import { MessageService } from 'primeng/api';
+import { MomentPipe } from '../componentes/moment.pipe';
 
 @Component({
   selector: 'app-listaBgp',
@@ -117,7 +118,7 @@ export class ListaBgpComponent {
       this.items.push({numeral: 8.2,objetivo: "Uso de implementos", tipoCriterio: "Menor"});
     } else {
       this.objeto = objeto.listaChequeoBean;      
-      this.objeto.fechaAuditoria = new Date(this.objeto.fechaAuditoria);
+      this.objeto.fechaAuditoria = MomentPipe.transform(this.objeto.fechaAuditoria);
 
       objeto.listaChequeoBean = undefined;
       this.objeto.concepto = objeto;

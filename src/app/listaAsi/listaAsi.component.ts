@@ -1,8 +1,8 @@
 import { Component} from '@angular/core';
 import { AppService } from '../app.services';
 import { MessageService } from 'primeng/api';
-import { ThisReceiver } from '@angular/compiler';
 import * as moment from 'moment';
+import { MomentPipe } from '../componentes/moment.pipe';
 
 @Component({
   selector: 'app-listaAsi',
@@ -86,8 +86,7 @@ export class ListaAsiComponent {
     
     } else {
       this.objeto = objeto.listaChequeoBean;  
-      
-      this.objeto.fecha = new Date(this.objeto.fecha);
+      this.objeto.fecha = MomentPipe.transform(this.objeto.fecha);
 
       objeto.listaChequeoBean = undefined;
       this.objeto.concepto = objeto;

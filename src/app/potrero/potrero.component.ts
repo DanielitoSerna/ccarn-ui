@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { AppService } from '../app.services';
 import { MessageService } from 'primeng/api';
+import { MomentPipe } from '../componentes/moment.pipe';
 
 @Component({
   selector: 'app-potrero',
@@ -45,16 +46,16 @@ export class PotreroComponent {
             this.items = data;
             this.items.forEach(element => {
               if(element.fechaIngreso != null) {
-                element.fechaIngreso = new Date(element.fechaIngreso);
+                element.fechaIngreso = MomentPipe.transform(element.fechaIngreso);
               }
               if(element.fechaSalida != null) {
-                element.fechaSalida = new Date(element.fechaSalida);
+                element.fechaSalida = MomentPipe.transform(element.fechaSalida);
               }
               if(element.fechaFertilizacion != null) {
-                element.fechaFertilizacion = new Date(element.fechaFertilizacion);
+                element.fechaFertilizacion = MomentPipe.transform(element.fechaFertilizacion);
               }
               if(element.fechaPlaguicida != null) {
-                element.fechaPlaguicida = new Date(element.fechaPlaguicida);
+                element.fechaPlaguicida = MomentPipe.transform(element.fechaPlaguicida);
               }
             });
             this.service.finishProgress();

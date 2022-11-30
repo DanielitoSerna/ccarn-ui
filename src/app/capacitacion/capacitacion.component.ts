@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { AppService } from '../app.services';
 import { MessageService } from 'primeng/api';
+import { MomentPipe } from '../componentes/moment.pipe';
 
 @Component({
   selector: 'app-capacitacion',
@@ -44,7 +45,7 @@ export class CapacitacionComponent {
           this.service.listarDatos(request).then(data => {
             this.items = data;
             this.items.forEach(element => {
-              element.fechaCapacitacion = new Date(element.fechaCapacitacion);
+              element.fechaCapacitacion = MomentPipe.transform(element.fechaCapacitacion);
             });
             this.service.finishProgress();
           });

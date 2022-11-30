@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { MessageService } from "primeng/api";
 import { AppService } from "../app.services";
+import { MomentPipe } from "../componentes/moment.pipe";
 
 @Component({
     selector: 'app-evaluacionAndrologica',
@@ -34,7 +35,7 @@ export class EvaluacionAndrologicaComponent {
         if(objeto.id != undefined) {
             this.objeto.detalleAndrologico = {};
             
-            this.objeto.fecha = new Date(this.objeto.fecha);
+            this.objeto.fecha = MomentPipe.transform(this.objeto.fecha);
 
             let request = {
                 tabla: 'DetalleAndrologico',
@@ -48,7 +49,7 @@ export class EvaluacionAndrologicaComponent {
               this.service.listarDatos(request).then(data => {
                 this.objeto.detalleAndrologico = data[0];
                 if(this.objeto.detalleAndrologico.fechaNacimiento != null) {
-                    this.objeto.detalleAndrologico.fechaNacimiento = new Date(this.objeto.detalleAndrologico.fechaNacimiento);
+                    this.objeto.detalleAndrologico.fechaNacimiento = MomentPipe.transform(this.objeto.detalleAndrologico.fechaNacimiento);
                 }
                 this.service.finishProgress();
               });

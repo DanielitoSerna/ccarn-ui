@@ -11,4 +11,14 @@ export class MomentPipe implements PipeTransform {
             return '';
         }
     }
+
+    static transform(date: Date | moment.Moment) {
+        if(date != null) {
+            let myMoment: moment.Moment = moment(date).zone('+00');
+            return myMoment.format('DD/MM/YYYY');
+        } else {
+            return date;
+        }
+
+    }
 }

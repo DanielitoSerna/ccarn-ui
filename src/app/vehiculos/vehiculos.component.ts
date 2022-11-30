@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { AppService } from '../app.services';
 import { MessageService } from 'primeng/api';
+import { MomentPipe } from '../componentes/moment.pipe';
 
 @Component({
   selector: 'app-vehiculos',
@@ -46,7 +47,7 @@ export class VehiculosComponent {
             this.items = data;
             this.items.forEach(element => {
               if(element.fechaIngresoPersona != null) {
-                element.fechaIngresoPersona = new Date(element.fechaIngresoPersona);
+                element.fechaIngresoPersona = MomentPipe.transform(element.fechaIngresoPersona);
               }
             });
             this.service.finishProgress();

@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { AppService } from '../app.services';
 import { MessageService } from 'primeng/api';
+import { MomentPipe } from '../componentes/moment.pipe';
 
 @Component({
   selector: 'app-veterinario',
@@ -45,7 +46,7 @@ export class VeterinarioComponent {
             this.items = data;
             this.items.forEach(element => {
               if(element.fechaInicioTratamiento != null) {
-                element.fechaInicioTratamiento = new Date(element.fechaInicioTratamiento);
+                element.fechaInicioTratamiento = MomentPipe.transform(element.fechaInicioTratamiento);
               }
             });
             this.service.finishProgress();

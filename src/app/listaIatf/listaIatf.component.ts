@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { AppService } from '../app.services';
 import { MessageService } from 'primeng/api';
+import { MomentPipe } from '../componentes/moment.pipe';
 
 @Component({
   selector: 'app-listaIatf',
@@ -34,7 +35,7 @@ export class ListaIatfComponent {
     objeto = JSON.parse(objeto ? objeto : '');
     this.objeto = objeto;
     if(objeto.id != undefined) {
-      this.objeto.fecha = new Date(this.objeto.fecha);
+      this.objeto.fecha = MomentPipe.transform(this.objeto.fecha);
         let request = {
             tabla: 'DetalleFormato',
             campoOrden: 'id',

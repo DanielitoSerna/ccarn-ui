@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { AppService } from '../app.services';
 import { MessageService } from 'primeng/api';
+import { MomentPipe } from '../componentes/moment.pipe';
 
 @Component({
   selector: 'app-aspiracionFolicular',
@@ -35,10 +36,10 @@ export class AspiracionFolicularComponent {
     this.objeto = objeto;
     if(objeto.id != undefined) {
 
-      this.objeto.fecha = new Date(this.objeto.fecha);
+      this.objeto.fecha =  MomentPipe.transform(this.objeto.fecha);
 
-      this.objeto.horaInicio = new Date(this.objeto.horaInicio);
-      this.objeto.horaFinal = new Date(this.objeto.horaFinal);
+      this.objeto.horaInicio =  MomentPipe.transform(this.objeto.horaInicio);
+      this.objeto.horaFinal =  MomentPipe.transform(this.objeto.horaFinal);
       let request = {
           tabla: 'DetalleFormato',
           campoOrden: 'id',
@@ -53,7 +54,7 @@ export class AspiracionFolicularComponent {
           this.service.finishProgress();
           this.items.forEach((item: any) => {
             if(item.fecha  != null) {
-              item.fecha = new Date(item.fecha);
+              item.fecha =  MomentPipe.transform(item.fecha);
             }
             item.hora = new Date(item.hora);
             if(item.seleccionada == 1) {

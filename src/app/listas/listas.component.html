@@ -236,7 +236,7 @@
           </tr>
           <tr *ngIf="isLista">
             <td class="percentage_10">
-              {{objeto.fecha | date: 'dd/MM/yyyy'}}
+              {{objeto.fecha | dateFormat: 'DD/MM/yyyy'}}
             </td>
             <td class="column-app percentage_20">{{objeto.municipio}}</td>
             <td class="column-app percentage_20">{{objeto.nombrePropietario}}</td>
