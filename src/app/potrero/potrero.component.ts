@@ -86,6 +86,33 @@ export class PotreroComponent {
     if(!this.objeto.empresaGanadera || !this.objeto.municipio || !this.objeto.potrero) {
       this.messageService.add({severity:'error', summary: 'Error', detail: 'Faltan datos por ingresar por favor verifica'});
     } else {
+      this.objeto.registros.forEach((element: any) => {
+        if(element.fechaIngreso.toString().includes('/')) {
+          const [month, day, year] = element.fechaIngreso.split('/');
+  
+          const date = this.convertToLocalDate(day+'/'+month+'/'+year);
+          element.fechaIngreso = date;
+        }
+        if(element.fechaSalida.toString().includes('/')) {
+          const [month, day, year] = element.fechaSalida.split('/');
+  
+          const date = this.convertToLocalDate(day+'/'+month+'/'+year);
+          element.fechaSalida = date;
+        }
+        if(element.fechaPlaguicida.toString().includes('/')) {
+          const [month, day, year] = element.fechaPlaguicida.split('/');
+  
+          const date = this.convertToLocalDate(day+'/'+month+'/'+year);
+          element.fechaPlaguicida = date;
+        }
+        if(element.fechaFertilizacion.toString().includes('/')) {
+          const [month, day, year] = element.fechaFertilizacion.split('/');
+  
+          const date = this.convertToLocalDate(day+'/'+month+'/'+year);
+          element.fechaFertilizacion = date;
+        }
+      });
+
       this.service.guardarRegistro(this.objeto).then(data => {
         this.messageService.add({severity:'success', summary: 'Exito', detail: 'Información guardada con exito'});
         history.back();
@@ -101,5 +128,32 @@ export class PotreroComponent {
 
   remove(i: number) {
     this.items.splice(i, 1);
+  }
+
+  convertToLocalDate(responseDate: any) {
+    try {
+      if (responseDate != null) {
+        if (typeof (responseDate) === 'string') {
+          if (String(responseDate.indexOf('T') >= 0)) {
+            responseDate = responseDate.split('T')[0];
+          }
+          if (String(responseDate.indexOf('+') >= 0)) {
+            responseDate = responseDate.split('+')[0];
+          }
+        }
+
+        responseDate = new Date(responseDate);
+        const newDate = new Date(responseDate.getFullYear(), responseDate.getMonth(), responseDate.getDate(), 0, 0, 0);
+        const userTimezoneOffset = newDate.getTimezoneOffset() * 60000;
+
+        const finalDate: Date = new Date(newDate.getTime() - userTimezoneOffset);
+        return finalDate;
+      } else {
+        return null;
+      }
+    } catch (error) {
+      return responseDate;
+    }
+
   }
 }
