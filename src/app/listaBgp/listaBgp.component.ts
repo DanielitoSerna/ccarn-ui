@@ -225,7 +225,14 @@ export class ListaBgpComponent {
     if(error.length > 0) {
       this.messageService.add({severity:'error', summary: 'Error', detail: 'Faltan datos por ingresar, por favor verifica'});
     } else {
-      this.objeto.detalle = this.items.filter(item => !item.header);;
+      this.objeto.detalle = this.items.filter(item => !item.header);
+      if(this.objeto.fechaAuditoria.toString().includes('/')) {
+        const [month, day, year] = this.objeto.fechaAuditoria.split('/');
+
+        const date = this.convertToLocalDate(day+'/'+month+'/'+year);
+        this.objeto.fechaAuditoria = date;
+      }
+
       this.objeto.tipoFormato = "BGP";
       this.service.guardarEncabezado(this.objeto).then(data => {
         this.messageService.add({severity:'success', summary: 'Exito', detail: 'Información guardada con exito'});
@@ -233,7 +240,32 @@ export class ListaBgpComponent {
       }).catch(e => {
         this.messageService.add({severity:'error', summary: 'Error', detail: 'Ocurrio un error al realizar la transacción, por favor verifica o intenta de nuevo'});
       });
-      
     }
   }
+
+  convertToLocalDate(responseDate: any) {
+    try {
+        if (responseDate != null) {
+            if (typeof (responseDate) === 'string') {
+                if (String(responseDate.indexOf('T') >= 0)) {
+                    responseDate = responseDate.split('T')[0];
+                }
+                if (String(responseDate.indexOf('+') >= 0)) {
+                    responseDate = responseDate.split('+')[0];
+                }
+            }
+
+            responseDate = new Date(responseDate);
+            const newDate = new Date(responseDate.getFullYear(), responseDate.getMonth(), responseDate.getDate(), 0, 0, 0);
+            const userTimezoneOffset = newDate.getTimezoneOffset() * 60000;
+
+            const finalDate: Date = new Date(newDate.getTime() - userTimezoneOffset);
+            return finalDate;
+        } else {
+            return null;
+        }
+    } catch (error) {
+        return responseDate;
+    }
+}
 }
