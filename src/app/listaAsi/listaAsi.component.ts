@@ -95,7 +95,7 @@ export class ListaAsiComponent {
         tabla: 'DetalleListaChequeo',
         campoOrden: 'id',
         orden: 'asc',
-        where: 'listaChequeoBean.id = ' + objeto.id,
+        where: 'listaChequeoBean.id = ' + this.objeto.id,
         cantidad: 100,
         pagina: 0
       }
