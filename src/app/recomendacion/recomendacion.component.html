@@ -9,6 +9,24 @@
       </div>
       <div class="p-col-2 app-header">Número de visita:</div>
       <div class="p-col-6 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.numeroVisita"/></div>
+      <div class="p-col-2 app-header">Departamento:</div>
+      <div class="p-col-2 app-header"><p-dropdown [options]="departamentos" styleClass="width_full"
+        placeholder="Seleccione.." optionLabel="label" optionValue="value"
+        [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.departamento">
+        </p-dropdown>
+      </div>
+      <div class="p-col-2 app-header">Municipio:</div>
+      <div class="p-col-2 app-header"><p-dropdown [options]="municipios" styleClass="width_full"
+        placeholder="Seleccione.." optionLabel="label" optionValue="value"
+        [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.municipio">
+        </p-dropdown>
+      </div>
+      <div class="p-col-2 app-header">Vereda:</div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.vereda"/></div>
+      <div class="p-col-3 app-header">Nombre Propietario:</div>
+      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePropietario"/></div>
+      <div class="p-col-3 app-header">Nombre de la Finca:</div>
+      <div class="p-col-3 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreFinca"/></div>
       <div class="p-col-4 app-header">
         <div>&nbsp;</div>
         <div>&nbsp;</div>
