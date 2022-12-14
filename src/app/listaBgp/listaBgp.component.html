@@ -11,9 +11,9 @@
       <div class="p-col-2 app-header">Nombre del predio:</div>
       <div class="p-col-6 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePredio"/></div>
       <div class="p-col-1 app-header">Latitud:</div>
-      <div class="p-col-1 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.latitud"></p-inputNumber></div>
+      <div class="p-col-1 app-header-value"><p-inputNumber locale="en-US" mode="decimal" [minFractionDigits]="3" [(ngModel)]="objeto.latitud"></p-inputNumber></div>
       <div class="p-col-1 app-header">Longitud:</div>
-      <div class="p-col-1 app-header-value"><p-inputNumber [min]="0" locale="de-DE" mode="decimal" [minFractionDigits]="2" [(ngModel)]="objeto.longitud"></p-inputNumber></div>
+      <div class="p-col-1 app-header-value"><p-inputNumber locale="en-US" mode="decimal" [minFractionDigits]="3" [(ngModel)]="objeto.longitud"></p-inputNumber></div>
       
       <div class="p-col-2 app-header">Departamento:</div>
       <div class="p-col-2 app-header"><p-dropdown [options]="departamentos" styleClass="width_full"
