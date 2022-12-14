@@ -34,7 +34,31 @@
       <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.numeroRegistroPredio"/></div>
       <div class="p-col-2 app-header">Nombre del predio</div>
       <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePredio"/></div>
-      
+      <div class="p-col-2 app-header">Departamento</div>
+      <div class="p-col-2 app-header"><p-dropdown [options]="departamentos" styleClass="width_full"
+        placeholder="Seleccione.." optionLabel="label" optionValue="value"
+        [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.departamento">
+        </p-dropdown>
+      </div>
+      <div class="p-col-2 app-header">Municipio</div>
+      <div class="p-col-2 app-header"><p-dropdown [options]="municipios" styleClass="width_full"
+        placeholder="Seleccione.." optionLabel="label" optionValue="value"
+        [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.municipio">
+        </p-dropdown>
+      </div>
+      <div class="p-col-2 app-header">Vereda</div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.vereda"/></div>
+      <div class="p-col-2 app-header">Nombre o razón social del propietario, poseedor y/o tenedor del predio</div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePropietario"/></div>
+      <div class="p-col-2 app-header">Número de identificación (cédula o NIT)</div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.numeroIdentificacion"/></div>
+      <div class="p-col-2 app-header">Área total del predio en hectáreas (Ha)</div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.areaTotalPredio"/></div>
+      <div class="p-col-2 app-header">Correo electrónico del propietario, poseedor o tenedor del predio</div>
+      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.correoElectronicoPropietario"/></div>
+      <div class="p-col-2 app-header">Teléfono</div>
+      <div class="p-col-4 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.telefonoPropietario"/></div>
+
       <div class="p-col-12 app-header app-titulo">INVENTARIO ANIMAL DEL PREDIO</div>
       <div class="p-col-2 app-header">Bovinos</div>
       <div class="p-col-2 app-header-value"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="objeto.bovinos"></p-inputNumber></div>
