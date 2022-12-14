@@ -61,14 +61,14 @@ export class ListaIatfComponent {
 
   guardar() {
     let detalle = this.items.filter((item: any) => 
-      item.nombreIdentificacionReceptora != null &&
-      item.numeroIdentificacionReceptora != null &&
-      item.razaIdentificacionReceptora != null &&
-      item.nombreIdentificacionToro != null &&
-      item.numeroIdentificacionToro &&
-      item.razaIdentificacionToro &&
-      item.hora &&
-      item.p60 &&
+      item.nombreIdentificacionReceptora != null ||
+      item.numeroIdentificacionReceptora != null ||
+      item.razaIdentificacionReceptora != null ||
+      item.nombreIdentificacionToro != null ||
+      item.numeroIdentificacionToro ||
+      item.razaIdentificacionToro ||
+      item.hora ||
+      item.p60 ||
       item.hallazgo);
     this.objeto.detalleFormatos = detalle;
     this.objeto.tipoFormato = "IATF";

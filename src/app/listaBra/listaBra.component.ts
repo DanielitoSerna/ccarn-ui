@@ -67,7 +67,11 @@ export class ListaBraComponent {
 
   guardar() {
     let detalle = this.items.filter((item: any) => 
-      item.numeroIdentificacion != null);
+      item.numeroIdentificacion != null ||
+      item.nombreIdentificacion != null ||
+      item.color != null || 
+      item.edadMeses != null ||
+      item.numeroPartos);
     this.objeto.detalleFormatos = detalle;
     this.objeto.tipoFormato = "BRA";
     this.objeto.detalleFormatos.forEach((item: any) => {
