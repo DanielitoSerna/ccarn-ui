@@ -104,17 +104,21 @@ export class CaracterizacionComponent {
     if (this.objeto.fecha == null || this.objeto.numeroCaracterizaacion == null || this.objeto.numeroCaracterizaacion == null || this.objeto.nombrePredio == null || this.objeto.departamento == null || this.objeto.municipio == null) {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Faltan datos por ingresar, por favor verifica' });
     } else {
-      if (this.objeto.fecha.toString().includes('/')) {
-        const [month, day, year] = this.objeto.fecha.split('/');
-
-        const date = this.convertToLocalDate(day + '/' + month + '/' + year);
-        this.objeto.fecha = date;
+      if (this.objeto.fecha != null) {
+        if (this.objeto.fecha.toString().includes('/')) {
+          const [month, day, year] = this.objeto.fecha.split('/');
+  
+          const date = this.convertToLocalDate(day + '/' + month + '/' + year);
+          this.objeto.fecha = date;
+        }
       }
-      if (this.objeto.fechaNacimiento.toString().includes('/')) {
-        const [month, day, year] = this.objeto.fechaNacimiento.split('/');
-
-        const date = this.convertToLocalDate(day + '/' + month + '/' + year);
-        this.objeto.fechaNacimiento = date;
+      if (this.objeto.fechaNacimiento != null) {
+        if (this.objeto.fechaNacimiento.toString().includes('/')) {
+          const [month, day, year] = this.objeto.fechaNacimiento.split('/');
+  
+          const date = this.convertToLocalDate(day + '/' + month + '/' + year);
+          this.objeto.fechaNacimiento = date;
+        }
       }
       this.service.guardarCaracterizacion(this.objeto).then(data => {
         this.messageService.add({ severity: 'success', summary: 'Exito', detail: 'Información guardada con exito' });
