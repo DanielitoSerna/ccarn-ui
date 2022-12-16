@@ -67,6 +67,22 @@ export class EvaluacionAndrologicaComponent {
         if (!this.objeto.fecha || !this.objeto.departamento || !this.objeto.municipio || !this.objeto.nombrePropietario || !this.objeto.nombreFinca ) {
             this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Faltan datos por ingresar por favor verifica' });
         } else {
+            if (this.objeto.fecha != null) {
+                if (this.objeto.fecha.toString().includes('/')) {
+                    const [month, day, year] = this.objeto.fecha.split('/');
+    
+                    const date = this.convertToLocalDate(day + '/' + month + '/' + year);
+                    this.objeto.fecha = date;
+                }
+            }
+            if (this.objeto.detalleAndrologico.fechaNacimiento != null ) {
+                if (this.objeto.detalleAndrologico.fechaNacimiento.toString().includes('/')) {
+                    const [month, day, year] = this.objeto.detalleAndrologico.fechaNacimiento.split('/');
+    
+                    const date = this.convertToLocalDate(day + '/' + month + '/' + year);
+                    this.objeto.detalleAndrologico.fechaNacimiento = date;
+                }
+            }
             this.service.guardarFormatosBra(this.objeto).then(data => {
                 this.messageService.add({ severity: 'success', summary: 'Exito', detail: 'Información guardada con exito' });
                 history.back();
@@ -74,6 +90,33 @@ export class EvaluacionAndrologicaComponent {
                 this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Ocurrio un error al realizar la transacción, por favor verifica o intenta de nuevo' });
             })
         }
+    }
+
+    convertToLocalDate(responseDate: any) {
+        try {
+            if (responseDate != null) {
+                if (typeof (responseDate) === 'string') {
+                    if (String(responseDate.indexOf('T') >= 0)) {
+                        responseDate = responseDate.split('T')[0];
+                    }
+                    if (String(responseDate.indexOf('+') >= 0)) {
+                        responseDate = responseDate.split('+')[0];
+                    }
+                }
+
+                responseDate = new Date(responseDate);
+                const newDate = new Date(responseDate.getFullYear(), responseDate.getMonth(), responseDate.getDate(), 0, 0, 0);
+                const userTimezoneOffset = newDate.getTimezoneOffset() * 60000;
+
+                const finalDate: Date = new Date(newDate.getTime() - userTimezoneOffset);
+                return finalDate;
+            } else {
+                return null;
+            }
+        } catch (error) {
+            return responseDate;
+        }
+
     }
 
 }

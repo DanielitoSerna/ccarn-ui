@@ -31,10 +31,10 @@ export class TransferenciaEmbrionComponent {
     ];
 
     constructor(private service: AppService, private messageService: MessageService) {
-        let objeto:any = localStorage.getItem("objeto");
+        let objeto: any = localStorage.getItem("objeto");
         objeto = JSON.parse(objeto ? objeto : '');
         this.objeto = objeto;
-        if(objeto.id != undefined) {
+        if (objeto.id != undefined) {
             this.objeto.fecha = MomentPipe.transform(this.objeto.fecha);
             this.objeto.horaInicio = new Date(this.objeto.horaInicio);
             this.objeto.horaFinal = new Date(this.objeto.horaFinal);
@@ -45,12 +45,12 @@ export class TransferenciaEmbrionComponent {
                 where: 'formatoBean.id = ' + objeto.id,
                 cantidad: 100,
                 pagina: 0
-              }
-              this.service.initProgress();
-              this.service.listarDatos(request).then(data => {
+            }
+            this.service.initProgress();
+            this.service.listarDatos(request).then(data => {
                 this.items = data;
                 this.service.finishProgress();
-              });
+            });
         }
     }
 
@@ -77,6 +77,12 @@ export class TransferenciaEmbrionComponent {
         if (!this.objeto.fecha || !this.objeto.empaqueEmbriones || !this.objeto.nombrePropietario || !this.objeto.transferidor || !this.objeto.nombreFinca || !this.objeto.horaInicio || !this.objeto.departamento || !this.objeto.horaFinal || !this.objeto.municipio || !this.objeto.profesionalProduccionInvitroEmbriones) {
             this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Faltan datos por ingresar por favor verifica' });
         } else {
+            if (this.objeto.fecha.toString().includes('/')) {
+                const [month, day, year] = this.objeto.fecha.split('/');
+
+                const date = this.convertToLocalDate(day + '/' + month + '/' + year);
+                this.objeto.fecha = date;
+            }
             this.service.guardarFormatosBra(this.objeto).then(data => {
                 this.messageService.add({ severity: 'success', summary: 'Exito', detail: 'Información guardada con exito' });
                 history.back();
@@ -94,4 +100,30 @@ export class TransferenciaEmbrionComponent {
         this.items.splice(i, 1);
       }
 
+    convertToLocalDate(responseDate: any) {
+        try {
+            if (responseDate != null) {
+                if (typeof (responseDate) === 'string') {
+                    if (String(responseDate.indexOf('T') >= 0)) {
+                        responseDate = responseDate.split('T')[0];
+                    }
+                    if (String(responseDate.indexOf('+') >= 0)) {
+                        responseDate = responseDate.split('+')[0];
+                    }
+                }
+
+                responseDate = new Date(responseDate);
+                const newDate = new Date(responseDate.getFullYear(), responseDate.getMonth(), responseDate.getDate(), 0, 0, 0);
+                const userTimezoneOffset = newDate.getTimezoneOffset() * 60000;
+
+                const finalDate: Date = new Date(newDate.getTime() - userTimezoneOffset);
+                return finalDate;
+            } else {
+                return null;
+            }
+        } catch (error) {
+            return responseDate;
+        }
+
+    }
 }
