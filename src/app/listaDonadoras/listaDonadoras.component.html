@@ -32,6 +32,10 @@
       </div>
     </div>
     <div class="p-grid">
+      <div class="p-col-11"></div>
+      <div class="p-col-1">
+        <button pButton pRipple type="button" pTooltip="Agregar" tooltipPosition="left" icon="pi pi-plus" class="p-button-success-app" (click)="add()"></button>
+      </div>
       <div class="p-col-1 app-header app-titulo">N°</div>
       <div class="p-col-4 app-header app-titulo">Identificación Donadora</div>
       <div class="p-col-4 app-header app-titulo">Identificación Toro</div>
@@ -43,7 +47,8 @@
       <div class="p-col-2 app-header app-titulo">Nombre</div>
       <div class="p-col-1 app-header app-titulo">Número</div>
       <div class="p-col-1 app-header app-titulo">Raza</div>
-      <div class="p-col-3 app-header app-titulo">Observaciones</div>
+      <div class="p-col-2 app-header app-titulo">Observaciones</div>
+      <div class="p-col-1 app-header app-titulo"></div>
     </div>
     &nbsp;
     <div class="p-grid" *ngFor="let item of items; let i = index">
@@ -54,8 +59,11 @@
       <div class="p-col-2 divisor-app"><input type="text" pInputText [(ngModel)]="item.nombreToro"/></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.numeroToro"/></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.razaToro"/></div>
-      <div class="p-col-3">
+      <div class="p-col-2">
         <textarea rows="2" cols="30" pInputTextarea maxlength="400" style="width: 100%; resize:none;" [(ngModel)]="item.observacion"></textarea>
+      </div>
+      <div class="p-col-1">
+        <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-danger" (click)="remove(i)" pTooltip="Eliminar" tooltipPosition="left"></button>
       </div>
     </div>
     &nbsp;

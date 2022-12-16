@@ -27,8 +27,7 @@ export class ListaBraComponent {
   objeto:any = {};
 
   items:any = [
-    {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
-    {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
+    {}
   ];
 
   constructor(private service: AppService, private messageService: MessageService) {
@@ -63,6 +62,14 @@ export class ListaBraComponent {
 
   cancelar() {
     history.back();
+  }
+
+  add() {
+    this.items.push({});
+  }
+
+  remove(i: number) {
+    this.items.splice(i, 1);
   }
 
   guardar() {

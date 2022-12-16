@@ -27,9 +27,7 @@ export class TransferenciaEmbrionComponent {
     objeto: any = {};
 
     items: any = [
-        {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
-        {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
-        {}, {}, {}, {}, {}
+        {}
     ];
 
     constructor(private service: AppService, private messageService: MessageService) {
@@ -87,5 +85,13 @@ export class TransferenciaEmbrionComponent {
             })
         }
     }
+
+    add() {
+        this.items.push({});
+      }
+    
+      remove(i: number) {
+        this.items.splice(i, 1);
+      }
 
 }

@@ -178,9 +178,9 @@ export class ListaBgpComponent {
     this.menorSi = this.contarCriterios("Menor", "SI");
     this.menorNo = this.contarCriterios("Menor", "NO");
 
-    this.fundamentalP = this.fundamentalSi / 15;
-    this.mayorP = this.mayorSi / 31;
-    this.menorP = this.menorSi / 4;
+    this.fundamentalP = this.fundamentalSi / (15 - this.fundamentalNa);
+    this.mayorP = this.mayorSi / (31 - this.mayorNa);
+    this.menorP = this.menorSi / (4 - this.menorNa);
 
     if(this.fundamentalP == 1 && this.mayorP >= 0.8 && this.menorP >= 0.6) {
       this.concepto = "FAVORABLE"

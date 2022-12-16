@@ -27,9 +27,7 @@ export class ListaToroComponent {
   objeto: any = {};
 
   items:any = [
-    {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
-    {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
-    {}, {}, {}, {}, {}
+    {}
   ];
 
   constructor(private service: AppService, private messageService: MessageService) {
@@ -75,5 +73,13 @@ export class ListaToroComponent {
         this.messageService.add({severity:'error', summary: 'Error', detail: 'Ocurrio un error al realizar la transacción, por favor verifica o intenta de nuevo'});
       })
     }
+  }
+
+  add() {
+    this.items.push({});
+  }
+
+  remove(i: number) {
+    this.items.splice(i, 1);
   }
 }

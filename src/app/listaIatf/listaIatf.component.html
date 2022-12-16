@@ -36,6 +36,10 @@
       </div>
     </div>
     <div class="p-grid">
+      <div class="p-col-11"></div>
+      <div class="p-col-1">
+        <button pButton pRipple type="button" pTooltip="Agregar" tooltipPosition="left" icon="pi pi-plus" class="p-button-success-app" (click)="add()"></button>
+      </div>
       <div class="p-col-1 app-header">N°</div>
       <div class="p-col-3 app-header">Identificación Receptora</div>
       <div class="p-col-3 app-header divisor-app">Identificación Toro</div>
@@ -64,8 +68,11 @@
       <div class="p-col-1 divisor-app"><p-calendar [(ngModel)]="item.hora" [timeOnly]="true" hourFormat="12" inputId="timeonly1"></p-calendar></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.p60"/></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.hallazgo"/></div>
-      <div class="p-col-2">
+      <div class="p-col-1">
         <textarea rows="2" cols="30" pInputTextarea maxlength="400" style="width: 100%; resize:none;" [(ngModel)]="item.observacion"></textarea>
+      </div>
+      <div class="p-col-1">
+        <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-danger" (click)="remove(i)" pTooltip="Eliminar" tooltipPosition="left"></button>
       </div>
     </div>
     &nbsp;

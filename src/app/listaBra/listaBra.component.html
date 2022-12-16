@@ -34,9 +34,13 @@
         &nbsp;
         <input type="text" pInputText [(ngModel)]="objeto.profesionalACargoDos"/>
       </div>
+      <div class="p-col-11"></div>
+      <div class="p-col-1">
+        <button pButton pRipple type="button" pTooltip="Agregar" tooltipPosition="left" icon="pi pi-plus" class="p-button-success-app" (click)="add()"></button>
+      </div>
     </div>
     <div style="overflow: auto;">
-      <div style="width: 140%;">
+      <div style="width: 150%;">
         <div class="p-grid">
           <div class="p-col-2">
             <div class="p-grid">
@@ -50,7 +54,7 @@
           <div class="p-col-1 app-header divisor-app">Color</div>
           <div class="p-col-1 app-header">Edad en meses</div>
           <div class="p-col-1 app-header">Número de partos</div>
-          <div class="p-col-3">
+          <div class="p-col-2">
             <div class="p-grid">
               <div class="p-col-3 app-header">ER</div>
               <div class="p-col-3 app-header">DX</div>
@@ -62,6 +66,7 @@
           <div class="p-col-1 app-header">IATF</div>
           <div class="p-col-1 app-header">TE</div>
           <div class="p-col-1 app-header">Observaciones</div>
+          <div class="p-col-1 app-header"></div>
         </div>
         &nbsp;
         <div class="p-grid" *ngFor="let item of items; let i = index">
@@ -75,7 +80,7 @@
           <div class="p-col-1 divisor-app"><input type="text" pInputText [(ngModel)]="item.color"/></div>
           <div class="p-col-1"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="item.edadMeses"></p-inputNumber></div>
           <div class="p-col-1"><p-inputNumber [min]="0" locale="de-DE" [(ngModel)]="item.numeroPartos"></p-inputNumber></div>
-          <div class="p-col-3">
+          <div class="p-col-2">
             <div class="p-grid">
               <div class="p-col-3"><input type="text" pInputText [(ngModel)]="item.er"/></div>
               <div class="p-col-3"><input type="text" pInputText [(ngModel)]="item.dx"/></div>
@@ -93,6 +98,9 @@
           <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.te"/></div>
           <div class="p-col-1">
             <textarea rows="2" cols="30" pInputTextarea maxlength="400" style="width: 100%; resize:none;" [(ngModel)]="item.observacion"></textarea>
+          </div>
+          <div class="p-col-1">
+            <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-danger" (click)="remove(i)" pTooltip="Eliminar" tooltipPosition="left"></button>
           </div>
         </div>
       </div>

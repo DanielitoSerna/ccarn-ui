@@ -135,9 +135,9 @@ export class ListaAsiComponent {
     this.menorSi = this.contarCriterios("Menor", "SI");
     this.menorNo = this.contarCriterios("Menor", "NO");
 
-    this.fundamentalP = this.fundamentalSi / 7;
-    this.mayorP = this.mayorSi / 23;
-    this.menorP = this.menorSi / 10;
+    this.fundamentalP = this.fundamentalSi / (7 - this.fundamentalNa);
+    this.mayorP = this.mayorSi / (23 - this.mayorNa);
+    this.menorP = this.menorSi / (10 - this.menorNa);
 
     if (this.fundamentalP == 1 && this.mayorP >= 0.8 && this.menorP >= 0.6) {
       this.concepto = "FAVORABLE"

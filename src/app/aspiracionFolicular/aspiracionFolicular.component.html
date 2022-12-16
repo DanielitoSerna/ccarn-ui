@@ -45,9 +45,13 @@
       <div class="p-col-2 app-header-value"><p-calendar [(ngModel)]="objeto.horaFinal" [timeOnly]="true" hourFormat="12" inputId="timeonly1"></p-calendar></div>
       <div class="p-col-2 app-header">Medio de aspiración:</div>
       <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.medioAspiracion"/></div>
+      <div class="p-col-11"></div>
+      <div class="p-col-1">
+        <button pButton pRipple type="button" pTooltip="Agregar" tooltipPosition="left" icon="pi pi-plus" class="p-button-success-app" (click)="add()"></button>
+      </div>
     </div>
     <div style="overflow: auto;">
-      <div style="width: 140%;">
+      <div style="width: 160%;">
         <div class="p-grid">
           <div class="p-col-2">
             <div class="p-grid">
@@ -61,7 +65,7 @@
           <div class="p-col-1 app-header app-titulo">Programación</div>
           <div class="p-col-1 app-header app-titulo">Toro</div>
           <div class="p-col-1 app-header app-titulo">Raza</div>
-          <div class="p-col-3">
+          <div class="p-col-2">
             <div class="p-grid">
               <div class="p-col-2 app-header app-titulo">G1</div>
               <div class="p-col-2 app-header app-titulo">G2</div>
@@ -73,6 +77,7 @@
           </div>
           <div class="p-col-1 app-header app-titulo">Seleccionada</div>
           <div class="p-col-1 app-header app-titulo">Observaciones</div>
+          <div class="p-col-1 app-header app-titulo"></div>
         </div>
         &nbsp;
         <div class="p-grid" *ngFor="let item of items; let i = index">
@@ -89,7 +94,7 @@
           <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.programacion"/></div>
           <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.nombreToro"/></div>
           <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.razaToro"/></div>
-          <div class="p-col-3">
+          <div class="p-col-2">
             <div class="p-grid">
               <div class="p-col-2"><input type="text" pInputText [(ngModel)]="item.g1"/></div>
               <div class="p-col-2"><input type="text" pInputText [(ngModel)]="item.g2"/></div>
@@ -107,6 +112,9 @@
           </div>
           <div class="p-col-1">
             <textarea rows="2" cols="30" pInputTextarea maxlength="400" style="width: 100%; resize:none;" [(ngModel)]="item.observacion"></textarea>
+          </div>
+          <div class="p-col-1">
+            <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-danger" (click)="remove(i)" pTooltip="Eliminar" tooltipPosition="left"></button>
           </div>
         </div>
       </div>
