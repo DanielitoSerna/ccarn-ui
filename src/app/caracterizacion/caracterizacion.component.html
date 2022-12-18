@@ -2,6 +2,8 @@
   <cmd-title text="Caracterización"></cmd-title>
   <div class="card_border border_top_green content-app">
     <div class="p-grid">
+      <p>Click on the download button for exporting data into the excel file.</p>
+      <a href="http://localhost:8080/api/export-to-excel" class="btn btn-primary">Download the Excel File</a>
       <div class="p-col-12 app-header app-titulo">1. Caracterización del hato - Hoja # 1</div>
       <div class="p-col-12 app-header app-titulo">1. Información general usuario - predio (Evaluación al productor)</div>
       
@@ -179,7 +181,7 @@
         </div>
       </div>
 
-      <div class="p-col-2 app-header">Estado cívil:</div>
+      <div class="p-col-2 app-header">Estado civil:</div>
       <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.estadoCivil"/></div>
       
       <div class="p-col-2 app-header">Fecha de nacimiento</div>
@@ -695,7 +697,7 @@
         <div class="field-checkbox">
           <p-radioButton name="tipo" value="Buenas practicas ganadera" [(ngModel)]="objeto.mejoramientoGenetico"></p-radioButton>
           &nbsp;
-          <label for="binary">Buenas practicas ganadera</label>
+          <label for="binary">Buenas prácticas ganadera</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value">
@@ -733,7 +735,7 @@
         <div class="field-checkbox">
           <p-radioButton name="tipo" value="Biotecnologia de la reproducción" [(ngModel)]="objeto.sanidadAnimal"></p-radioButton>
           &nbsp;
-          <label for="binary">Biotecnologia de la reproducción</label>
+          <label for="binary">Biotecnología de la reproducción</label>
         </div>
       </div>
       <div class="p-col-2 app-header-value"></div>
