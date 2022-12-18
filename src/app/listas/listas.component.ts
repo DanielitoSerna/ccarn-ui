@@ -130,8 +130,10 @@ export class ListasComponent implements OnInit {
       this.request.where = this.request.where + " and municipio = '" + this.municipio + "'";
     }
 
-    if(this.nombreFinca != null) {
+    if(this.nombreFinca != null && this.url != '/caracterizacion') {
       this.request.where = this.request.where + " and upper(nombreFinca) like upper('%" + this.nombreFinca + "%')";
+    } else if(this.nombreFinca != null) {
+      this.request.where = this.request.where + " and upper(nombrePredio) like upper('%" + this.nombreFinca + "%')";
     }
 
     if(this.empresaGanadera != null) {
@@ -218,7 +220,7 @@ export class ListasComponent implements OnInit {
     } else if(url == '/caracterizacion') {
       this.request.tabla = 'Caracterizacion';
       this.request.campoOrden = 'fecha';
-      this.request.where = undefined;
+      this.request.where = ' 1 = 1 ';
       this.url = '/caracterizacion';
       this.isLista = true;
       this.titulo = 'Caracterización';
@@ -261,6 +263,10 @@ export class ListasComponent implements OnInit {
       this.url = '/vehiculo';
       this.titulo = 'Registro control de personas y vehículos';
     }  
+  }
+
+  download() {
+    window.open(this.service.configUrl + '/caracterizacion-excel');
   }
 }
 

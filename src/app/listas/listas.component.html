@@ -71,10 +71,10 @@
       [showClear]="true" optionDisabled="inactive" [(ngModel)]="municipio">
       </p-dropdown>
     </div>
-    <div class="p-col-12 p-md-6 p-lg-3">
+    <div class="p-col-12 p-md-6 p-lg-2">
       <input placeholder="Escriba aquí" type="text" [(ngModel)]="nombreFinca">
     </div>
-    <div class="p-col-12 p-md-6 p-lg-3">
+    <div class="p-col-12 p-md-6 p-lg-4">
       <div class="wrapper">
         <button pButton pRipple type="button" class="p-button-success-app" label="Buscar" (click)="filter()"></button>
         <div>
@@ -82,6 +82,9 @@
           <button pButton pRipple type="button" label="Limpiar" class="p-button-outlined" (click)="clean()"></button>
         </div>
       </div>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-2" *ngIf="url == '/caracterizacion'">
+      <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="download()"></button>
     </div>
   </div>
   <div class="p-grid" *ngIf="request.tabla == 'EncabezadoRegistro'">

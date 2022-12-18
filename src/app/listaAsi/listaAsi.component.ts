@@ -119,6 +119,30 @@ export class ListaAsiComponent {
         this.service.finishProgress();
         this.calcularValores();
       });
+
+      if(this.objeto.cria) {
+        this.objeto.cria = true;
+      }
+
+      if(this.objeto.levante) {
+        this.objeto.levante = true;
+      }
+
+      if(this.objeto.ceba) {
+        this.objeto.ceba = true;
+      }
+
+      if(this.objeto.leche) {
+        this.objeto.cicloCompleto = true;
+      }
+
+      if(this.objeto.postura) {
+        this.objeto.postura = true;
+      }
+
+      if(this.objeto.materialGenetico == 1) {
+        this.objeto.materialGenetico = true;
+      }
     }
   }
 
