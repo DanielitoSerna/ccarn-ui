@@ -27,11 +27,9 @@ export class CaracterizacionComponent {
 
   tipos = [
     { label: "Ninguna", value: "Ninguna" },
-    { label: "Bachillerato", value: "Bachillerato" },
-    { label: "Técnica", value: "Técnica" },
-    { label: "Tecnológica", value: "Tecnológica" },
-    { label: "Universitaria", value: "Universitaria" },
-    { label: "Doctorado", value: "Doctorado" }
+    { label: "Pública", value: "Pública" },
+    { label: "Privada", value: "Privada" },
+    { label: "Ganadera", value: "Ganadera" }
   ];
 
   items: any[] = [];
