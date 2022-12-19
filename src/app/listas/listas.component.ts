@@ -292,6 +292,18 @@ export class ListasComponent implements OnInit {
   downloadPersona() {
     window.open(this.service.configUrl + '/personas-excel');
   }
+
+  downloadRecomendaciones() {
+    window.open(this.service.configUrl + '/recomendaciones-excel');
+  }
+
+  downloadBra() {
+    window.open(this.service.configUrl + '/bra-excel');
+  }
+
+  downloadIatf() {
+    window.open(this.service.configUrl + '/iatf-excel');
+  }
 }
 
 
