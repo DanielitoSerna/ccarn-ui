@@ -304,6 +304,14 @@ export class ListasComponent implements OnInit {
   downloadIatf() {
     window.open(this.service.configUrl + '/iatf-excel');
   }
+
+  downloadAspiracion() {
+    window.open(this.service.configUrl + '/aspiracion-excel');
+  }
+
+  downloadDonadoras() {
+    window.open(this.service.configUrl + '/donadoras-excel');
+  }
 }
 
 

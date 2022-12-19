@@ -60,11 +60,11 @@ export class ListaDonadorasComponent {
 
   guardar() {
     let detalle = this.items.filter((item: any) =>
-      item.nombreDonadora != null &&
-      item.nombreIdentificacion != null &&
-      item.razaDonadora != null &&
-      item.nombreToro != null &&
-      item.numeroToro &&
+      item.nombreDonadora != null ||
+      item.nombreIdentificacion != null ||
+      item.razaDonadora != null ||
+      item.nombreToro != null ||
+      item.numeroToro ||
       item.razaToro);
     this.objeto.detalleFormatos = detalle;
     this.objeto.tipoFormato = "DOND";
