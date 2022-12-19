@@ -272,6 +272,14 @@ export class ListasComponent implements OnInit {
   downloadBpg() {
     window.open(this.service.configUrl + '/bpg-excel');
   }
+
+  downloadAsi() {
+    window.open(this.service.configUrl + '/asi-excel');
+  }
+
+  downloadCapacitacion() {
+    window.open(this.service.configUrl + '/capacitacion-excel');
+  }
 }
 
 
