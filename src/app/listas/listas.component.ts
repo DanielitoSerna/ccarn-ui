@@ -280,6 +280,18 @@ export class ListasComponent implements OnInit {
   downloadCapacitacion() {
     window.open(this.service.configUrl + '/capacitacion-excel');
   }
+
+  downloadTratamiento() {
+    window.open(this.service.configUrl + '/tratamiento-excel');
+  }
+
+  downloadPotrero() {
+    window.open(this.service.configUrl + '/potrero-excel');
+  }
+
+  downloadPersona() {
+    window.open(this.service.configUrl + '/personas-excel');
+  }
 }
 
 
