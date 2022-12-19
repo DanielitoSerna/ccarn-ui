@@ -73,19 +73,19 @@ export class AspiracionFolicularComponent {
 
   guardar() {
     let detalle = this.items.filter((item: any) =>
-      item.fecha != null &&
-      item.hora != null &&
-      item.nombreDonadora != null &&
-      item.razaDonadora != null &&
-      item.programacion != null &&
-      item.nombreToro != null &&
-      item.razaToro != null &&
-      item.g1 != null &&
-      item.g2 != null &&
-      item.g2 != null &&
-      item.g3 != null &&
-      item.deg != null &&
-      item.dx != null &&
+      item.fecha != null ||
+      item.hora != null ||
+      item.nombreDonadora != null ||
+      item.razaDonadora != null ||
+      item.programacion != null ||
+      item.nombreToro != null ||
+      item.razaToro != null ||
+      item.g1 != null ||
+      item.g2 != null ||
+      item.g2 != null ||
+      item.g3 != null ||
+      item.deg != null ||
+      item.dx != null ||
       item.total);
     this.objeto.detalleFormatos = detalle;
     this.objeto.tipoFormato = "ASPIRACION";

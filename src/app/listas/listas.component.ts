@@ -280,6 +280,50 @@ export class ListasComponent implements OnInit {
   downloadCapacitacion() {
     window.open(this.service.configUrl + '/capacitacion-excel');
   }
+
+  downloadTratamiento() {
+    window.open(this.service.configUrl + '/tratamiento-excel');
+  }
+
+  downloadPotrero() {
+    window.open(this.service.configUrl + '/potrero-excel');
+  }
+
+  downloadPersona() {
+    window.open(this.service.configUrl + '/personas-excel');
+  }
+
+  downloadRecomendaciones() {
+    window.open(this.service.configUrl + '/recomendaciones-excel');
+  }
+
+  downloadBra() {
+    window.open(this.service.configUrl + '/bra-excel');
+  }
+
+  downloadIatf() {
+    window.open(this.service.configUrl + '/iatf-excel');
+  }
+
+  downloadAspiracion() {
+    window.open(this.service.configUrl + '/aspiracion-excel');
+  }
+
+  downloadDonadoras() {
+    window.open(this.service.configUrl + '/donadoras-excel');
+  }
+
+  downloadToros() {
+    window.open(this.service.configUrl + '/toros-excel');
+  }
+
+  downloadHembras() {
+    window.open(this.service.configUrl + '/hembras-excel');
+  }
+
+  downloadAndrologica() {
+    window.open(this.service.configUrl + '/andrologica-excel');
+  }
 }
 
 
