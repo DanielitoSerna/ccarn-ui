@@ -344,3 +344,15 @@ i {
   background-color: none !important;
 }
   
+::ng-deep .p-datepicker-calendar {
+    font-size: 14px !important;
+    padding: 0px !important;
+}
+
+::ng-deep .p-datepicker table td {
+    padding: 0.5px !important;
+}
+
+::ng-deep  .p-calendar-w-btn .p-datepicker-trigger {
+    padding: 0px !important;
+}
