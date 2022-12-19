@@ -265,8 +265,12 @@ export class ListasComponent implements OnInit {
     }  
   }
 
-  download() {
+  downloadCaracterizacion() {
     window.open(this.service.configUrl + '/caracterizacion-excel');
+  }
+
+  downloadBpg() {
+    window.open(this.service.configUrl + '/bpg-excel');
   }
 }
 

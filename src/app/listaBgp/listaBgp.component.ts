@@ -182,6 +182,10 @@ export class ListaBgpComponent {
     this.mayorP = this.mayorSi / (31 - this.mayorNa);
     this.menorP = this.menorSi / (4 - this.menorNa);
 
+    this.objeto.concepto.porcentajeCumplimientoFundamental = this.fundamentalP;
+    this.objeto.concepto.porcentajeCumplimientoMayor = this.mayorP;
+    this.objeto.concepto.porcentajeCumplimientoMenor = this.menorP;
+
     if(this.fundamentalP == 1 && this.mayorP >= 0.8 && this.menorP >= 0.6) {
       this.concepto = "FAVORABLE"
     } else {

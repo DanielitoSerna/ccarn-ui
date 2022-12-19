@@ -56,6 +56,12 @@
           <div class="p-mr-2"></div>
           <button pButton pRipple type="button" label="Limpiar" class="p-button-outlined" (click)="clean()"></button>
         </div>
+        <div class="p-mr-2" *ngIf="url == '/listaAsi'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadCaracterizacion()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/listaBgp'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadBpg()"></button>
+        </div>
       </div>
     </div>
   </div>
@@ -81,10 +87,34 @@
           <div class="p-mr-2"></div>
           <button pButton pRipple type="button" label="Limpiar" class="p-button-outlined" (click)="clean()"></button>
         </div>
+        <div class="p-mr-2" *ngIf="url == '/caracterizacion'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadCaracterizacion()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/recomendacion'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadCaracterizacion()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/aspiracion'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadCaracterizacion()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/transferenciaEmbrion'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadCaracterizacion()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/evaluacionAndrologica'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadCaracterizacion()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/listaToro'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadCaracterizacion()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/listaDonadoras'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadCaracterizacion()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/listaBra'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadCaracterizacion()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/listaIatf'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadCaracterizacion()"></button>
+        </div>
       </div>
-    </div>
-    <div class="p-col-12 p-md-6 p-lg-2" *ngIf="url == '/caracterizacion'">
-      <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="download()"></button>
     </div>
   </div>
   <div class="p-grid" *ngIf="request.tabla == 'EncabezadoRegistro'">
@@ -103,6 +133,18 @@
         <div>
           <div class="p-mr-2"></div>
           <button pButton pRipple type="button" label="Limpiar" class="p-button-outlined" (click)="clean()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/vehiculo'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadCaracterizacion()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/potrero'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadCaracterizacion()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/veterinario'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadCaracterizacion()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/capacitacion'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadCaracterizacion()"></button>
         </div>
       </div>
     </div>
