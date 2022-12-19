@@ -312,6 +312,18 @@ export class ListasComponent implements OnInit {
   downloadDonadoras() {
     window.open(this.service.configUrl + '/donadoras-excel');
   }
+
+  downloadToros() {
+    window.open(this.service.configUrl + '/toros-excel');
+  }
+
+  downloadHembras() {
+    window.open(this.service.configUrl + '/hembras-excel');
+  }
+
+  downloadAndrologica() {
+    window.open(this.service.configUrl + '/andrologica-excel');
+  }
 }
 
 
