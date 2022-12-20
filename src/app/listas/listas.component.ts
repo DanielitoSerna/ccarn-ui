@@ -80,7 +80,7 @@ export class ListasComponent implements OnInit {
 
   onPageChange(event: any) {
     this.request.cantidad = event.rows;
-    this.request.pagina = event.page;
+    this.request.pagina = (event.page * event.rows);
     this.listarDatos(false);
   }
 
