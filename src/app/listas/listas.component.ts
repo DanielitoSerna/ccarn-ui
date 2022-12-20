@@ -100,6 +100,7 @@ export class ListasComponent implements OnInit {
     if(this.request.campoOrden != null && ( event.field.valueOf() != this.request.campoOrden || order.valueOf() != this.request.orden)){
       this.request.orden = order;
       this.request.campoOrden = event.field;
+      
       this.request.pagina = 0;
       this.listarDatos(false);
     }

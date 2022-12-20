@@ -206,7 +206,7 @@
             <th  class="percentage_10">
             </th>
           </tr>
-          <tr *ngIf="isLista">
+          <tr *ngIf="isLista && url != '/caracterizacion'">
             <th  pSortableColumn="fecha" class="percentage_10">
               Fecha
               <p-sortIcon field="fecha"></p-sortIcon>
@@ -222,6 +222,30 @@
             <th pSortableColumn="nombreFinca" class="percentage_20">
               Nombre de la finca
               <p-sortIcon field="nombreFinca"></p-sortIcon>
+            </th>
+            <th  pSortableColumn="vereda" class="percentage_20">
+              Vereda
+              <p-sortIcon field="vereda"></p-sortIcon>
+            </th>
+            <th  class="percentage_10">
+            </th>
+          </tr>
+          <tr *ngIf="isLista && url == '/caracterizacion'">
+            <th  pSortableColumn="fecha" class="percentage_10">
+              Fecha
+              <p-sortIcon field="fecha"></p-sortIcon>
+            </th>
+            <th  pSortableColumn="municipio" class="percentage_20">
+              Municipio
+              <p-sortIcon field="municipio"></p-sortIcon>
+            </th>
+            <th pSortableColumn="nombrePropietario" class="percentage_20">
+              Nombre del propietario
+              <p-sortIcon field="nombrePropietario"></p-sortIcon>
+            </th>
+            <th pSortableColumn="nombrePredio" class="percentage_20">
+              Nombre del predio
+              <p-sortIcon field="nombrePredio"></p-sortIcon>
             </th>
             <th  pSortableColumn="vereda" class="percentage_20">
               Vereda
