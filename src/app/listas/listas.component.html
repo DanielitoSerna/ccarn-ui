@@ -8,12 +8,15 @@
         <div class="p-col-12 p-md-6 p-lg-2">
           <label class="p-text-bold">Fecha</label>
         </div>
-        <div class="p-col-12 p-md-6 p-lg-3">
+        <div class="p-col-12 p-md-6 p-lg-2">
             <label class="p-text-bold">Nombre del predio</label>
         </div>
-        <div class="p-col-12 p-md-6 p-lg-3">
+        <div class="p-col-12 p-md-6 p-lg-2">
+          <label class="p-text-bold">Municipio</label>
+        </div>
+        <div class="p-col-12 p-md-6 p-lg-2">
           <label class="p-text-bold">Concepto</label>
-      </div>
+        </div>
     </div>
     <div class="p-grid" *ngIf="request.tabla == 'Formato' || request.tabla == 'Caracterizacion'">
       <div class="p-col-12 p-md-6 p-lg-2">
@@ -40,10 +43,16 @@
                 dateFormat="dd/mm/yy" [(ngModel)]="fecha">
       </p-calendar>
     </div>
-    <div class="p-col-12 p-md-6 p-lg-3">
+    <div class="p-col-12 p-md-6 p-lg-2">
       <input placeholder="Escriba aquí" type="text" [(ngModel)]="nombrePredio">
     </div>
-    <div class="p-col-12 p-md-6 p-lg-3">
+    <div class="p-col-12 p-md-6 p-lg-2">
+      <p-dropdown [options]="municipios" styleClass="width_full"
+      placeholder="Seleccione.." optionLabel="label" optionValue="value"
+      [showClear]="true" optionDisabled="inactive" [(ngModel)]="municipio">
+      </p-dropdown>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-2">
       <p-dropdown [options]="conceptos" styleClass="width_full"
       placeholder="Seleccione.." optionLabel="label" optionValue="value"
       [showClear]="true" optionDisabled="inactive" [(ngModel)]="concepto">
@@ -163,13 +172,17 @@
                 Fecha de auditoría
                 <p-sortIcon field="listaChequeoBean.fechaAuditoria"></p-sortIcon>
               </th>
-              <th pSortableColumn="listaChequeoBean.nombrePredio" class="percentage_25">
+              <th pSortableColumn="listaChequeoBean.nombrePredio" class="percentage_20">
                 Nombre del predio
                 <p-sortIcon field="listaChequeoBean.nombrePredio"></p-sortIcon>
               </th>
-              <th pSortableColumn="listaChequeoBean.nombrePropietario" class="percentage_25">
+              <th pSortableColumn="listaChequeoBean.nombrePropietario" class="percentage_20">
                 Nombre del propietario
                 <p-sortIcon field="listaChequeoBean.nombrePropietario"></p-sortIcon>
+              </th>
+              <th pSortableColumn="listaChequeoBean.municipio" class="percentage_10">
+                Municipio
+                <p-sortIcon field="listaChequeoBean.municipio"></p-sortIcon>
               </th>
               <th  pSortableColumn="listaChequeoBean.tipoVisita" class="percentage_15">
                 Tipo de visita
@@ -187,13 +200,17 @@
               Fecha
               <p-sortIcon field="listaChequeoBean.fecha"></p-sortIcon>
             </th>
-            <th pSortableColumn="listaChequeoBean.numeroRegistroPredio" class="percentage_25">
+            <th pSortableColumn="listaChequeoBean.numeroRegistroPredio" class="percentage_20">
               Número de registro
               <p-sortIcon field="listaChequeoBean.numeroRegistroPredio"></p-sortIcon>
             </th>
-            <th pSortableColumn="listaChequeoBean.nombrePredio" class="percentage_25">
+            <th pSortableColumn="listaChequeoBean.nombrePredio" class="percentage_20">
               Nombre del predio
               <p-sortIcon field="listaChequeoBean.nombrePredio"></p-sortIcon>
+            </th>
+            <th pSortableColumn="listaChequeoBean.municipio" class="percentage_10">
+              Municipio
+              <p-sortIcon field="listaChequeoBean.municipio"></p-sortIcon>
             </th>
             <th  pSortableColumn="listaChequeoBean.objeto" class="percentage_15">
               Objeto
@@ -273,8 +290,9 @@
                 {{objeto.listaChequeoBean.fechaAuditoria | dateFormat: 'DD/MM/yyyy'}}
                 {{objeto.listaChequeoBean.fecha | dateFormat: 'DD/MM/yyyy'}}
               </td>
-              <td class="column-app percentage_25">{{objeto.listaChequeoBean.nombrePredio}}</td>
-              <td class="column-app percentage_25">{{objeto.listaChequeoBean.nombrePropietario}}</td>
+              <td class="column-app percentage_20">{{objeto.listaChequeoBean.nombrePredio}}</td>
+              <td class="column-app percentage_20">{{objeto.listaChequeoBean.nombrePropietario}}</td>
+              <td class="column-app percentage_10">{{objeto.listaChequeoBean.municipio}}</td>
               <td class="column-app percentage_15">{{objeto.listaChequeoBean.tipoVisita}}</td>
               <td class="percentage_10">
                 <app-texto [text]="objeto.concepto" [type]="objeto.concepto === 'FAVORABLE' ? 'success' : 'danger'"></app-texto>
@@ -290,8 +308,9 @@
             <td class="percentage_10">
               {{objeto.listaChequeoBean.fecha | dateFormat: 'DD/MM/yyyy'}}
             </td>
-            <td class="column-app percentage_25">{{objeto.listaChequeoBean.numeroRegistroPredio}}</td>
-            <td class="column-app percentage_25">{{objeto.listaChequeoBean.nombrePredio}}</td>
+            <td class="column-app percentage_20">{{objeto.listaChequeoBean.numeroRegistroPredio}}</td>
+            <td class="column-app percentage_20">{{objeto.listaChequeoBean.nombrePredio}}</td>
+            <td class="column-app percentage_10">{{objeto.listaChequeoBean.municipio}}</td>
             <td class="column-app percentage_15">{{objeto.listaChequeoBean.objeto}}</td>
             <td class="percentage_10">
               <app-texto [text]="objeto.concepto" [type]="objeto.concepto === 'FAVORABLE' ? 'success' : 'danger'"></app-texto>
