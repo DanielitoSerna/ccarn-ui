@@ -58,8 +58,8 @@ export class ListaToroComponent {
 
   guardar() {
     let detalle = this.items.filter((item: any) =>
-      item.nombreToro != null &&
-      item.numeroToro != null &&
+      item.nombreToro != null ||
+      item.numeroToro != null ||
       item.razaToro != null);
     this.objeto.detalleFormatos = detalle;
     this.objeto.tipoFormato = "TORO";

@@ -61,15 +61,15 @@ export class TransferenciaEmbrionComponent {
 
     guardar() {
         let detalle = this.items.filter((item: any) =>
-            item.nombreDonadora != null &&
-            item.razaDonadora != null &&
-            item.nombreToro != null &&
-            item.razaToro != null &&
-            item.embrion != null &&
-            item.receptora != null &&
-            item.ovario != null &&
-            item.hallazgo != null &&
-            item.p60 != null &&
+            item.nombreDonadora != null ||
+            item.razaDonadora != null ||
+            item.nombreToro != null ||
+            item.razaToro != null ||
+            item.embrion != null ||
+            item.receptora != null ||
+            item.ovario != null ||
+            item.hallazgo != null ||
+            item.p60 != null ||
             item.sx != null
         );
         this.objeto.detalleFormatos = detalle;
