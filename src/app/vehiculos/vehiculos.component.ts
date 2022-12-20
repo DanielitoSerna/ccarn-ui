@@ -61,12 +61,12 @@ export class VehiculosComponent {
 
   guardar() {
     let detalle = this.items.filter((item: any) => 
-      item.fechaIngresoPersona != null &&
-      item.nombreIngresoPersona != null &&
-      item.identificacionIngresoPersona != null &&
-      item.telefonoIngresoPersona != null &&
-      item.producto != null &&
-      item.procedenciaIngresoPersona != null &&
+      item.fechaIngresoPersona != null ||
+      item.nombreIngresoPersona != null ||
+      item.identificacionIngresoPersona != null ||
+      item.telefonoIngresoPersona != null ||
+      item.producto != null ||
+      item.procedenciaIngresoPersona != null ||
       item.motivoVisita != null);
     this.objeto.registros = detalle;
     this.objeto.tipoFormato = "VEHICULO";

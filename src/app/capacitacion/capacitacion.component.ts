@@ -58,10 +58,10 @@ export class CapacitacionComponent {
 
   guardar() {
     let detalle = this.items.filter((item: any) => 
-      item.temaCapacitacion != null &&
-      item.fechaCapacitacion != null &&
-      item.duracion != null &&
-      item.dictada != null &&
+      item.temaCapacitacion != null ||
+      item.fechaCapacitacion != null ||
+      item.duracion != null ||
+      item.dictada != null ||
       item.asistente);
     this.objeto.registros = detalle;
     this.objeto.tipoFormato = "CAPACITACION";

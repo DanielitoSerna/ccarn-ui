@@ -60,16 +60,16 @@ export class VeterinarioComponent {
 
   guardar() {
     let detalle = this.items.filter((item: any) => 
-      item.fechaInicioTratamiento != null &&
-      item.idAnimal != null &&
-      item.nombreMedicamento != null &&
-      item.laboratorio != null &&
-      item.lote != null &&
-      item.registroIca != null &&
-      item.dosis != null &&
-      item.viaAplicacion != null &&
-      item.duracion != null &&
-      item.tiempoRetiro != null &&
+      item.fechaInicioTratamiento != null ||
+      item.idAnimal != null ||
+      item.nombreMedicamento != null ||
+      item.laboratorio != null ||
+      item.lote != null ||
+      item.registroIca != null ||
+      item.dosis != null ||
+      item.viaAplicacion != null ||
+      item.duracion != null ||
+      item.tiempoRetiro != null ||
       item.responsable != null);
     this.objeto.registros = detalle;
     this.objeto.tipoFormato = "VETERINARIO";

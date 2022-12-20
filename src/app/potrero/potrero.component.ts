@@ -69,17 +69,17 @@ export class PotreroComponent {
 
   guardar() {
     let detalle = this.items.filter((item: any) => 
-      item.fechaIngreso != null &&
-      item.fechaSalida != null &&
-      item.numeroAnimales != null &&
-      item.periodoDescanso != null &&
-      item.fechaFertilizacion != null &&
-      item.cantidadFertilizacion != null &&
-      item.productoFertilizacion != null &&
-      item.fechaPlaguicida != null &&
-      item.cantidadPlaguicida != null &&
-      item.productoPlaguicida != null &&
-      item.carenciaPlaguicida != null &&
+      item.fechaIngreso != null ||
+      item.fechaSalida != null ||
+      item.numeroAnimales != null ||
+      item.periodoDescanso != null ||
+      item.fechaFertilizacion != null ||
+      item.cantidadFertilizacion != null ||
+      item.productoFertilizacion != null ||
+      item.fechaPlaguicida != null ||
+      item.cantidadPlaguicida != null ||
+      item.productoPlaguicida != null ||
+      item.carenciaPlaguicida != null ||
       item.observaciones != null);
     this.objeto.registros = detalle;
     this.objeto.tipoFormato = "POTRERO";
