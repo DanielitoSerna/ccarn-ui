@@ -14,14 +14,14 @@ export class TransferenciaEmbrionComponent {
     municipios = [
         { label: "Caracolí", value: "Caracolí" },
         { label: "Maceo", value: "Maceo" },
+        { label: "Necoclí", value: "Necoclí" },
         { label: "Puerto Berrío", value: "Puerto Berrío" },
-        { label: "Puerto Triunfo", value: "Puerto Triunfo" },
         { label: "Puerto Nare", value: "Puerto Nare" },
-        { label: "Yondó", value: "Yondó" },
+        { label: "Puerto Triunfo", value: "Puerto Triunfo" },
         { label: "Remedios", value: "Remedios" },
         { label: "Segovia", value: "Segovia" },
-        { label: "Necoclí", value: "Necoclí" },
         { label: "Turbo", value: "Turbo" },
+        { label: "Yondó", value: "Yondó" },
     ];
 
     objeto: any = {};
