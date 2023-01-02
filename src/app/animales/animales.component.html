@@ -1,0 +1,69 @@
+<div class="content-app">
+  <cmd-title text="Registro de animales"></cmd-title>
+  <div class="card_border border_top_green content-app">
+    <div class="p-grid">
+      <div class="p-col-2 app-header">Departamento:</div>
+      <div class="p-col-2 app-header"><p-dropdown [options]="departamentos" styleClass="width_full"
+        placeholder="Seleccione.." optionLabel="label" optionValue="value"
+        [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.departamento">
+        </p-dropdown>
+      </div>
+      <div class="p-col-2 app-header">Municipio:</div>
+      <div class="p-col-2 app-header"><p-dropdown [options]="municipios" styleClass="width_full"
+        placeholder="Seleccione.." optionLabel="label" optionValue="value"
+        [showClear]="true" optionDisabled="inactive" [(ngModel)]="objeto.municipio">
+        </p-dropdown>
+      </div>
+      <div class="p-col-2 app-header">Vereda:</div>
+      <div class="p-col-2 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.vereda"/></div>
+
+      <div class="p-col-2 app-header">Nombre del ganadero:</div>
+      <div class="p-col-10 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombreGanadero"/></div>
+      <div class="p-col-2 app-header">Identificación del ganadero:</div>
+      <div class="p-col-10 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.identificacionGanadero"/></div>
+      <div class="p-col-2 app-header">Nombre del predio:</div>
+      <div class="p-col-10 app-header-value"><input type="text" pInputText [(ngModel)]="objeto.nombrePredio"/></div>
+
+    </div>
+    <div class="p-grid">
+      <div class="p-col-11"></div>
+      <div class="p-col-1">
+        <button pButton pRipple type="button" pTooltip="Agregar" tooltipPosition="left" icon="pi pi-plus" class="p-button-success-app" (click)="add()"></button>
+      </div>
+      <div class="p-col-2 app-header">DNI</div>
+      <div class="p-col-2 app-header">Numero de trabajo</div>
+      <div class="p-col-1 app-header">Código interno</div>
+      <div class="p-col-1 app-header">Sexo</div>
+      <div class="p-col-1 app-header">Raza</div>
+      <div class="p-col-2 app-header">Fecha de nacimiento</div>
+      <div class="p-col-1 app-header">DNI madre</div>
+      <div class="p-col-1 app-header">DNI padre</div>
+      <div class="p-col-1 app-header"></div>
+    </div>
+    &nbsp;
+    <div class="p-grid" *ngFor="let item of items; let i = index">
+      <div class="p-col-2"><input type="text" pInputText [(ngModel)]="item.din"/></div>
+      <div class="p-col-2"><input type="text" pInputText [(ngModel)]="item.numeroTrabajo"/></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.codigoInterno"/></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.sexo"/></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.raza"/></div>
+      <div class="p-col-2">
+          <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"
+            [(ngModel)]="item.fechaNacimiento">
+          </p-calendar>
+      </div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.dinMadre"/></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.dinPadre"/></div>
+      <div class="p-col-1">
+        <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-danger" (click)="remove(i)" pTooltip="Eliminar" tooltipPosition="left"></button>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="wrapper">
+        <button pButton pRipple type="button" label="Cancelar" class="p-button-outlined" (click)="cancelar()"></button>
+        <div class="p-mr-2"></div>
+        <button pButton pRipple type="button" class="p-button-success-app" label="Guardar" (click)="guardar()"></button>
+      </div>
+    </div>
+  </div>
+</div>

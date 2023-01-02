@@ -6,7 +6,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 })
 export class AppService {
 
-    public configUrl = "https://ccarn.herokuapp.com/api";
+    public configUrl = "https://ccarn-prod.herokuapp.com/api";
     constructor(private http: HttpClient) {}
 
     isProgress(): boolean {
@@ -47,5 +47,9 @@ export class AppService {
 
     guardarCaracterizacion(request: any): Promise<any> {
         return this.http.post(`${this.configUrl}/guardarCaracterizacion`, request).toPromise();
+    }
+
+    guardarTrazabilidad(request: any): Promise<any> {
+        return this.http.post(`${this.configUrl}/trazabilidad`, request).toPromise();
     }
 }

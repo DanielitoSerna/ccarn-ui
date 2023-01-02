@@ -4,6 +4,17 @@
     &nbsp;
     <label class="p-text-bold" style="font-size: 20px;">{{titulo}}</label>
     <div class="p-mt-2"></div>
+    <div class="p-grid" *ngIf="url === '/animal'">
+      <div class="p-col-12 p-md-6 p-lg-2">
+          <label class="p-text-bold">Nombre del predio</label>
+      </div>
+      <div class="p-col-12 p-md-6 p-lg-2">
+        <label class="p-text-bold">Municipio</label>
+      </div>
+      <div class="p-col-12 p-md-6 p-lg-2">
+        <label class="p-text-bold">Nombre del gandero</label>
+      </div>
+  </div>
     <div class="p-grid" *ngIf="url === '/listaBgp' || url === '/listaAsi'">
         <div class="p-col-12 p-md-6 p-lg-2">
           <label class="p-text-bold">Fecha</label>
@@ -57,6 +68,35 @@
       placeholder="Seleccione.." optionLabel="label" optionValue="value"
       [showClear]="true" optionDisabled="inactive" [(ngModel)]="concepto">
       </p-dropdown>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-3">
+      <div class="wrapper">
+        <button pButton pRipple type="button" class="p-button-success-app" label="Buscar" (click)="filter()"></button>
+        <div>
+          <div class="p-mr-2"></div>
+          <button pButton pRipple type="button" label="Limpiar" class="p-button-outlined" (click)="clean()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/listaAsi'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadAsi()"></button>
+        </div>
+        <div class="p-mr-2" *ngIf="url == '/listaBgp'">
+          <button pButton pRipple type="button" class="p-button-success-app" label="Exportar a excel" (click)="downloadBpg()"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-grid" *ngIf="url === '/animal'">
+    <div class="p-col-12 p-md-6 p-lg-2">
+      <input placeholder="Escriba aquí" type="text" [(ngModel)]="nombrePredio">
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-2">
+      <p-dropdown [options]="municipios" styleClass="width_full"
+      placeholder="Seleccione.." optionLabel="label" optionValue="value"
+      [showClear]="true" optionDisabled="inactive" [(ngModel)]="municipio">
+      </p-dropdown>
+    </div>
+    <div class="p-col-12 p-md-6 p-lg-2">
+      <input placeholder="Escriba aquí" type="text" [(ngModel)]="nombreGanadero">
     </div>
     <div class="p-col-12 p-md-6 p-lg-3">
       <div class="wrapper">
@@ -195,6 +235,30 @@
               <th  class="percentage_10">
               </th>
           </tr>
+          <tr *ngIf="url === '/animal'">
+            <th pSortableColumn="nombrePredio" class="percentage_20">
+              Nombre del predio
+              <p-sortIcon field="nombrePredio"></p-sortIcon>
+            </th>
+            <th pSortableColumn="nombreGanadero" class="percentage_20">
+              Nombre del ganadero
+              <p-sortIcon field="nombreGanadero"></p-sortIcon>
+            </th>
+            <th pSortableColumn="identificacionGanadero" class="percentage_20">
+              Identificación del ganadero
+              <p-sortIcon field="identificacionGanadero"></p-sortIcon>
+            </th>
+            <th pSortableColumn="municipio" class="percentage_10">
+              Municipio
+              <p-sortIcon field="municipio"></p-sortIcon>
+            </th>
+            <th  pSortableColumn="vereda" class="percentage_20">
+              Vereda
+              <p-sortIcon field="vereda"></p-sortIcon>
+            </th>
+            <th  class="percentage_10">
+            </th>
+        </tr>
           <tr *ngIf="url === '/listaAsi'">
             <th  pSortableColumn="listaChequeoBean.fecha" class="percentage_10">
               Fecha
@@ -304,6 +368,19 @@
                   p-tooltip-text (click)="editar(objeto)"></span>
               </td>
           </tr>
+          <tr *ngIf="url === '/animal'">
+            <td class="column-app percentage_20">{{objeto.nombrePredio}}</td>
+            <td class="column-app percentage_20">{{objeto.nombreGanadero}}</td>
+            <td class="column-app percentage_20">{{objeto.identificacionGanadero}}</td>
+            <td class="column-app percentage_10">{{objeto.municipio}}</td>
+            <td class="column-app percentage_20">{{objeto.vereda}}</td>
+            <td class="percentage_10">
+              <span class="pi pi-eye funcionalidad animate__animated animate__zoomIn"
+                pTooltip="Ver detalle"
+                tooltipPosition="left"
+                p-tooltip-text (click)="editar(objeto)"></span>
+            </td>
+        </tr>
           <tr *ngIf="url === '/listaAsi'">
             <td class="percentage_10">
               {{objeto.listaChequeoBean.fecha | dateFormat: 'DD/MM/yyyy'}}

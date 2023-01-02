@@ -29,6 +29,7 @@ import { RecomendacionComponent } from './recomendacion/recomendacion.component'
 import { ListaBraComponent } from './listaBra/listaBra.component';
 import { AspiracionFolicularComponent } from './aspiracionFolicular/aspiracionFolicular.component';
 import { CaracterizacionComponent } from './caracterizacion/caracterizacion.component';
+import { AnimalesComponent } from './animales/animales.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { CaracterizacionComponent } from './caracterizacion/caracterizacion.comp
     RecomendacionComponent,
     ListaBraComponent,
     AspiracionFolicularComponent,
-    CaracterizacionComponent
+    CaracterizacionComponent,
+    AnimalesComponent
   ],
   imports: [
     BrowserModule,

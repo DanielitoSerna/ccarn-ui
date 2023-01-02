@@ -18,6 +18,7 @@ export class ListasComponent implements OnInit {
   public viewForm = false;
   public objeto:any = {};
   public nombrePredio = undefined;
+  public nombreGanadero = undefined;
   public fecha = undefined;
   public concepto = undefined;
   public url: any = undefined;
@@ -118,6 +119,10 @@ export class ListasComponent implements OnInit {
       this.request.where = this.request.where + " and upper(listaChequeoBean.nombrePredio) like upper('%" + this.nombrePredio + "%')";
     }
 
+    if(this.nombreGanadero != null) {
+      this.request.where = this.request.where + " and upper(nombreGanadero) like upper('%" + this.nombreGanadero + "%')";
+    }
+
     if(this.concepto != null) {
       this.request.where = this.request.where + " and concepto = '" + this.concepto + "'";
     }
@@ -148,6 +153,7 @@ export class ListasComponent implements OnInit {
     this.fecha = undefined;
     this.concepto = undefined;
     this.nombrePredio = undefined;
+    this.nombreGanadero = undefined;
     this.fechaF = undefined;
     this.nombreFinca = undefined;
     this.municipio = undefined;
@@ -263,6 +269,12 @@ export class ListasComponent implements OnInit {
       this.request.where = " tipoFormato = 'VEHICULO'";
       this.url = '/vehiculo';
       this.titulo = 'Registro control de personas y vehículos';
+    } else if(url == '/animales') {
+      this.request.tabla = 'Trazabilidad';
+      this.request.campoOrden = 'nombreGanadero';
+      this.request.where = " 1 = 1";
+      this.url = '/animal';
+      this.titulo = 'Registro de animales';
     }  
   }
 
