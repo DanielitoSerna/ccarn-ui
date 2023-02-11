@@ -10,7 +10,7 @@ import { MomentPipe } from '../componentes/moment.pipe';
 })
 export class AnimalesComponent {
 
-  departamentos = [{ label: "Antioquia", value: "Antioquia" }];
+  departamentos = [{ label: "ANTIOQUIA", value: "ANTIOQUIA" }];
   municipios = [
     { label: "Caracolí", value: "Caracolí" },
     { label: "Maceo", value: "Maceo" },
@@ -46,9 +46,9 @@ export class AnimalesComponent {
       this.service.listarDatos(request).then(data => {
         this.items = data;
         this.service.finishProgress();
-        this.items.forEach((item: any) => {
-          item.fechaNacimiento = MomentPipe.transform(item.fechaNacimiento);
-        });
+        // this.items.forEach((item: any) => {
+        //   item.fechaNacimiento = MomentPipe.transform(item.fechaNacimiento);
+        // });
       });
     }
   }
@@ -67,15 +67,16 @@ export class AnimalesComponent {
       item.numeroTrabajo ||
       item.raza ||
       item.sexo);
-      detalle.forEach((element : any) => {
-        if(element.fechaNacimiento.toString().includes('/')) {
-          const [month, day, year] = element.fechaNacimiento.split('/');
+      // detalle.forEach((element : any) => {
+      //   if(element.fechaNacimiento.toString().includes('/')) {
+      //     const [month, day, year] = element.fechaNacimiento.split('/');
   
-          const date = this.convertToLocalDate(day+'/'+month+'/'+year);
-          element.fechaNacimiento = date;
-        }
-      });
+      //     const date = this.convertToLocalDate(day+'/'+month+'/'+year);
+      //     element.fechaNacimiento = date;
+      //   }
+      // });
     this.objeto.detalleTrazabilidad = detalle;
+    console.log(this.objeto.vereda);
     if (!this.objeto.departamento || !this.objeto.municipio || !this.objeto.nombreGanadero || !this.objeto.nombrePredio) {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Faltan datos por ingresar por favor verifica' });
     } else {

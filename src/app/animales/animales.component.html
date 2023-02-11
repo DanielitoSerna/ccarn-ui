@@ -30,30 +30,26 @@
       <div class="p-col-1">
         <button pButton pRipple type="button" pTooltip="Agregar" tooltipPosition="left" icon="pi pi-plus" class="p-button-success-app" (click)="add()"></button>
       </div>
-      <div class="p-col-2 app-header">DNI</div>
-      <div class="p-col-2 app-header">Numero de trabajo</div>
+      <div class="p-col-2 app-header">DIN</div>
+      <div class="p-col-1 app-header">Numero de trabajo</div>
       <div class="p-col-1 app-header">Código interno</div>
       <div class="p-col-1 app-header">Sexo</div>
       <div class="p-col-1 app-header">Raza</div>
-      <div class="p-col-2 app-header">Fecha de nacimiento</div>
-      <div class="p-col-1 app-header">DNI madre</div>
-      <div class="p-col-1 app-header">DNI padre</div>
+      <div class="p-col-1 app-header">Edad (Meses)</div>
+      <div class="p-col-2 app-header">DIN madre</div>
+      <div class="p-col-2 app-header">DIN padre</div>
       <div class="p-col-1 app-header"></div>
     </div>
     &nbsp;
     <div class="p-grid" *ngFor="let item of items; let i = index">
       <div class="p-col-2"><input type="text" pInputText [(ngModel)]="item.din"/></div>
-      <div class="p-col-2"><input type="text" pInputText [(ngModel)]="item.numeroTrabajo"/></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.numeroTrabajo"/></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.codigoInterno"/></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.sexo"/></div>
       <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.raza"/></div>
-      <div class="p-col-2">
-          <p-calendar placeholder="dd/mm/aaaa" [showIcon]="true" inputId="icon" dateFormat="dd/mm/yy"
-            [(ngModel)]="item.fechaNacimiento">
-          </p-calendar>
-      </div>
-      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.dinMadre"/></div>
-      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.dinPadre"/></div>
+      <div class="p-col-1"><input type="text" pInputText [(ngModel)]="item.edad"/></div>
+      <div class="p-col-2"><input type="text" pInputText [(ngModel)]="item.dinMadre"/></div>
+      <div class="p-col-2"><input type="text" pInputText [(ngModel)]="item.dinPadre"/></div>
       <div class="p-col-1">
         <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-danger" (click)="remove(i)" pTooltip="Eliminar" tooltipPosition="left"></button>
       </div>
