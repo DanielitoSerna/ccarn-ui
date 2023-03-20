@@ -9,26 +9,28 @@
   </div>
   <div style="display: flex;">
     <div style="width: 30%; margin-top: -11px;">
-       <img style="height: 90px; width: 300px; margin-top: 2px;" alt="Angular Logo" src="./assets/logo.png"/>
+      <img style="height: 90px; width: 300px; margin-top: 2px;" alt="Angular Logo" src="./assets/logo.png" />
     </div>
     <div style="width: 25%; margin-top: -11px;">
-      <img style="height: 80px; width: 170px; margin-top: 5px;" alt="Angular Logo" src="./assets/logo1.jpeg"/>
-   </div>
-   <div style="width: 25%; margin-top: -11px;">
-    <img style="height: 81px; width: 182px; margin-top: 5px;" alt="Angular Logo" src="./assets/logo2.jpeg"/>
-  </div>
+      <img style="height: 80px; width: 170px; margin-top: 5px;" alt="Angular Logo" src="./assets/logo1.jpeg" />
+    </div>
+    <div style="width: 25%; margin-top: -11px;">
+      <img style="height: 81px; width: 182px; margin-top: 5px;" alt="Angular Logo" src="./assets/logo2.jpeg" />
+    </div>
     <div *ngIf="!isLoggedin" style="padding-top: 12px;" class="inciar-sesion">
       <div>
         <button class="css-1i6ynxb p-button-success-app" type="button" tabindex="0" #loginRef>
           <span class="css-1ujqpe8">
-            <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.331/static/media/google-logo.e086107b.svg" alt="">
+            <img
+              src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.331/static/media/google-logo.e086107b.svg"
+              alt="">
           </span>
           <span class="css-19r5em7" style="font-size: 16px;">
             <div class="texto-login-app">Iniciar sesión con Google</div>
             <div class="texto-login-apk">Iniciar sesión</div>
           </span>
         </button>
-      </div>      
+      </div>
     </div>
     <div *ngIf="isLoggedin" class="info-usuario">
       <div class="p-grid">
@@ -46,51 +48,91 @@
     </div>
   </div>
 </div>
+<div style="padding: 20px;" class="animate__animated animate__bounceInRight" *ngIf="!isLoggedin">
+  <p-card header="Fortalecimiento clúster cárnico bovino del departamento de Antioquia">
+    <ng-template pTemplate="header"></ng-template>
+    <div class="p-grid">
+      <div class="p-col-12 p-md-4 p-lg-4">
+        <img style="width: 100%;" alt="Angular Logo" src="./assets/imagenPrincipal.jpeg" />
+      </div>
+      <div class="p-col-12 p-md-4 p-lg-8">
+        <h3>Objeto</h3>
+        <p class="app-parrafo">
+          Fortalecimiento de la capacidades técnicas y operativas en predios ganaderos del eslabón primario de la
+          iniciativa clúster cárnico bovino del departamento de Antioquia.
+        </p>
+        <h3>Propósito</h3>
+        <p class="app-parrafo">
+          Cualificar el talento humano a través de la capacitación normativa y técnica, implementación de
+          herramientas
+          tecnológicas para generar procesos de trazabilidad y de certificación animal según resolución 383 de 2021
+          y
+          mejoramiento de la producción bovina mediante programas de Biotecnología reproductiva.
+        </p>
+        <div class="p-grid">
+          <div class="p-col-12 p-md-6 p-lg-6" style="margin-top: 24px !important;">
+            <a href="https://www.politecnicojic.edu.co" target="_blank" class="logo">
+              <img width="400" alt="Angular Logo" src="./assets/logo.png" />
+            </a>
+          </div>
+          <div class="p-col-12 p-md-6 p-lg-6" style="margin-top: 48px !important;">
+            <a href="https://antioquia.gov.co/" target="_blank" class="logo">
+              <img width="250" alt="Angular Logo" src="./assets/logo1.jpeg" />
+            </a>
+          </div>
+        </div>
+        <p class="app-parrafo" style="margin-top: 48px !important;">
+          &copy; 2022, Politécnico Colombiano Jaime Isaza Cadavid - Gobernación de antioquia
+        </p>
+      </div>
+    </div>
+  </p-card>
+</div>
 <div *ngIf="isLoggedin">
   <div class="content">
-      <div class="container">
-          <nav>
-              <ul>
-                <li>
-                  <a [routerLink]="['/inicio']" routerLinkActive="router-link-active" 
-                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Inicio">
-                    <i class="pi pi-home animate__animated animate__zoomIn"></i>
-                  </a>
-                  <a [routerLink]="['/listasAsi']" routerLinkActive="router-link-active" 
-                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Listas de chequeo ASI">
-                    <i class="pi pi-check-circle animate__animated animate__zoomIn"></i>
-                  </a>
-                  <a [routerLink]="['/listasBgp']" routerLinkActive="router-link-active" 
-                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Listas de chequeo BPG">
-                    <i class="pi pi-check-square animate__animated animate__zoomIn"></i>
-                  </a>
-                  <a [routerLink]="['/formatosBra']" routerLinkActive="router-link-active" 
-                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Formatos técnicos BRA">
-                    <i class="pi pi-file-excel animate__animated animate__zoomIn"></i>
-                  </a>
-                  <a [routerLink]="['/capacitaciones']" routerLinkActive="router-link-active" 
-                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Registros de capacitaciones">
-                    <i class="pi pi-users animate__animated animate__zoomIn"></i>
-                  </a>
-                  <a [routerLink]="['/animales']" routerLinkActive="router-link-active" 
-                     [routerLinkActiveOptions]="{exact: true}" pTooltip="Registros de animales">
-                    <i class="pi pi-prime animate__animated animate__zoomIn"></i>
-                  </a>
-                  <a (click)="logOut()" style="cursor: pointer;" routerLinkActive="router-link-active" 
-                      [routerLinkActiveOptions]="{exact: true}" pTooltip="Cerrar sesión">
-                    <i class="pi pi-sign-in animate__animated animate__zoomIn"></i>
-                  </a>
-                </li>  
-              </ul>
-            </nav>
+    <div class="container">
+      <nav>
+        <ul>
+          <li>
+            <a [routerLink]="['/inicio']" routerLinkActive="router-link-active"
+              [routerLinkActiveOptions]="{exact: true}" pTooltip="Inicio">
+              <i class="pi pi-home animate__animated animate__zoomIn"></i>
+            </a>
+            <a [routerLink]="['/listasAsi']" routerLinkActive="router-link-active"
+              [routerLinkActiveOptions]="{exact: true}" pTooltip="Listas de chequeo ASI">
+              <i class="pi pi-check-circle animate__animated animate__zoomIn"></i>
+            </a>
+            <a [routerLink]="['/listasBgp']" routerLinkActive="router-link-active"
+              [routerLinkActiveOptions]="{exact: true}" pTooltip="Listas de chequeo BPG">
+              <i class="pi pi-check-square animate__animated animate__zoomIn"></i>
+            </a>
+            <a [routerLink]="['/formatosBra']" routerLinkActive="router-link-active"
+              [routerLinkActiveOptions]="{exact: true}" pTooltip="Formatos técnicos BRA">
+              <i class="pi pi-file-excel animate__animated animate__zoomIn"></i>
+            </a>
+            <a [routerLink]="['/capacitaciones']" routerLinkActive="router-link-active"
+              [routerLinkActiveOptions]="{exact: true}" pTooltip="Registros de capacitaciones">
+              <i class="pi pi-users animate__animated animate__zoomIn"></i>
+            </a>
+            <a [routerLink]="['/animales']" routerLinkActive="router-link-active"
+              [routerLinkActiveOptions]="{exact: true}" pTooltip="Registros de animales">
+              <i class="pi pi-prime animate__animated animate__zoomIn"></i>
+            </a>
+            <a (click)="logOut()" style="cursor: pointer;" routerLinkActive="router-link-active"
+              [routerLinkActiveOptions]="{exact: true}" pTooltip="Cerrar sesión">
+              <i class="pi pi-sign-in animate__animated animate__zoomIn"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="contenido-principal body-app">
+      <div class="spinner" *ngIf="service.isProgress()">
+        <span class="label-spinner">Cargando...</span>
+        <p-progressSpinner [style]="{ width: '150px', height: '150px' }" styleClass="custom-spinner"
+          strokeWidth="3"></p-progressSpinner>
       </div>
-      <div class="contenido-principal body-app">
-          <div class="spinner" *ngIf="service.isProgress()">
-            <span class="label-spinner">Cargando...</span>
-            <p-progressSpinner [style]="{ width: '150px', height: '150px' }" styleClass="custom-spinner"
-              strokeWidth="3"></p-progressSpinner>
-          </div>
-          <router-outlet></router-outlet>
-      </div>
-  </div>  
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
