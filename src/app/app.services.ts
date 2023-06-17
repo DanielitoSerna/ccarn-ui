@@ -6,7 +6,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 })
 export class AppService {
 
-    public configUrl = "https://ccarn-prod.herokuapp.com/api";
+    public configUrl = "https://backend-web-k9jk.onrender.com/api";
     constructor(private http: HttpClient) {}
 
     isProgress(): boolean {

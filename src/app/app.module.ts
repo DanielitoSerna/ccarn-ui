@@ -8,7 +8,7 @@ import {PrimeModule} from "./primeNG/prime.module";
 import { AppService } from './app.services';
 import { HttpClientModule } from '@angular/common/http';
 import { InicioComponent } from './inicio/inicio.component';
-import { SocialLoginModule } from 'angularx-social-login';
+import { SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 import { NgChartsModule } from 'ng2-charts';
 import { ListaAsiComponent } from './listaAsi/listaAsi.component';
 import { FormsModule } from '@angular/forms';
@@ -30,7 +30,12 @@ import { ListaBraComponent } from './listaBra/listaBra.component';
 import { AspiracionFolicularComponent } from './aspiracionFolicular/aspiracionFolicular.component';
 import { CaracterizacionComponent } from './caracterizacion/caracterizacion.component';
 import { AnimalesComponent } from './animales/animales.component';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 
+const googleLoginOptions = {
+  scope: 'profile email',
+  plugin_name:'login' //you can use any name here
+}; 
 
 @NgModule({
   declarations: [
@@ -66,7 +71,24 @@ import { AnimalesComponent } from './animales/animales.component';
     ComponentesModule
   ],
   providers: [
-    AppService
+    AppService,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '326021480668-thtspfp1j9k9l9jkhqhlvm7p17051elb.apps.googleusercontent.com'
+            )
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
   ],
   bootstrap: [AppComponent]
 })
