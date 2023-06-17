@@ -80,7 +80,8 @@ const googleLoginOptions = {
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '806425002891-9bq4e9jm8b298oju8jbeir7i9ibepkph.apps.googleusercontent.com'
+              '806425002891-9bq4e9jm8b298oju8jbeir7i9ibepkph.apps.googleusercontent.com',
+              googleLoginOptions
             )
           }
         ],
