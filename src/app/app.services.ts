@@ -6,7 +6,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 })
 export class AppService {
 
-    public configUrl = "https://backend-web-k9jk.onrender.com/api";
+    public configUrl = "https://cedait.udea.edu.co:8000/api";
     constructor(private http: HttpClient) {}
 
     isProgress(): boolean {
