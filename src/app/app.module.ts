@@ -1,6 +1,3 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -8,7 +5,7 @@ import {PrimeModule} from "./primeNG/prime.module";
 import { AppService } from './app.services';
 import { HttpClientModule } from '@angular/common/http';
 import { InicioComponent } from './inicio/inicio.component';
-import { SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { NgChartsModule } from 'ng2-charts';
 import { ListaAsiComponent } from './listaAsi/listaAsi.component';
 import { FormsModule } from '@angular/forms';
@@ -31,10 +28,13 @@ import { AspiracionFolicularComponent } from './aspiracionFolicular/aspiracionFo
 import { CaracterizacionComponent } from './caracterizacion/caracterizacion.component';
 import { AnimalesComponent } from './animales/animales.component';
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 const googleLoginOptions = {
+  oneTapEnabled: false,
   scope: 'profile email',
-  plugin_name:'login' //you can use any name here
+  // plugin_name:'login', //you can use any name here
 }; 
 
 @NgModule({

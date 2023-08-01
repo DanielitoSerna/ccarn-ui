@@ -1,8 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AppService } from './app.services';
 import { Router } from '@angular/router';
-import { SocialAuthService } from 'angularx-social-login';
-import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider, SocialAuthService } from '@abacritt/angularx-social-login';
 
 
 @Component({
