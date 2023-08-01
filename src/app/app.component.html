@@ -19,7 +19,7 @@
     </div>
     <div *ngIf="!isLoggedin" style="padding-top: 12px;" class="inciar-sesion">
       <div>
-        <button class="css-1i6ynxb p-button-success-app" type="button" tabindex="0" #loginRef (click)="callLoginButton()">
+        <!-- <button class="css-1i6ynxb p-button-success-app" type="button" tabindex="0" #loginRef (click)="callLoginButton()">
           <span class="css-1ujqpe8">
             <img
               src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.331/static/media/google-logo.e086107b.svg"
@@ -29,14 +29,15 @@
             <div class="texto-login-app">Iniciar sesión con Google</div>
             <div class="texto-login-apk">Iniciar sesión</div>
           </span>
-        </button>
+        </button> -->
+        <asl-google-signin-button type='standard' size='medium' text='signin_with' theme='outline' shape='circle' logo_alignment='left'></asl-google-signin-button>
       </div>
     </div>
     <div *ngIf="isLoggedin" class="info-usuario">
       <div class="p-grid">
         <div class="p-text-right">
           <div class="icono-usuario">
-            <span class="">{{nombre?.substring(0, 1) + '' + apellido?.substring(0, 1)}}</span>
+            <span class="">{{nombre.substring(0, 1) + '' + apellido.substring(0, 1)}}</span>
           </div>
         </div>
         <div class="p-col-12 p-md-9 p-lg-9 nombres-usuario">
